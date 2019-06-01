@@ -1,0 +1,755 @@
+<div class="px2 md-px4">
+    <div>
+        <div class="">
+            <div>
+                <table class="col-12">
+                    <tr>
+                        <td style="width: 150px;"><img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" /></td>
+                        <td class="center">
+                            <h4 class="my0">MCKV INSTITUTE OF ENGINEERING</h4>
+                            <div class="h6 mb0">AICTE approved &amp; MAKAUT affiliated</div>
+                            <div class="h6 mb0">Co-ed PG Degree Engineering College Code-116-ENGG</div>
+                            <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
+                            <div class="h6 mb0">Ph 033-26549315/17</div>
+                        </td>
+                        <td style="width: 150px;"></td>
+                    </tr>
+                </table>
+                <button class="fixed top-0 right-0 mr4 mt2 border-none rounded p1 h4 caps bold bg-yellow black no-print" onclick="window.print()">Print</button>
+                <div class="center h5 mb1">2019 - 2020</div>
+                <div class="h6 border-top border-bottom my2 p1">Congratulations on being provisionally selected for admission into MCKV Institute of Engineering (hereafter referred to as the Institute). Your final admission would be subject to the following terms and conditions-</div>
+                <ol type="1" class="h6 pl2">
+                    <li>All the specific eligibility requirements for the Institute as stipulated in the prospectus of the Institute shall be complied with by you.</li>
+                    <li>You will report at the Institute Campus at 10 A.M. on the stipulated day of you admission as notified during counselling to complete the admission formalities in accordance with the Admission Rules of the Institute.</li>
+                    <li>At the time of admission the following original documents (along with attested photocopies thereof wherever specified) in support of your eligibility and in fulfilment of other requirements
+                        <ol type="i" class="pl2">
+                            <li>Provisional Admission Letter in the name of MCKV INSTITUTE OF ENGINEERING issued by the RC Centre (WBJEEB) on the day of counselling (only for BTECH Regular) (Original + 1 Photocopy)</li>
+                            <li>Collect PI form from the lnstitute before filling up the tnstitute online admission form.</li>
+                            <li>Seat Allotment Ticket in the name of MCKV INSTITUTE OF ENGINEERING issued by the University/WBJEEB respectively(for MTECH/MCA/Lateral) (Original + 1 Photocopy)</li>
+                            <li>Original Admission form of WBJEEB &amp; counterpart of the Money Receipt of relevant amount issued by WBJEEB (for MTECH/MCA/Lateral)</li>
+                            <li>Admit Card of Secondary/ Higher Secondary or Equivalent Examination as proof of age with 3 self attested photocopies of the same</li>
+                            <li>Marksheets from the Board/University showing detailed marks of all the subjects of the Secondary &amp; Higher Secondary or equivalent qualifying examinations, with 3 self attested photocopies each of the same</li>
+                            <li>Entrance Examination Admit Card &amp; 1 self attested photocopy of the same</li>
+                            <li>Original copy of Migration/Registration Certificate issued from Universities, where necessary (applicable for B.Sc. Passed Candidates).</li>
+                            <li>Print out of the institute online admission form &amp; other relevant forms duly filled in, completed and signed.</li>
+                            <li>Fees Book for deposition of fees at the time of admission.</li>
+                            <li>Photocopy of Passport.</li>
+                            <li>1 self attested copy of Guardian's Address Proof (Voter ID, Electricity Bill, Aadhar Card etc)</li>
+                            <li>Photocopy of Income certificate if Economically Backward.</li>
+                            <li>Photocopy of valid Driving License</li>
+                            <li>3 copies of Student's stamp size photograp and 2 copies of passport size photograph</li>
+                            <li>Guardian's stamp size photograph (Father &amp; Mother) 1 copy each</li>
+                            <li>Photocopy of valid Driving License. (Applicable only for students taking admission in Automobile Engineering or Automotive Technology. If the driving license is unavailable students would need to submit the same with the college authorities within 6 months of their admission.)</li>
+                            <li>Please visit www.antiragging.in or www.amanmovement.org and sbumit the affidavit/undertaking online. Submit the print out of the same to the Institute.
+                                <br>Ref No: Put Enrolment No
+                                <br>Principal Name: Prof (Dr) Asok Kumar, maximum student strength in each class: B.Tech-63, MCA-30, M.Tech ECE Communication-18</li>
+                            <li>Pan Card: Student, Father, Mother &amp; Guardian 1 photocoy of each Voter ID &amp; Aadhar Card: Student, Father, Mother &amp; Guardian 1 photocoy of each</li>
+                            <li>Photocopy of Income certificate if economically backward</li>
+                            <li>Medical Certificate by a registered doctor ( blood pressure, blood group and Eye sight</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="center underline mb1">Please note</div>
+                <ol type="1" class="h6">
+                    <li>Failure to fulfil all the conditions mentioned above, including reporting to the Institute on the day fixed vide clause 2 above, will automatically disentitle you to seek admission in the Institute and your application will no more be considered valid.</li>
+                    <li>Caution deposit will be refunded only after cessation of your studentship and on production of clearance note/certificate from HOD, Library and other departments.</li>
+                    <li>Afixing of recent colour photographs of sizes as specified on the stipulated spaces of relevant forms is compulsory.</li>
+                    <li>You are required to carry 3 additional passport size recent color photographs for submission to the authorities.</li>
+                </ol>
+                <div class="break"></div>
+                <div class="h6">
+                    <table class="col-12">
+                        <tr>
+                            <td style="width: 150px;"><img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" /></td>
+                            <td class="center">
+                                <h4 class="my0">MCKV INSTITUTE OF ENGINEERING</h4>
+                                <div class="h6 mb0">AICTE approved &amp; MAKAUT affiliated</div>
+                                <div class="h6 mb0">Co-ed PG Degree Engineering College Code-116-ENGG</div>
+                                <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
+                                <div class="h6 mb0">Ph 033-26549315/17</div>
+                            </td>
+                            <td style="width: 150px;"></td>
+                        </tr>
+                    </table>
+                    <h4 class="center border-top border-gray my1 pt1">ADMISSION FORM - 4 YR B. TECH DEGREE COURSES</h4>
+                    <div class="center h5">QF/MCKVIE/ADMIN/02</div>
+                    <div class="center h5 border-bottom border-gray pb1 mb2">2019 - 2020</div>
+                    <table class="table mb2">
+                        <tr>
+                            <td>WBJEE Enrolment No</td>
+                            <td>7721200351</td>
+                            <td>Rank</td>
+                            <td>81672</td>
+                        </tr>
+                        <tr>
+                            <td>TFW Rank</td>
+                            <td></td>
+                            <td>Quota</td>
+                            <td>MQ</td>
+                        </tr>
+                        <tr>
+                            <td>Examination Center</td>
+                            <td colspan="3">HOWRAH ZILLA SCHOOL 9,CHURCH ROAD , HOWRAH-711101</td>
+                        </tr>
+                        <tr>
+                            <td>Course</td>
+                            <td>BTECH ME</td>
+                            <td>Hostel Required</td>
+                            <td class="bold">No</td>
+                        </tr>
+                    </table>
+                    <div class="py0 bold mb1">I. Personal Information</div>
+                    <div class="flex items-top mxn2 mb2">
+                        <div class="px2 flex-auto">
+                            <table class="table">
+                                <tr>
+                                    <td>Students's Name</td>
+                                    <td colspan="3" class="bold">SAGARJIT DAS</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" class="bold">Permanent Address</td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td colspan="3">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH</td>
+                                </tr>
+                                <tr>
+                                    <td>City</td>
+                                    <td>HOWRAH</td>
+                                    <td>State</td>
+                                    <td>WEST BENGAL</td>
+                                </tr>
+                                <tr>
+                                    <td>Pin Code</td>
+                                    <td>711101</td>
+                                    <td>Land Phone</td>
+                                    <td>03326373868</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td>9477286343</td>
+                                    <td>Email</td>
+                                    <td>dsagarjit6@gmail.com</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="px2">
+                            <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste your recent self-attested photograph here</div>
+                        </div>
+                    </div>
+                    <div class="py0 bold mb1">Communication Address</div>
+                    <table class="table mb2">
+                        <tr>
+                            <td>Address</td>
+                            <td colspan="3">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>HOWRAH</td>
+                            <td>State</td>
+                            <td>WEST BENGAL</td>
+                        </tr>
+                        <tr>
+                            <td>Pin Code</td>
+                            <td>711101</td>
+                            <td>Land Phone</td>
+                            <td>03326373868</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr>
+                            <td>DOB</td>
+                            <td>27/03/2001</td>
+                            <td>Gender</td>
+                            <td>M</td>
+                        </tr>
+                        <tr>
+                            <td>Marital Status</td>
+                            <td>S</td>
+                            <td>Nationality</td>
+                            <td>INDIAN</td>
+                        </tr>
+                        <tr>
+                            <td>Religion</td>
+                            <td>HINDU</td>
+                            <td>Category</td>
+                            <td>SC</td>
+                        </tr>
+                        <tr>
+                            <td>Mother Tongue</td>
+                            <td>BENGALI</td>
+                            <td>Other Languages Known</td>
+                            <td>ENGLISH HINDI</td>
+                        </tr>
+                        <tr>
+                            <td>Passport No</td>
+                            <td></td>
+                            <td>Expiry Date</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Identification Marks</td>
+                            <td>MOLE IN LEFT HAND</td>
+                            <td>Economically Backward</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Student PAN</td>
+                            <td>ENEPD5979J</td>
+                            <td>Student AADHAAR</td>
+                            <td>803344850899</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Who is responsible for payment of Tuition/Sem fees?</td>
+                            <td>Father</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="break"></div>
+                <div>
+                    <h5 class="bold center mb1 mt0 underline">UNDERTAKING/DECLARATION BY THE STUDENT AND THE GUARDIAN</h5>
+                    <div class="h6">I, Mr. /Ms. <span class="bold">SAGARJIT DAS</span></div>
+                    <div class="h6">son/daughter/wife of <span class="bold">SUJIT DAS</span></div>
+                    <div class="h6">residing at <span class="bold">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101</span> and having WBJEE/JEE MAIN/JELET Enrolment no <span class="bold">7721200351</span> have applied for admission to MCKV Institute</div>
+                    <div class="h6">of Engineering after having gone through the Rules and Regulations with particular regard to maintaining the discipline of the Institute in all its forms and aspects. I, therefore, undertake and declare that:</div>
+                    <ol type="a" class="h6 pl2">
+                        <li>I will abide by the rules and regulations of the Institute that are in force as of now and/or that may be in force from time to time.</li>
+                        <li>I undertake and declare that during the period of my studies at MCKV Institute of engineering, I will not indulge in any act of indiscipline causing damage to the property and the good name of the Institute or take part in any activity organized by the student or by any organization on behalf of the students on any ground which may be detrimental to the interest of the institute or which may impede proper functioning of the institute or in any way may hamper imparting education to the students of the Institute. In case I indulge or involve myself in any such activity I shall subject myself to disciplinary action of the Institute which may lead up to my expulsion from the Institute.</li>
+                        <li>I am aware of the West Bengal prohibition of RAGGING in Educational Institutions Act, 2000.</li>
+                        <li>I am aware that if my attendance in a subject before any of the Class Test is below 75%, I will not be allowed to sit for that Class Test. I am also aware that average of two Class Tests marks will be awarded by the concerned teacher. I will not get any mark for my non appearance of Class Test. In case, 3rd Class Test is conducted, best marks obtained in two Class Tests will be considered for deciding my Class Test marks.</li>
+                        <li>I will be adhering to the College DRESS CODE (wearing of College Uniform and ID Card is a must. Chappals/Slippers are not allowed inside the College Campus) all through my studies in this Institute. I am aware that the authority may not permit me to enter into the Campus/Class Room/Tutorial Room/Labs/Examination Hall, if I fail to adhere to the Dress Code specified by the Institute. Breach of Dress Code will be treated as gross indiscipline on the part of me for which I may be liable to be punished in such manner as may be decided by the Institute Authority.</li>
+                        <li>I undertake to pay Semester Fee and/or Hostel Fee in time, failing which I shall be bound to pay the financial penalty as per Notification of the Institute Authorities from time to time.</li>
+                        <li>I also undertake that if as a result of any act of indiscipline of mine, any property or equipment of the campus of the Institute or its hall of residence is damaged or any loss is caused to the Institute, the cost of the same will be borne by me.</li>
+                        <li>I undertake not to participate in any other course organized by other authority / organization without written permission from the Principal of the Institute and that the decision of the Principal in this regard shall be final and binding on me.</li>
+                        <li>I am fully aware that the Institute may arrange campus interview for placement or may send me to participate in off-campus/pooled campus interviews at the different stage of my studentship but it does never give any guarantee for the job in any manner whatsoever.</li>
+                        <li>I am fully aware that the students' canteen of the Institute will provide only vegetarian food and that I shall make no demand for providing non-vegetarian food.</li>
+                        <li>I am fully aware that besides the registration fee and the semester examinations fees, the University (MAKAUT) may charge certain yearly fees like student development fee, University development fee and University sports fee etc. I, therefore, undertake that I will pay those fees to the University through the college in the manner as may be specified by the University.</li>
+                        <li>I am fully aware of the purpose of caution deposit. I therefore, undertake that I shall not pray for its adjustment with any of the fees or charges during my studentship. I am also aware that I shall get back the amount interest free after the cessation of studentship on submission of "NO DUES" certificate from all the relevant departments/sections.</li>
+                    </ol>
+                    <div class="flex items-top h6 mb1 mt3">
+                        <div>
+                            <div class="center">_________________________
+                                <div>Date</div>
+                            </div>
+                        </div>
+                        <div class="flex-auto right-align">
+                            <div class="center inline-block">_____________________________________
+                                <div>Full Signature of the Student</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center mb1 underline h6 bold">DECLARATION BY THE PARENTS/GUARDIAN</div>
+                    <div class="h6 mb1">We , Shri/Smt <span class="bold">SUJIT DAS</span> do hereby declare that we have carefully gone through the rules and regulations of the Institute and after being fully satisfied ourselves we admit our son / daughter on this date of <span class="bold">28/05/2018</span> in the Institute in the stream of <span class="bold">ME</span> for the Session <span class="bold">2018-2019</span> and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time of admission and as will be payable for subsequent semesters during the period of his/her study at the Institute.</div>
+                    <div class="h6">We declare that we are aware of the West Bengal Prohibition of RAGGING in Educational Institutions Act, 2000. We are also aware of the Hon'ble Supreme Court's verdict against RAGGING. We, therefore, undertake, as did our ward above, that we shall accept any kind of punishment (including rustication from the Institute) given to him/her in the event of his/her involvement in RAGGING the students.</div>
+                    <div class="flex items-top justify-between h6 mt3">
+                        <div>
+                            <div class="center">_____________________
+                                <div>Date</div>
+                            </div>
+                        </div>
+                        <div class="center">_____________________________________
+                            <div>Full Signature of the Father/Mother</div>
+                        </div>
+                        <div class="center">_____________________________________
+                            <div>Guardian Signature &amp; relation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div class="h6">
+                    <div class="bold mb1">II. Family Information</div>
+                    <div class="flex items-top mxn2 mb4">
+                        <div class="px2 flex-auto">
+                            <table class="table">
+                                <tr>
+                                    <td>Father's Name</td>
+                                    <td colspan="3">SUJIT DAS</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupation</td>
+                                    <td>Service</td>
+                                    <td>Organization</td>
+                                    <td>CULCUTTA TELEPHONES (BSNL)</td>
+                                </tr>
+                                <tr>
+                                    <td>Deisgnation</td>
+                                    <td>T/T</td>
+                                    <td>Department</td>
+                                    <td>CUSTOMER SERVICE </td>
+                                </tr>
+                                <tr>
+                                    <td>Office Address</td>
+                                    <td colspan="3">4, DR. P.K BANERJEE ROAD , HOWRAH 711101 HOWRAH WEST BENGAL 711101</td>
+                                </tr>
+                                <tr>
+                                    <td>Office Phone</td>
+                                    <td>03326402060</td>
+                                    <td>Mobile</td>
+                                    <td>9433739090</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>sujitd584@gmail.com</td>
+                                    <td>Annual Income</td>
+                                    <td>600000</td>
+                                </tr>
+                                <tr>
+                                    <td>Father PAN</td>
+                                    <td>AEUPD1445E</td>
+                                    <td>Father AADHAAR</td>
+                                    <td>910181311893</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="px2">
+                            <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste father's recent self-attested photograph here</div>
+                        </div>
+                    </div>
+                    <div class="flex items-top mxn2 mb4">
+                        <div class="px2 flex-auto">
+                            <table class="table">
+                                <tr>
+                                    <td>Mothers's Name</td>
+                                    <td colspan="3">BULA DAS</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupation</td>
+                                    <td>Housewife</td>
+                                    <td>Organization</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Deisgnation</td>
+                                    <td></td>
+                                    <td>Department</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Office Address</td>
+                                    <td colspan="3"> 0</td>
+                                </tr>
+                                <tr>
+                                    <td>Office Phone</td>
+                                    <td></td>
+                                    <td>Mobile</td>
+                                    <td>9477487100</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td></td>
+                                    <td>Annual Income</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Mother PAN</td>
+                                    <td></td>
+                                    <td>Mother AADHAAR</td>
+                                    <td>298240960993</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="px2">
+                            <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste mother's recent self-attested photograph here</div>
+                        </div>
+                    </div>
+                    <div class="pb4 bold">III. Annual Family Income from all sources : 600000</div>
+                    <div class="bold mb1">IV. Local Guardian Information</div>
+                    <div class="flex items-top mxn2 mb2">
+                        <div class="px2 flex-auto">
+                            <table class="table">
+                                <tr>
+                                    <td>LG Name</td>
+                                    <td></td>
+                                    <td>Relationship</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Occupation</td>
+                                    <td></td>
+                                    <td>Organization</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Deisgnation</td>
+                                    <td></td>
+                                    <td>Department</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Office Address</td>
+                                    <td colspan="3"> 0</td>
+                                </tr>
+                                <tr>
+                                    <td>Office Phone</td>
+                                    <td></td>
+                                    <td>Mobile</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td>LG PAN</td>
+                                    <td></td>
+                                    <td>LG AADHAAR</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="px2">
+                            <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste guardian's recent self-attested photograph here</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div class="h6">
+                    <div class="bold">V. Academic Information</div>
+                    <h4>a) Details of Secondary Examination</h4>
+                    <table class="table mb2">
+                        <tr>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">ENG</h6>95</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">HIN (A)</h6>95</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">MATH</h6>85</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">SCN</h6>85</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">SOCSC</h6>85</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr>
+                            <td>Total Marks</td>
+                            <td class="right-align">445</td>
+                            <td>Marks(%)</td>
+                            <td class="right-align">89</td>
+                            <td>YOP</td>
+                            <td class="right-align">2016</td>
+                        </tr>
+                        <tr>
+                            <td>Board</td>
+                            <td colspan="2">CBSE</td>
+                            <td>School</td>
+                            <td colspan="2">KENDRIYA VIDYALAYA F</td>
+                        </tr>
+                    </table>
+                    <h4>b) Details of Higher Secondary Examination</h4>
+                    <table class="table mb2">
+                        <tr>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">ENG CORE</h6>83</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">MATH</h6>62</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">PHYS</h6>67</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">CHEM</h6>71</td>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0">BIOG</h6>70</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr>
+                            <td>Total Marks</td>
+                            <td class="right-align">353</td>
+                            <td>Marks(%)</td>
+                            <td class="right-align">70.6</td>
+                            <td>YOP</td>
+                            <td class="right-align">2018</td>
+                        </tr>
+                        <tr>
+                            <td>Board</td>
+                            <td colspan="2">Central Board of Sec</td>
+                            <td>School</td>
+                            <td colspan="2">KENDRIYA VIDYALAYA F</td>
+                        </tr>
+                    </table>
+                    <h4>c) Details of Other Examination passed <span class="regular h6"> (applicable for JELET Lateral entry candidates)</span></h4>
+                    <table class="table mb2">
+                        <tr>
+                            <td class="right-align">
+                                <h6 class="mt0 mb1 py0"></h6>0</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr>
+                            <td>Total Marks</td>
+                            <td class="right-align">0</td>
+                            <td>Marks(%)</td>
+                            <td class="right-align">0</td>
+                            <td>YOP</td>
+                            <td class="right-align">0</td>
+                        </tr>
+                        <tr>
+                            <td>Course</td>
+                            <td></td>
+                            <td>Institute</td>
+                            <td></td>
+                            <td>University</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <h4><span class="regular h6"> (applicable for JELET Lateral entry candidates)</span></h4>
+                    <h6 class="center">DECLARATION</h6>
+                    <div>I declare that the information furnished by me in this form are correct to the best of my knowledge and belief. If at any stage during and/or after my admission it is detected that I have deliberately furnished incorrect information or have suppressed any pertinent information about my qualifications etc. the Institute will be within its rights to refuse and/or cancel my admission.</div>
+                    <div>I shall hold myself responsible for payment of Institute fees and dues by the due dates as may be notified by the Institute from time to time failing which the Institute will be within its rights to punish me to the extent of cancelling my studentship.</div>
+                    <div>I promise to devote myself diligently to my studies and abide by the rules and regulations of the Institute in this regard.</div>
+                    <div class="flex items-top h6 mb1 mt3">
+                        <div>
+                            <div class="center">_________________________
+                                <div>Date</div>
+                            </div>
+                        </div>
+                        <div class="flex-auto right-align">
+                            <div class="center inline-block">_____________________________________
+                                <div>Full Signature of the Student</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center mb1 underline h6 bold">DECLARATION BY THE PARENTS/GUARDIAN</div>
+                    <div>We certify that our ward <span class="bold">SAGARJIT DAS</span> Name makes this application with our knowledge and consent and that we hold ourselves responsible for his/her good conduct, his/her maintenance and payment of all fees and dues regularly during the period he/she will be on the Institute roll</div>
+                    <div class="flex items-top justify-between h6 mt3">
+                        <div>
+                            <div class="center">_____________________
+                                <div>Date</div>
+                            </div>
+                        </div>
+                        <div class="center">_____________________________________
+                            <div>Full Signature of the Father/Mother</div>
+                        </div>
+                        <div class="center">_____________________________________
+                            <div>Guardian Signature &amp; relation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div>
+                    <h5 class="center mt0 mb1 underline">For Office Use</h5>
+                    <h6 class="">Verified the documents</h6>
+                    <ul class="list-reset h6 mb3">
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Physical Reporting Slip downloaded from the WBJEEB site in the Institute</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Provisional Admission Letter in the name of MCKV INSTITUTE OF ENGINEERING issued by the RC Centre (WBJEEB) on the day of counselling (only for BTECH Regular) (Original Copy)</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Seat Allotment Ticket in the name of MCKV INSTITUTE OF ENGINEERING issued by the University/WBJEEB (for MTECH/MCA/Lateral)</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Original Admission form of WBJEEB &amp; counterpart of the Money Receipt of relevant amount issued by WBJEEB (for MTECH/MCA/Lateral)</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Entrance Examination Admit Card and 3 self attested photo copy of the same</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Rank Card 3 copy</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Admit Card of Secondary/ Higher Secondary or Equivalent Examination as proof of age with 3 self attested photocopies of the same</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Marksheets from the Board/University showing detailed marks of all the subjects of the Secondary &amp; Higher Secondary or equivalent qualifying examinations, with 2 self attested photocopies each of the same</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Entrance Examination Admit Card &amp; 3 self attested photocopy of the same</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Original copy of Migration/Registration Certificate issued from Universities, where necessary (applicable for B.Sc. Passed Candidates).</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Print out of the institute online admission form &amp; other relevant forms duly filled in, completed and signed.</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Fees Book for deposition of fees at the time of admission.</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Photocopy of Passport.</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>1 self attested copy of Guardian's Address Proof (Voter ID, Electricity Bill, Aadhar Card etc)</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Photocopy of Income certificate if Economically Backward.</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Photocopy of valid Driving License</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>3 copies of Student's stamp size photograph and 2 copies of passport size photograph</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Guardian's stamp size photograph (Father &amp; Mother) 1 copy each</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Anti ragging print out compulsory</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Pan Card: Student, Father, Mother &amp; Guardian 1 photocoy of each</li>
+                        <li class="flex items-top mb1">
+                            <div class="flex-none mr2 border rounded border-gray" style="width: 16px; height: 16px;"></div>Voter &amp; Aadhar Card: Student, Father, Mother &amp; Guardian 1 photocoy of each</li>
+                    </ul>
+                    <div class="flex items-top">
+                        <div class="col-6 h6">________________________________
+                            <div>(Full Signature of the Asst. In-charge)</div>
+                            <div class="mt4">Received Admission Fees etc Rs. _____________________________</div>
+                            <div class="mt3 mb4">(Vide Institute Rules)</div>________________________________
+                            <div>(Signature of the Cashier)</div>
+                        </div>
+                        <div class="col-6 h6">Admit Subject to fulfilment of the conditions and requirements at MCKV INSTITUTE OF ENGINEERING, Liluah, Howrah
+                            <div class="in the first semester of ________________ discipline"></div>
+                            <div class="mt2">Date _______________</div>
+                            <div class="mt4">Seal ______________________</div>
+                            <div class="mt4">________________________________________</div>
+                            <div>(Signature of Registrar/Competent Authority)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div class="h6">
+                    <table class="col-12">
+                        <tr>
+                            <td style="width: 150px;"><img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" /></td>
+                            <td class="center">
+                                <h4 class="my0">MCKV INSTITUTE OF ENGINEERING</h4>
+                                <div class="h6 mb0">AICTE approved &amp; MAKAUT affiliated</div>
+                                <div class="h6 mb0">Co-ed PG Degree Engineering College Code-116-ENGG</div>
+                                <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
+                                <div class="h6 mb0">Ph 033-26549315/17</div>
+                            </td>
+                            <td style="width: 150px;"></td>
+                        </tr>
+                    </table>
+                    <h4 class="center border-top border-gray my1 pt1">MEDICAL FORM</h4>
+                    <div class="center h5">QF/MCKVIE/ADMIN/04</div>
+                    <div class="center h5 border-bottom border-gray pb1 mb2">2019 - 2020</div>
+                    <h6 class="underline mb1">Use capital letters and provide full information</h6>
+                    <div class="flex items-top mxn2">
+                        <div class="flex-auto px2">
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Name: </div>
+                                <div class="px2 flex-auto">SAGARJIT DAS</div>
+                            </div>
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Date of Birth: </div>
+                                <div class="px2 flex-auto">27/03/2001</div>
+                            </div>
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Father's Name: </div>
+                                <div class="px2 flex-auto">SUJIT DAS</div>
+                            </div>
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Mother's Name: </div>
+                                <div class="px2 flex-auto">BULA DAS</div>
+                            </div>
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Address: </div>
+                                <div class="px2 flex-auto">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH HOWRAH WEST BENGAL 711101</div>
+                            </div>
+                            <div class="flex items-top border-bottom border-gray mxn2 py1">
+                                <div class="px2 col-4">Phone: </div>
+                                <div class="px2 flex-auto">9477286343</div>
+                            </div>
+                        </div>
+                        <div class="px2">
+                            <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste your recent self-attested photograph here</div>
+                        </div>
+                    </div>
+                    <h5>Medical Information</h5>
+                    <div class="flex items-center mxn2 py1">
+                        <div class="col-6 px2">Do you have color blindness?</div>
+                        <div class="px1">
+                            <input type="checkbox" class="ml3 mr1">
+                        </div>
+                        <div class="px1">Yes</div>
+                        <div class="px1">
+                            <input type="checkbox" class="mx1">
+                        </div>
+                        <div class="px1">No</div>
+                    </div>
+                    <div class="flex items-center mxn2 py1">
+                        <div class="col-6 px2">Do you use spectacles?</div>
+                        <div class="px1">
+                            <input type="checkbox" class="ml3 mr1">
+                        </div>
+                        <div class="px1">Yes</div>
+                        <div class="px1">
+                            <input type="checkbox" class="mx1">
+                        </div>
+                        <div class="px1">No</div>
+                    </div>
+                    <div class="center py1">If yes, please provide the details below</div>
+                    <div class="flex items-center mxn2 mb2">
+                        <div class="col-6 px2">
+                            <table class="table col-12">
+                                <tr class="">
+                                    <th colspan="5" class="center">RE</th>
+                                </tr>
+                                <tr class="">
+                                    <th class=""></th>
+                                    <th class="">SPH</th>
+                                    <th class="">CYL</th>
+                                    <th class="">AXIS</th>
+                                    <th>VISION</th>
+                                </tr>
+                                <tr class="">
+                                    <th class="">D.V</th>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="">N.V</th>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="px2 col-6">
+                            <table class="table col-12 ">
+                                <tr class="">
+                                    <th colspan="5" class="center">LE</th>
+                                </tr>
+                                <tr class="">
+                                    <th class=""></th>
+                                    <th class="">SPH</th>
+                                    <th class="">CYL</th>
+                                    <th class="">AXIS</th>
+                                    <th>VISION</th>
+                                </tr>
+                                <tr class="">
+                                    <th class="">D.V</th>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="">N.V</th>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="flex items-top mxn2 border-bottom border-gray py1">
+                        <div class="col-6 px2">Blood Pressure: </div>
+                        <div class="col-6 px2">Blood Group: </div>
+                    </div>
+                    <div class="flex items-top mxn2 border-bottom border-gray py1">
+                        <div class="col-12 px2">Allergies to medicine &amp; food: </div>
+                    </div>
+                    <div class="flex items-top mxn2 border-bottom border-gray py1">
+                        <div class="col-2 px2">Height: </div>
+                        <div class="col-4 px2">_______ Ft _______ Inches</div>
+                        <div class="col-2 px2">Weight: </div>
+                        <div class="col-4 px2">_______ Kgs</div>
+                    </div>
+                    <div class="flex items-top mxn2 py1 mb4">
+                        <div class="col-12 px2">History of major illness if any: </div>
+                    </div>
+                    <div class="flex items-top mxn2 pt2">
+                        <div class="col-6 center">________________________________
+                            <div>Signature of Father/Mother</div>
+                            <div>Date ................</div>
+                        </div>
+                        <div class="col-6 center">________________________________
+                            <div>Signature of Doctor with Registration No</div>
+                            <div>Date ................</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+            </div>
+        </div>
+    </div>
+</div>

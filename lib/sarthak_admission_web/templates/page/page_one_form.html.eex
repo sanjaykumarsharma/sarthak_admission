@@ -1,0 +1,340 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="px2 md-px4">
+    <div>
+      <div class="">
+         <div class="my3">
+            <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Entrance Information</h4>
+            <div class="flex items-top">
+               <div class="col-1 bg-green pt1"></div>
+               <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+
+            <div class="col-12 md-col-3 px2">
+               <div class=""><%= label f, :exam, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= select f, :exam, ["WBJEE": "WBJEE", "JEE MAIN": "JEE MAIN", "JELET": "JELET", "JECA": "JECA", "PGET": "PGET"], class: "select" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :exam %></div>
+            </div>
+
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :exam_center, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :center_name, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :center_name %></div>
+            </div>
+
+            <div class="col-12 md-col-6 px2">
+               <div><%= label f, :center_address, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :center_address, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :center_address %></div>
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+              <div><%= label f, :enrolment_no, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :enrolment_no, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :enrolment_no %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :rank, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :rank, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :rank %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :tfw_rank, class: "h5 caps bold" %></div>
+               <%= text_input f, :tfw_rank, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :tfw_rank %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :quota, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= select f, :quota, ["G": "G", "DA": "DA", "MQ": "MQ", "TFW": "TFW"], class: "select" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :quota %></div>
+            </div>
+         </div>
+
+         <%# course informatin %>
+         <div class="my3">
+            <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Course Information</h4>
+            <div class="flex items-top">
+               <div class="col-1 bg-green pt1"></div>
+               <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :course, class: "h5 caps bold" %></div>
+               <%= text_input f, :course, class: "input" %>
+               <%# <input type="text" class="input" readonly=""> %>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :department, class: "h5 caps bold" %></div>
+               <%= text_input f, :department, class: "input" %>
+               <%# <input type="text" class="input" readonly=""> %>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :yop, class: "h5 caps bold" %></div>
+               <%= text_input f, :yop, class: "input" %>
+               <%# <input type="text" class="input" readonly=""> %>
+            </div>
+         </div>
+
+         <%# Personal Information %>
+
+         <div class="my3">
+            <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Personal Information</h4>
+            <div class="flex items-top">
+               <div class="col-1 bg-green pt1"></div>
+               <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-9 px2">
+               <div><%= label f, :name, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :name, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :name %></div>
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :dob, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :dob, class: "input", placeholder: "yyyy-mm-dd" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :dob %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :gender, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <div class="mb1">
+                <%= radio_button f, :sex, "M" %><span class="inline-block mx1 py1">Male</span>
+                <%= radio_button f, :sex, "F" %><span class="ml1">Female</span></div>
+                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :sex %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :marital_status, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <div class="mb1">
+                <%= radio_button f, :marital_status, "Single" %><span class="inline-block mx1 py1">Single</span>
+                <%= radio_button f, :marital_status, "Married" %><span class="ml1">Married</span></div>
+                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :marital_status %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :blood_group, class: "h5 caps bold" %></div>
+               <%= select f, :blood_group, ["A+": "A+", "A-": "A-", "AB+": "AB+", "AB-": "AB-", "B+": "B+", "B-": "B-", "O+": "O+", "O-": "O-"], class: "select" %>
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :mobile_number, class: "h5 caps bold" %></div>
+               <%= text_input f, :mobile, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :mobile %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div class=""><%= label f, :email, class: "h5 caps bold" %></div>
+               <%= text_input f, :email, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :email %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :passport_no, class: "h5 caps bold" %></div>
+               <%= text_input f, :passport_no, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :passport_no %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :expiry_date, class: "h5 caps bold" %></div>
+               <%= text_input f, :passport_expiry, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :passport_expiry %></div>
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+               <div class=""><%= label f, :nationality, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :nationality, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :nationality %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :religion, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= text_input f, :religion, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :religion %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :category, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <%= select f, :category, ["G": "G", "SC": "SC", "ST": "ST", "OBC": "OBC", "PH": "PH"], class: "select" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :category %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :economically_backward, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+               <div>
+                <%= radio_button f, :ebc, true %><span class="inline-block mx1 py1">Y</span>
+                <%= radio_button f, :ebc, false %><span class="ml1">N</span>
+               </div>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :ebc %></div>
+            </div>
+         </div>
+         <div class="flex items-top mxn2">
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :mother_tongue, class: "h5 caps bold" %></div>
+               <%= text_input f, :mother_tongue, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :mother_tongue %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :other_languages_known, class: "h5 caps bold" %></div>
+               <%= text_input f, :other_languages, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :other_languages %></div>
+            </div>
+            <div class="col-12 md-col-6 px2">
+               <div><%= label f, :identification_marks, class: "h5 caps bold" %></div>
+               <%= text_input f, :identification_marks, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :identification_marks %></div>
+            </div>
+         </div>
+
+         <div class="my3">
+            <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Contact Information</h4>
+            <div class="flex items-top">
+               <div class="col-1 bg-green pt1"></div>
+               <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+            </div>
+         </div>
+         <div class="flex items-top mxn2 flex-wrap">
+            <div class="px2 col-12 md-col-6">
+               <h5 class="mt0 mb1 caps gray bold">Permanent Address</h5>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 px2">
+                     <div><%= label f, :address, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :p_address, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_address %></div>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :"PS", class: "h5 caps bold" %></div>
+                     <%=# text_input f, :identification_marks, class: "input" %>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :district, class: "h5 caps bold" %></div>
+                     <%= text_input f, :p_district, class: "input" %>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :city, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :p_city, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_city %></div>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :state, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :p_state, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_state %></div>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :pin_code, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :p_pin, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_pin %></div>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :land_phone, class: "h5 caps bold" %></div>
+                     <%= text_input f, :p_land_phone, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_land_phone %></div>
+                  </div>
+               </div>
+            </div>
+            <div class="px2 col-12 md-col-6">
+               <div class="flex items-top">
+                  <h5 class="my0 caps gray bold">Correspondence Address</h5>
+                  <input type="checkbox">same as permanent address
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 px2">
+                     <div><%= label f, :address, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :c_address, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_address %></div>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :"PS", class: "h5 caps bold" %></div>
+                     <%=# text_input f, :identification_marks, class: "input" %>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :district, class: "h5 caps bold" %></div>
+                     <%= text_input f, :c_dist, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_dist %></div>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :city, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :c_city, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_city %></div>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :state, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :c_state, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_state %></div>
+                  </div>
+               </div>
+               <div class="flex items-top mxn2">
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :pin_code, class: "h5 caps bold" %><span class="h4 red">*</span></div>
+                     <%= text_input f, :c_pin, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_pin %></div>
+                  </div>
+                  <div class="col-12 md-col-6 px2">
+                     <div><%= label f, :land_phone, class: "h5 caps bold" %></div>
+                     <%= text_input f, :c_land_phone, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_land_phone %></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="my3">
+            <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">PAN Information</h4>
+            <div class="flex items-top">
+               <div class="col-1 bg-green pt1"></div>
+               <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+            </div>
+         </div>
+         <div class="flex items-top mxn2 flex-wrap">
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :student_pan, class: "h5 caps bold" %></div>
+               <%= text_input f, :student_pan_card, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :student_pan_card %></div>
+            </div>
+            <div class="col-12 md-col-3 px2">
+               <div><%= label f, :student_aadhaar_no, class: "h5 caps bold" %></div>
+               <%= text_input f, :student_acn, class: "input" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :student_acn %></div>
+            </div>
+         </div>
+         <hr class="border-green" style="border-style: dotted;">
+         <div class="flex items-top mxn2 flex-wrap">
+            <div class="col-12 md-col-6 px2">
+               <div><label class="h5 caps bold">Who is responsible for payment of Tuition/Sem Fees?</label><span class="h4 red">*</span></div>
+               <%= select f, :fee_payee, ["Father": "Father", "Mother": "Mother", "Guardian": "Guardian"], class: "select" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :fee_payee %></div>
+            </div>
+            <div class="col-12 md-col-6 px2">
+               <div class=""><label class="h5 caps bold">Do you want to avail hostel facilities?</label></div>
+               <%= select f, :hostel_required, ["Yes": "Y", "No": "N"], class: "select" %>
+               <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :hostel_required %></div>
+            </div>
+         </div>
+
+         <hr class="border-green" style="border-style: dotted;">
+         <div class="flex items-top justify-center mxn2 mb4">
+            <div class="px2 col-6 right-align">
+            </div>
+            <div class="px2 col-6">
+              <%= submit "Next", class: "border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4" %>
+            </div>
+         </div>
+
+      </div>   
+    </div>
+  </div>    
+
+<% end %>

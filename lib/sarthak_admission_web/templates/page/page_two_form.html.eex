@@ -1,0 +1,425 @@
+<%= form_for @changeset, @action, fn f -> %>
+
+<div class="px2 md-px4">
+    <div>
+        <div class="">
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Father's Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-9 px2">
+                    <div>
+                        <label class="h5 caps bold">Name</label><span class="h4 red">*</span></div>
+                    <%= text_input f, :f_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Occupation</label>
+                    </div>
+                    <%= select f, :f_occupation, ["Service": "Service", "Business": "Business", "Other": "Other"], class: "select" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_occupation %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization</label>
+                    </div>
+                    <%= text_input f, :f_organization, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_organization %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Designation</label>
+                    </div>
+                    <%= text_input f, :f_designation, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_designation %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Department</label>
+                    </div>
+                    <%= text_input f, :f_department, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_department %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization Address Line 1</label>
+                    </div>
+                    <%= text_input f, :f_e_address, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_address %></div>
+                </div>
+                <div class="col-12 md-col-6 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Line 2</label>
+                    </div>
+                    <%=# text_input f, :center_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :center_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">City</label>
+                    </div>
+                    <%= text_input f, :f_e_city, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_city %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">State</label>
+                    </div>
+                    <%= text_input f, :f_e_state, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_state %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Pin Code</label>
+                    </div>
+                    <%= text_input f, :f_e_pin, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_pin %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Office Phone</label>
+                    </div>
+                    <%= text_input f, :f_e_land_phone, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_land_phone %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Mobile</label>
+                    </div>
+                    <%= text_input f, :f_mobile, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_mobile %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Email</label>
+                    </div>
+                    <%= text_input f, :f_email, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_email %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Annual Income</label>
+                    </div>
+                    <%= text_input f, :f_annual_income, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_annual_income %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2 flex-wrap">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Father PAN</label>
+                    </div>
+                    <%= text_input f, :father_pan_card, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :father_pan_card %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Father Aadhaar No</label>
+                    </div>
+                    <%= text_input f, :father_acn, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :father_acn %></div>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Mother's Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-9 px2">
+                    <div>
+                        <label class="h5 caps bold">Name</label><span class="h4 red">*</span></div>
+                    <%= text_input f, :m_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Occupation</label>
+                    </div>
+                    <%= select f, :m_occupation, ["Housewife": "Housewife", "Service": "Service", "Business": "Business", "Other": "Other"], class: "select" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_occupation %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization</label>
+                    </div>
+                    <%= text_input f, :m_organization, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_organization %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Designation</label>
+                    </div>
+                    <%= text_input f, :m_designation, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_designation %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Department</label>
+                    </div>
+                    <%= text_input f, :m_department, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_department %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization Address Line 1</label>
+                    </div>
+                    <%= text_input f, :m_e_address, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_address %></div>
+                </div>
+                <div class="col-12 md-col-6 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Line 2</label>
+                    </div>
+                    <%=# text_input f, :center_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%=# error_tag f, :center_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">City</label>
+                    </div>
+                    <%= text_input f, :m_e_city, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_city %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">State</label>
+                    </div>
+                    <%= text_input f, :m_e_state, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_state %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Pin Code</label>
+                    </div>
+                    <%= text_input f, :m_e_pin, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_pin %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Office Phone</label>
+                    </div>
+                    <%= text_input f, :m_e_land_phone, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_land_phone %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Mobile</label>
+                    </div>
+                    <%= text_input f, :m_mobile, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_mobile %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Email</label>
+                    </div>
+                    <%= text_input f, :m_email, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_email %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Annual Income</label>
+                    </div>
+                    <%= text_input f, :m_annual_income, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_annual_income %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2 flex-wrap">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Mother PAN</label>
+                    </div>
+                    <%= text_input f, :mother_pan_card, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :mother_pan_card %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Mother Aadhaar No</label>
+                    </div>
+                    <%= text_input f, :mother_acn, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :mother_acn %></div>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Local Guardian Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-9 px2">
+                    <div>
+                        <label class="h5 caps bold">Name</label>
+                    </div>
+                    <%= text_input f, :lg_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Occupation</label>
+                    </div>
+                    <%= select f, :lg_occupation, ["Service": "Service", "Business": "Business", "Other": "Other"], class: "select" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_occupation %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization</label>
+                    </div>
+                    <%= text_input f, :lg_organization, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_organization %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Designation</label>
+                    </div>
+                    <%= text_input f, :lg_designation, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_designation %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Department</label>
+                    </div>
+                    <%= text_input f, :lg_department, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_department %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Relationship</label>
+                    </div>
+                    <%= text_input f, :lg_relation, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_relation %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold"> Address Line 1</label>
+                    </div>
+                    <%= text_input f, :lg_address, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_address %></div>
+                </div>
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Address Line 2</label>
+                    </div>
+                    <%=# text_input f, :center_name, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%=# error_tag f, :center_name %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">City</label>
+                    </div>
+                    <%= text_input f, :lg_city, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_city %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">State</label>
+                    </div>
+                    <%= text_input f, :lg_state, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_state %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Pin Code</label>
+                    </div>
+                    <%= text_input f, :lg_pin, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_pin %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Office Phone</label>
+                    </div>
+                    <%= text_input f, :lg_land_phone, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_land_phone %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Mobile</label>
+                    </div>
+                    <%= text_input f, :lg_mobile, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_mobile %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Email</label>
+                    </div>
+                    <%= text_input f, :lg_email, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_email %></div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2 flex-wrap">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Guardian PAN</label>
+                    </div>
+                    <%= text_input f, :guardian_pan_card, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :guardian_pan_card %></div>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Guardian Aadhaar No</label>
+                    </div>
+                    <%= text_input f, :guardian_acn, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :guardian_acn %></div>
+                </div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Annual Family Income from all sources</label><span class="h4 red">*</span></div>
+                    <%= text_input f, :annual_family_income, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :annual_family_income %></div>
+                </div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="flex items-top justify-center mxn2 mb4">
+                <div class="px2 col-6 right-align">
+                  <%= button "Previous", to: "/page_one", class: "border-none py1 px2 bg-silver black h4 caps bold rounded col-12 md-col-4" %>
+                </div>
+                <div class="px2 col-6">
+                    <%= submit "Next", class: "border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% end %>

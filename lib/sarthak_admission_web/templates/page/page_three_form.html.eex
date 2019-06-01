@@ -1,0 +1,706 @@
+<%= form_for @changeset, @action, fn f -> %>
+
+<div class="px2 md-px4">
+    <div>
+        <div class="">
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Secondary Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="">
+                <div class="flex items-center mxn2">
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Subject</label>
+                        </div>
+                        <select class="select">
+                            <option>Choose Subject</option>
+                            <option></option>
+                            <option value="ADDLM">ADDITIONAL MATHAMETICS</option>
+                            <option value="ADENG">ADDITIONAL ENGLISH</option>
+                            <option value="ADVM">ADVANCED MATHEMATICS</option>
+                            <option value="ART">ARTS</option>
+                            <option value="BENG">BENGALI</option>
+                            <option value="BENG A">BENGALI(A)</option>
+                            <option value="BENG B">BENGALI (B)</option>
+                            <option value="BIO">BIOLOGY</option>
+                            <option value="BM">BUSINESS MATHEMATICS</option>
+                            <option value="CHM">CHEMISTRY</option>
+                            <option value="CMAP">COMPUTER APPLICATION</option>
+                            <option value="COM">COMMERCE</option>
+                            <option value="COMAP">COMMERCIAL APPLICATION</option>
+                            <option value="DRW">DRAWING</option>
+                            <option value="EA">ENGLISH ASSAMESE</option>
+                            <option value="ECOA">ECONOMICS APPLICATIONS</option>
+                            <option value="ELECT MATH">ADV. MATHS.</option>
+                            <option value="EM">ENVIORMENTAL MANAGEMENT</option>
+                            <option value="ENG">ENGLISH</option>
+                            <option value="ENG (A)">ENGLISH (A)</option>
+                            <option value="ENG (B)">ENGLISH (B)</option>
+                            <option value="ENGALTR">ALTERNETIVE ENGLISH</option>
+                            <option value="ENGCOR">ENGLISH CORE</option>
+                            <option value="ENVAPL">ENVIRONMENTAL APPLICATION</option>
+                            <option value="EV">ENVIRONMENTAL EDUCATION</option>
+                            <option value="EVS">ENVIORMENTAL SCIENCE</option>
+                            <option value="FADGN">FASHION DESIGNING</option>
+                            <option value="FN. IT">FOUNDATION OF IT</option>
+                            <option value="GEO">GEOGRAPHY</option>
+                            <option value="GEOLGY">GEOLOGY</option>
+                            <option value="GS">GENERAL STUDIES</option>
+                            <option value="HCG">HISTORY CIVICS GEOGRAPHY</option>
+                            <option value="HE EDU">HEALTH EDUCATION</option>
+                            <option value="HIN">HINDI</option>
+                            <option value="HIN (A)">HINDI (A)</option>
+                            <option value="HIN (B)">HINDI (B)</option>
+                            <option value="HINENG">HINDI+E3NGLISH</option>
+                            <option value="HINURD">HINDI+URDU</option>
+                            <option value="HIS">HISTORY</option>
+                            <option value="HISCIVSCGEO">HISTORY CIVICS SCINCE GEOGRAPHY</option>
+                            <option value="HSC">HOME SCIENCE</option>
+                            <option value="HSGO">HISTORY &amp; GEOGRAPHY</option>
+                            <option value="ICT">INFORMATION &amp; COMMUNICATION TECHNOLOGY</option>
+                            <option value="IIT">INTRODUCTORY I T</option>
+                            <option value="LSC">LIFESCIENCE</option>
+                            <option value="MATH">MATHEMATICS</option>
+                            <option value="MECHN">MECHANICS</option>
+                            <option value="MIL">MAITHILI</option>
+                            <option value="MLM">MULTY MEDIA</option>
+                            <option value="MUS">MUSIC</option>
+                            <option value="OES">BOOK KEEPING</option>
+                            <option value="ORY">ORIA</option>
+                            <option value="PHCHBO">PHYSICS,CHEMISTRY &amp; BIOLOGY</option>
+                            <option value="PHE">PHY &amp; HEALTH EDUCATION</option>
+                            <option value="PHS">PHYSICAL SCIENCE</option>
+                            <option value="PHY">PHYSICS</option>
+                            <option value="POLSC">POLSCIENCE</option>
+                            <option value="PRS">PERSIAN</option>
+                            <option value="PSCL">PISCICULTURE</option>
+                            <option value="SANS">SANSKRIT</option>
+                            <option value="SCANDTECH">SCIENCE AND TECHNOLOGY</option>
+                            <option value="SCN">SCIENCE</option>
+                            <option value="SOCSC">SOCIAL SCIENCE</option>
+                            <option value="SST">SOCIAL STUDIES</option>
+                            <option value="SUPW">SUPW</option>
+                            <option value="TDA">TECHNICAL DRAWING APPLICATION</option>
+                            <option value="UR">URDU</option>
+                            <option value="URD (A)">URDU A</option>
+                            <option value="URD (B)">URDU B</option>
+                            <option value="WE">WORK EDUCATION</option>
+                            <option value="WORKEPHE">WORK EDUCATION PHISICAL EDUCATION</option>
+                        </select>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Marks</label><span class="h4 red">*</span></div>
+                        <%=# text_input f, :marks, class: "input right-align" %>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <button class="border-none p1 bg-silver rounded"><i class="material-icons">add_circle</i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2"></div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Grand Total</label>
+                    </div>
+                    <%= text_input f, :marks_obtained_ten, class: "input right-align", disabled: true %>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Out Of</label>
+                    </div>
+                    <%= text_input f, :total_marks_ten, class: "input right-align" %>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Marks(%)</label>
+                    </div>
+                    <%= text_input f, :percentage_ten, class: "input", disabled: true %>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">YOP</label>
+                    </div>
+                    <%= text_input f, :yop_ten, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Board</label>
+                    </div>
+                    <%= text_input f, :board_ten, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">School</label>
+                    </div>
+                    <%= text_input f, :school_ten, class: "input"%>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Higher Secondary Details</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="">
+                <div class="flex items-center mxn2">
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Subject</label>
+                        </div>
+                        <select class="select">
+                            <option>Choose Subject</option>
+                            <option value="ACC">ACCOUNTANCY</option>
+                            <option value="ACCT">ACOUNTENCY</option>
+                            <option value="ADDLM">ADDITIONAL MATHAMETICS</option>
+                            <option value="APP/COMMART">APP/COMMERCIAL ART</option>
+                            <option value="AUMC">AUTOMOBILE MECHANICS</option>
+                            <option value="AUSM">AOTOMOBILE SERVICE &amp; MAINTANENCE</option>
+                            <option value="BENG">BENGALI</option>
+                            <option value="BENGA">BENGALI(A)</option>
+                            <option value="BENGB">BENGALI(B)</option>
+                            <option value="BIOG">BIOLOGY</option>
+                            <option value="BIOS">BIOLOGICAL SCIENCE</option>
+                            <option value="BM">BUSINESS MATHEMATICS</option>
+                            <option value="BOM">BUISNESS ORGANISATION MANAGMENT</option>
+                            <option value="BOM,">BUISNESS ORGANISATION &amp; MANAGEWMENT</option>
+                            <option value="BS22">Besic science</option>
+                            <option value="BSTD">BUISNESS STYDIES</option>
+                            <option value="CAAM">COMPUTER ASSEMBLY &amp; MAINTENANCE</option>
+                            <option value="CEN2">COMMUNICATIVE ENGLISH</option>
+                            <option value="CFAP">COMPUTER FUNDAMENTAL &amp; APPLICATION</option>
+                            <option value="CHEM">CHEMISTRY</option>
+                            <option value="CMAP">COMPUTER APPLICATION</option>
+                            <option value="COM">COMMERCE</option>
+                            <option value="COMA">MODERN COMPUTER APPLICATIONS</option>
+                            <option value="COMMA">COMMERCIAL ARTS</option>
+                            <option value="COMS">COMPUTER SCIENCE</option>
+                            <option value="ECOG">ECONOMIC GEOGRAPHY</option>
+                            <option value="ECON">ECONOMICS</option>
+                            <option value="EDCN">EDUCATION</option>
+                            <option value="ENG">ENGLISH</option>
+                            <option value="ENG CORE">ENGLISH CORE</option>
+                            <option value="ENGA">ENGLISH (A)</option>
+                            <option value="ENGB">ENGLISH(B)</option>
+                            <option value="ENGCOR">ENGLISH CORE</option>
+                            <option value="ENGHIN">ENGLISH+HINDI</option>
+                            <option value="ENGLISH COMMUNICATIV">CEN2</option>
+                            <option value="ENST">ENVIORNMENTAL STUDIES</option>
+                            <option value="ENVE">ENVIRONMENTAL EDUCATION</option>
+                            <option value="EVS">ENVIRONMENTAL SCIENCE</option>
+                            <option value="EWAI">ELECTRICAL WARING AND INSTALATION</option>
+                            <option value="GEO">GEOGRAPHY</option>
+                            <option value="GEOGLY">GEOLOGY</option>
+                            <option value="GMD">GEOM. &amp; MECHANICAL DRAWING</option>
+                            <option value="HIMA">HINDI+ MAITHILI</option>
+                            <option value="HIN(A)">HINDI(A)</option>
+                            <option value="HINB">HINDI(B)</option>
+                            <option value="HIND">HINDI</option>
+                            <option value="HINENG">HINDI+ENGLISH</option>
+                            <option value="HIS">HISTORY</option>
+                            <option value="HSC">HOME SCINCE</option>
+                            <option value="INFPRC">INFORMATICS PRACTICES</option>
+                            <option value="MATH">MATHEMATICS</option>
+                            <option value="MRED">maintenance and repair of electrical domestic appl</option>
+                            <option value="MUHINVOC">MUSIC HIND. VOCAL</option>
+                            <option value="MUS">MUSIC</option>
+                            <option value="NUTN">NUTRATION</option>
+                            <option value="PAIT">PAINTING</option>
+                            <option value="PCM">PC MAINTENANCE</option>
+                            <option value="PHIL">PHILOSOPHY</option>
+                            <option value="PHYED">PHYSICAL EDUCATION</option>
+                            <option value="PHYS">PHYSICS</option>
+                            <option value="PLSC">POLITICAL SCINCE</option>
+                            <option value="POLSC">POLSCIENCE</option>
+                            <option value="PRJ">PROJECT</option>
+                            <option value="RB URDU">R B NON HINDI ALTERNATIVE URDU</option>
+                            <option value="RB/MAI">RB NON-HINDI/MAITHILI</option>
+                            <option value="RBN-HAE">R B NON-HINDI (ALTERNATIVE ENGLISH)</option>
+                            <option value="SNSK">SANSKRIT</option>
+                            <option value="SPRTS">SPORTS &amp; PHYSICAL EDUCATION</option>
+                            <option value="STAT">STATISTICS</option>
+                            <option value="SUPW">SUPW</option>
+                            <option value="TECHNICAL DRAWING">TEDG</option>
+                            <option value="TEDG">TECHNICAL DRAWING</option>
+                            <option value="UR">URDU</option>
+                            <option value="URDHIN">URDU+HINDI</option>
+                        </select>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Marks</label><span class="h4 red">*</span></div>
+                        <%=# text_input f, :marks, class: "input right-align" %>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <button class="border-none p1 bg-silver rounded"><i class="material-icons">add_circle</i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2"></div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Grand Total</label>
+                    </div>
+                    <%= text_input f, :marks_obtained_twelve, class: "input right-align", disabled: true%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Out Of</label>
+                    </div>
+                    <%= text_input f, :total_marks_twelve, class: "input right-align", disabled: true%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Marks(%)</label>
+                    </div>
+                    <%= text_input f, :percentage_twelve, class: "input", disabled: true %>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">YOP</label>
+                    </div>
+                    <%= text_input f, :yop_twelve, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Board</label>
+                    </div>
+                    <select class="select">
+                        <option value="Board of Intermediate Education, Andhra Pradesh ">Board of Intermediate Education, Andhra Pradesh </option>
+                        <option value="Andhra Pradesh Open School Society">Andhra Pradesh Open School Society</option>
+                        <option value="Assam Higher Secondary Education Council">Assam Higher Secondary Education Council</option>
+                        <option value="Assam Sanskrit Board">Assam Sanskrit Board</option>
+                        <option value="Bihar Board of Open Schooling and Examination">Bihar Board of Open Schooling and Examination</option>
+                        <option value="Bihar Intermediate Education Council, Patna">Bihar Intermediate Education Council, Patna</option>
+                        <option value="Bihar Sanskrit Shiksha Board, Patna">Bihar Sanskrit Shiksha Board, Patna</option>
+                        <option value="Bihar School Examination Board ">Bihar School Examination Board </option>
+                        <option value="Bihar State Madrasa Education Board, Patna">Bihar State Madrasa Education Board, Patna</option>
+                        <option value="Board of High School &amp; Intermediate Education Uttar Pradesh">Board of High School &amp; Intermediate Education Uttar Pradesh</option>
+                        <option value="Board of School Education Haryana">Board of School Education Haryana</option>
+                        <option value="Board of Secondary Education, Rajasthan">Board of Secondary Education, Rajasthan</option>
+                        <option value="Central Board of Secondary Education">Central Board of Secondary Education</option>
+                        <option value="Chhattisgqrh Board of Secondary Education">Chhattisgqrh Board of Secondary Education</option>
+                        <option value="Chhattisgarh Madrasa Board">Chhattisgarh Madrasa Board</option>
+                        <option value="Chhattisgarh Sanskrit Board">Chhattisgarh Sanskrit Board</option>
+                        <option value="Chhattisgarh State Open School ">Chhattisgarh State Open School </option>
+                        <option value="Council for the Indian School Certificate Examinations">Council for the Indian School Certificate Examinations</option>
+                        <option value="Council of Higher Secondary Education, Manipur">Council of Higher Secondary Education, Manipur</option>
+                        <option value="Council of Higher Secondary Education, Odisha ">Council of Higher Secondary Education, Odisha </option>
+                        <option value="Uttar Pradesh State Open School Board ">Uttar Pradesh State Open School Board </option>
+                        <option value="The Kerala State Higher Education Council">The Kerala State Higher Education Council</option>
+                        <option value="Goa Board of Secondary &amp; Higher Secondary Education">Goa Board of Secondary &amp; Higher Secondary Education</option>
+                        <option value="Gujarat secondary &amp; Higher Secondary Education Board ">Gujarat secondary &amp; Higher Secondary Education Board </option>
+                        <option value="Himachal Pradesh Board of School Education">Himachal Pradesh Board of School Education</option>
+                        <option value="Jammu &amp; Kashmir State Board of School Education">Jammu &amp; Kashmir State Board of School Education</option>
+                        <option value="Jharkhand Academic Council">Jharkhand Academic Council</option>
+                        <option value="Karnataka Board of the Pre-University Education ">Karnataka Board of the Pre-University Education </option>
+                        <option value="Karnataka Open School (subsidiary of Karnataka Secondary Education Examination Borad) ">Karnataka Open School (subsidiary of Karnataka Secondary Education Examination Borad) </option>
+                        <option value="Karnataka secondary Education Examination Borad">Karnataka secondary Education Examination Borad</option>
+                        <option value="Kerala State Open School, Thiruvananthapuram ">Kerala State Open School, Thiruvananthapuram </option>
+                        <option value="Madhya Pradesh Board of Secondary Education">Madhya Pradesh Board of Secondary Education</option>
+                        <option value="Madhya Pradesh State Open School Education Board">Madhya Pradesh State Open School Education Board</option>
+                        <option value="Maharashtra State Board of Secondary and Higher Secondary Education ">Maharashtra State Board of Secondary and Higher Secondary Education </option>
+                        <option value="Meghalaya Board of School Education">Meghalaya Board of School Education</option>
+                        <option value="Mizoram Board of School Education">Mizoram Board of School Education</option>
+                        <option value="Nagaland Board of School Education ">Nagaland Board of School Education </option>
+                        <option value="National Institute of Open Schooling (formarly National Open School) ">National Institute of Open Schooling (formarly National Open School) </option>
+                        <option value="Punjab School Education Board">Punjab School Education Board</option>
+                        <option value="Rajasthan State Open School, Jaipur">Rajasthan State Open School, Jaipur</option>
+                        <option value="Rashtriya Sanskrit Sansthan">Rashtriya Sanskrit Sansthan</option>
+                        <option value="School Education Department, Government of Tamil Nadu">School Education Department, Government of Tamil Nadu</option>
+                        <option value="Telangana State Board of Intermediate Education">Telangana State Board of Intermediate Education</option>
+                        <option value="The Haryana open school (subsidiary of Board of School Education Haryana)">The Haryana open school (subsidiary of Board of School Education Haryana)</option>
+                        <option value="The Jammu &amp; Kashmir State Open School">The Jammu &amp; Kashmir State Open School</option>
+                        <option value="The West Bengal Council of Rabindra Open Schooling">The West Bengal Council of Rabindra Open Schooling</option>
+                        <option value="Tripura Board of Secondary Education">Tripura Board of Secondary Education</option>
+                        <option value="Uttranchal Siksha evam Pariksha Parishad (Education Board), Ramnagar, Nainital">Uttranchal Siksha evam Pariksha Parishad (Education Board), Ramnagar, Nainital</option>
+                        <option value="Vocational Higher secondary Education Department, Government of Kerala">Vocational Higher secondary Education Department, Government of Kerala</option>
+                        <option value="West Bengal Board of Madrasah Education">West Bengal Board of Madrasah Education</option>
+                        <option value="West Bengal council of Higher secondary Education">West Bengal council of Higher secondary Education</option>
+                        <option value="West Bengal State Council of Vocational Education &amp; Training">West Bengal State Council of Vocational Education &amp; Training</option>
+                    </select>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">School</label>
+                    </div>
+                    <%= text_input f, :school_twelve, class: "input"%>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Diploma information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="">
+                <div class="flex items-center mxn2">
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Subject</label>
+                        </div>
+                        <%=# text_input f, :percentage_ten, class: "input"%>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Marks</label><span class="h4 red">*</span></div>
+                        <%=# text_input f, :marks_obtained_ten, class: "input right-align", disabled: true%>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <button class="border-none p1 bg-silver rounded"><i class="material-icons">add_circle</i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2"></div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Grand Total</label>
+                    </div>
+                    <%= text_input f, :marks_obtained_diploma, class: "input", disabled: true %>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Out Of</label>
+                    </div>
+                    <%= text_input f, :total_marks_diploma, class: "input right-align", disabled: true%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Marks(%)</label>
+                    </div>
+                    <%= text_input f, :percentage_diploma, class: "input", disabled: true %>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">YOP</label>
+                    </div>
+                    <%= text_input f, :yop_diploma, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div class="">
+                        <label class="h5 caps bold">Course</label>
+                    </div>
+                    <%= text_input f, :course_diploma, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Institute</label>
+                    </div>
+                    <%= text_input f, :institute_diploma, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">University</label>
+                    </div>
+                    <%= text_input f, :university_diploma, class: "input"%>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Graduation Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Marks(%)</label>
+                    </div>
+                    <%= text_input f, :percentage_graduation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">YOA</label>
+                    </div>
+                    <%= text_input f, :yoa_graduation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">YOP</label>
+                    </div>
+                    <%= text_input f, :yop_graduation, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Degree</label>
+                    </div>
+                    <%= text_input f, :degree_graduation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Course</label>
+                    </div>
+                    <%= text_input f, :course_graduation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Institute</label>
+                    </div>
+                    <%= text_input f, :institute_graduation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">University</label>
+                    </div>
+                    <%= text_input f, :university_graduation, class: "input"%>
+                </div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Gate Score</label>
+                    </div>
+                    <%= text_input f, :gate_rank, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Valid Upto</label>
+                    </div>
+                    <%= text_input f, :gate_valid_upto, class: "input"%>
+                </div>
+            </div>
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Last Employment information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="col-12 flex items-center mb2">
+                <%= checkbox f, :salary, class: "mr1"%>
+                <div class="">
+                    <label class="h5 caps bold">I am being sponsored by my organization</label>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Organization</label>
+                    </div>
+                    <%= text_input f, :company_name, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Address Line 1</label>
+                    </div>
+                    <%= text_input f, :company_address, class: "input"%>
+                </div>
+                <div class="col-12 md-col-6 px2">
+                    <div>
+                        <label class="h5 caps bold">Address Line 2</label>
+                    </div>
+                    <%=# text_input f, :percentage_ten, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">City</label>
+                    </div>
+                    <%= text_input f, :company_city, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">State</label>
+                    </div>
+                    <%= text_input f, :company_state, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Pin Code</label>
+                    </div>
+                    <%= text_input f, :company_pin, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Designation</label>
+                    </div>
+                    <%= text_input f, :designation, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Nature of Job</label>
+                    </div>
+                    <%= text_input f, :nature_of_work, class: "input"%>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Salary</label>
+                    </div>
+                    <%= text_input f, :salary, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Date of Joining</label>
+                    </div>
+                    <%= text_input f, :doj, class: "input", placeholder: "yyyy-mm-dd" %>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Date of Leaving</label>
+                    </div>
+                    <%= text_input f, :dol, class: "input", placeholder: "yyyy-mm-dd" %>
+                </div>
+                <div class="col-12 md-col-3 px2">
+                    <div>
+                        <label class="h5 caps bold">Total Work Exp</label>
+                    </div>
+                    <%= text_input f, :total_experience, class: "input"%>
+                </div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">UNDERTAKING/DECLARATION BY THE STUDENT AND THE GUARDIAN</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <h5 class="my0 black" style="margin-bottom: 10px;">I, Mr. /Ms. a</h5></div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black">son/daughter/wife of </h5>
+                    <%= text_input f, :son_daughter_wife_of, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black">residing at </h5>
+                    <%= text_input f, :residing_at, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black">and having JEEM/JEE(M)/JELET Enrolment no .11 have applied for admission to MCKV Institute 
+ of Engineering after having gone through the Rules and Regulations with particular regard to maintaining the discipline of the Institute in all its forms and aspects. I, therefore, undertake and declare that: </h5></div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <ul style="list-style-type: lower-alpha;">
+                        <li>
+                            <h5 class="my0 black"> I will abide by the rules and regulations of the Institute that are in force as of now and/or that may be in force from time to time. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;"> I undertake and declare that during the period of my studies at MCKV Institute of engineering, I will not indulge in any act of indiscipline causing damage to the property and the good name of the Institute or take part in any activity organized by the student or by any organization on behalf of the students on any ground which may be detrimental to the interest of the institute or which may impede proper functioning of the institute or in any way may hamper imparting education to the students of the Institute. In case I indulge or involve myself in any such activity I shall subject myself to disciplinary action of the Institute which may lead up to my expulsion from the Institute. </h5></li>
+                        <li>
+                            <h5 class="my0 black"> I am aware of the West Bengal prohibition of RAGGING in Educational Institutions Act, 2000. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;"> I am aware that if my attendance in a subject before any of the Class Test is below 75%, I will not be allowed to sit for that Class Test. I am also aware that average of two Class Tests marks will be awarded by the concerned teacher. I will not get any mark for my non appearance of Class Test. In case, 3rd Class Test is conducted, best marks obtained in two Class Tests will be considered for deciding my Class Test marks. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;">I will be adhering to the College DRESS CODE (wearing of College Uniform and ID Card is a must. Chappals/Slippers are not allowed inside the College Campus) all through my studies in this Institute. I am aware that the authority may not permit me to enter into the Campus/Class Room/Tutorial Room/Labs/Examination Hall, if I fail to adhere to the Dress Code specified by the Institute. Breach of Dress Code will be treated as gross indiscipline on the part of me for which I may be liable to be punished in such manner as may be decided by the Institute Authority. </h5></li>
+                        <li>
+                            <h5 class="my0 black">I undertake to pay Semester Fee and/or Hostel Fee in time, failing which I shall be bound to pay the financial penalty as per Notification of the Institute Authorities from time to time. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;"> I also undertake that if as a result of any act of indiscipline of mine, any property or equipment of the campus of the Institute or its hall of residence is damaged or any loss is caused to the Institute, the cost of the same will be borne by me. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;"> I undertake not to participate in any other course organized by other authority / organization without written permission from the Principal of the Institute and that the decision of the Principal in this regard shall be final and binding on me. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;">I am fully aware that the Institute may arrange campus interview for placement or may send me to participate in off-campus/pooled campus interviews at the different stage of my studentship but it does never give any guarantee for the job in any manner whatsoever. </h5></li>
+                        <li>
+                            <h5 class="my0 black">I am fully aware that the students' canteen of the Institute will provide only vegetarian food and that I shall make no demand for providing non-vegetarian food. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;">I am fully aware that besides the registration fee and the semester examinations fees, the University (MAKAUT) may charge certain yearly fees like student development fee, University development fee and University sports fee etc. I, therefore, undertake that I will pay those fees to the University through the college in the manner as may be specified by the University. </h5></li>
+                        <li>
+                            <h5 class="my0 black" style="text-align: justify;">I am fully aware of the purpose of caution deposit. I therefore, undertake that I shall not pray for its adjustment with any of the fees or charges during my studentship. I am also aware that I shall get back the amount interest free after the cessation of studentship on submission of certificate from all the relevant departments/sections. </h5></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <h5 class="my0 black">Date: </h5></div>
+                <div class="col-12 md-col-3 px2"></div>
+                <div class="col-12 md-col-3 px2">
+                    <hr class="border-green" style="border-style: dotted;">
+                    <h5 class="my0 black" style="margin-bottom: 22px;">Full Signature of the Student </h5></div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black" style="margin-bottom: 1px;">We , Shri/Smt </h5>
+                    <%= text_input f, :we_shri_smt, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black" style="margin-bottom: 1px;">do hereby declare that we have carefully gone through the rules and regulations of the Institute and after being fully satisfied ourselves we admit our son / daughter on this date of </h5>
+                    <%= text_input f, :this_date_of, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-6 px2">
+                    <h5 class="my0 black" style="margin-bottom: 1px; margin-top: -13px;">in the Institute in the stream of </h5>
+                    <%= text_input f, :stream, class: "input", disabled: true %>
+                </div>
+                <div class="col-12 md-col-6 px2">
+                    <h5 class="my0 black" style="margin-bottom: 1px; margin-top: -13px;">for the Session </h5>
+                    <%= text_input f, :for_the_session, class: "input"%>
+                </div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black" style="text-align: justify; margin-top: -13px;">and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time </h5></div>
+            </div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 px2">
+                    <h5 class="my0 black" style="text-align: justify; margin-top: 10px;">of admission and as will be payable for subsequent semesters during the period of his/her study at the Institute. </h5></div>
+            </div>
+            <div class="flex items-top mxn2" style="margin-bottom: 20px;">
+                <div class="col-12 px2">
+                    <h5 class="my0 black" style="text-align: justify; margin-top: 21px;">We declare that we are aware of the West Bengal Prohibition of RAGGING in Educational Institutions Act, 2000. We are also aware of the Hon'ble Supreme Court's verdict against RAGGING. We, therefore, undertake, as did our ward above, that we shall accept any kind of punishment (including rustication from the Institute) given to him/her in the event of his/her involvement in RAGGING the students. </h5></div>
+            </div>
+            <div class="flex items-top mxn2"></div>
+            <div class="flex items-top mxn2">
+                <div class="col-12 md-col-3 px2">
+                    <hr class="border-green" style="border-style: dotted;">
+                    <h5 class="my0 black">Date </h5></div>
+                <div class="col-12 md-col-3 px2">
+                    <hr class="border-green" style="border-style: dotted;">
+                    <h5 class="my0 black">Full Signature of the Father </h5></div>
+                <div class="col-12 md-col-3 px2">
+                    <hr class="border-green" style="border-style: dotted;">
+                    <h5 class="my0 black">(Guardian with relation)</h5></div>
+                <div class="col-12 md-col-3 px2">
+                    <hr class="border-green" style="border-style: dotted;">
+                    <h5 class="my0 black">Full Signature of the Mother </h5></div>
+            </div>
+            <hr class="border-green" style="border-style: dotted;">
+            <div class="flex items-top justify-center mxn2 mb4">
+                <div class="px2 col-6 right-align">
+                    <button class="border-none py1 px2 bg-silver black h4 caps bold rounded col-12 md-col-4">Previous</button>
+                </div>
+                <div class="px2 col-6">
+                    <button class="border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% end %>

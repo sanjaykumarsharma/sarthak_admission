@@ -1,0 +1,33 @@
+<div class="px2 md-px4">
+  <div>
+    <div class="mt4 rounded col-6 border border-gray mx-auto">
+      <div>
+        <img src="<%= Routes.static_path(@conn, "/images/slide2.jpg") %>" alt="Phoenix Framework Logo"/>
+      </div>
+      
+      <div class="p4">
+        
+        <%= form_for @conn, Routes.page_path(@conn, :validate_token), fn f -> %>
+
+          <div>
+            <%= label f, :token_no, class: "h5 caps bold" %>
+          </div>
+          <div class="flex items-top">
+            <%= text_input f, :token_no, class: "input mb0 mr2 flex-auto" %>
+            <%= submit "Submit", class: "border-none rounded p1 bg-blue white h3 mb0" %>
+          </div>
+          <span class="red h5"></span>
+
+        <% end %>
+
+      </div>
+
+      <div class="flex items-center justify-center py2 border-top border-gray">
+        <div>
+          <img style="width: 80px" alt="Phoenix Framework Logo" src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" />
+        </div>
+        <h4>MCKV Institute of Engineering</h4>
+      </div>
+    </div>
+  </div>
+</div>

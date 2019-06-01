@@ -1,0 +1,61 @@
+**************************page_one_details*********************
+
+create table(:student_staging, primary_key: false) do
+      add :admission_date, :date
+      add :status, :string
+      add :course_id, :string
+      add :department_id, :string
+
+ create table(:student_entrance_staging, primary_key: false) do
+        gate_rank-> page_three
+        gate_valid_upto-> page_three
+        add :mq, :boolean, default: false
+
+create table(:student_personal_details, primary_key: false) do
+
+
+*************************page_two_details***********************
+
+
+create table(:student_family_details, primary_key: false) do
+          hostel_required-> page_one
+          fee_payee-> page_one
+          student_pan_card-> page_one
+          student_acn-> page_one
+
+          add :m_e_type, :string, null: true, default: nil
+          add :f_e_type, :string, null: true, default: nil
+          
+
+*************************page_three_details***********************
+
+create table(:student_marks_ten, primary_key: false) do
+      add :subject_code, :string
+      add :marks, :float
+
+create table(:student_total_marks_ten, primary_key: false) do
+
+create table(:student_marks_twelve, primary_key: false) do
+      add :subject_code, :string
+      add :marks, :float
+
+create table(:student_total_marks_twelve, primary_key: false) do
+
+
+create table(:student_marks_diploma, primary_key: false) do
+      add :subject_code, :string
+      add :marks, :float
+
+create table(:student_total_marks_diploma, primary_key: false) do
+
+create table(:student_total_marks_graduation, primary_key: false) do
+
+create table(:student_work_experience, primary_key: false) do
+
+*****UNDERTAKING******* new have to create
+
+son_daughter_wife_of
+residing_at
+we_shri_smt
+this_date_of
+for_the_Session
