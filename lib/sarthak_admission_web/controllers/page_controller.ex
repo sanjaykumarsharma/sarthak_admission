@@ -5,8 +5,12 @@ defmodule SarthakAdmissionWeb.PageController do
   alias SarthakAdmission.Admission.StudentStaging
   alias SarthakAdmission.Admission.StudentEntranceStaging
   alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
   alias SarthakAdmission.Admission.PageOne
   alias SarthakAdmission.Admission.PageTwo
+  alias SarthakAdmission.Admission.PageThree
+
+  alias SarthakAdmission.Admission.Print
 
   def index(conn, _params) do
     render(conn, "index.html", token_no: nil)
@@ -17,13 +21,18 @@ defmodule SarthakAdmissionWeb.PageController do
     render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
   end
 
+  def page_one_edit(conn, %{"token_no" => token_no}) do
+    changeset = PageOne.change_page_one(%StudentStaging{})
+    render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
+  end
+
   def page_two(conn, %{"token_no" => token_no}) do
     changeset = PageTwo.change_page_two(%StudentFamilyDetailsStaging{})
     render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
   end
 
   def page_three(conn, %{"token_no" => token_no}) do
-    changeset = PageOne.change_page_one(%StudentStaging{})
+    changeset = PageThree.change_page_three(%StudentTotalMarksGraduationStaging{})
     render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
   end
 
@@ -54,7 +63,11 @@ defmodule SarthakAdmissionWeb.PageController do
         "sex" => params["sex"],
         "course_id" => "1",
         "department_id" => "1",
-        "token_no" => token_no
+        "token_no" => token_no,
+        "hostel_required" => params["hostel_required"],
+        "fee_payee" => params["fee_payee"],
+        "student_pan_card" => params["student_pan_card"],
+        "student_acn" => params["student_acn"]
       }
 
       student_entrance_staging_params = %{
@@ -98,6 +111,8 @@ defmodule SarthakAdmissionWeb.PageController do
         "passport_expiry" => params["passport_expiry"],
         "passport_no" => params["passport_no"],
         "religion" => params["religion"],
+        "p_ps" => params["p_ps"],
+        "c_ps" => params["c_ps"],
         "token_no" => token_no
       }
 
@@ -126,11 +141,6 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def create_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
-    # redirect(conn, to: Routes.page_path(conn, :page_three, token_no))
-    # page_two_changeset = PageTwo.student_staging_changeset(params, token_no)
-    # IO.inspect("page_two_changeset")
-    # IO.inspect(page_two_changeset)
-
     case PageTwo.create_page_two(params, token_no) do
       {:ok, result} ->
         conn
@@ -140,6 +150,104 @@ defmodule SarthakAdmissionWeb.PageController do
       {:error, %Ecto.Changeset{} = changeset} ->
         IO.inspect(changeset)
         render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
+    end
+  end
+
+  def create_page_three(conn, %{
+        "student_total_marks_graduation_staging" => params,
+        "token_no" => token_no
+      }) do
+    page_three_changeset = PageThree.student_stagin_changeset(params, token_no)
+    # IO.inspect("page_three_changeset")
+    # IO.inspect(page_three_changeset)
+
+    # case PageThree.create_page_three_test(
+    #        params,
+    #        token_no
+    #      ) do
+    #   {:ok, result} ->
+    #     conn
+    #     |> put_flash(:info, "Page three saved successfully.")
+    #     |> redirect(to: Routes.page_path(conn, :page_two, token_no))
+
+    #   {:error, %Ecto.Changeset{} = changeset} ->
+    #     IO.inspect(changeset)
+    #     render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
+    # end
+
+    if page_three_changeset.valid? do
+      student_total_marks_graduation_staging_params = %{
+        "course" => params["course_graduation"],
+        "degree" => params["degree_graduation"],
+        "institute" => params["institute_graduation"],
+        "percentage" => params["percentage_graduation"],
+        "university" => params["university_graduation"],
+        "yoa" => params["yoa_graduation"],
+        "yop" => params["yop_graduation"],
+        "token_no" => token_no
+      }
+
+      student_work_ex_staging_params = %{
+        "sponsored" => params["sponsored"],
+        "company_name" => params["company_name"],
+        "company_address" => params["company_address"],
+        "company_city" => params["company_city"],
+        "company_state" => params["company_state"],
+        "company_pin" => params["company_pin"],
+        "designation" => params["designation"],
+        "nature_of_work" => params["nature_of_work"],
+        "doj" => params["doj"],
+        "dol" => params["dol"],
+        "total_experience" => params["total_experience"],
+        "salary" => params["salary"],
+        "sponsored" => params["sponsored"],
+        "company_name" => params["company_name"],
+        "company_address" => params["company_address"],
+        "company_city" => params["company_city"],
+        "company_state" => params["company_state"],
+        "company_pin" => params["company_pin"],
+        "designation" => params["designation"],
+        "nature_of_work" => params["nature_of_work"],
+        "doj" => params["doj"],
+        "dol" => params["dol"],
+        "total_experience" => params["total_experience"],
+        "salary" => params["salary"],
+        "token_no" => token_no
+      }
+
+      IO.inspect("student_work_ex_staging_params")
+      IO.inspect(student_work_ex_staging_params)
+
+      student_undertaking_staging_params = %{
+        "son_daughter_wife_of" => params["son_daughter_wife_of"],
+        "residing_at" => params["residing_at"],
+        "we_shri_smt" => params["we_shri_smt"],
+        "this_date_of" => params["this_date_of"],
+        "for_the_session" => params["for_the_session"],
+        "token_no" => token_no
+      }
+
+      IO.inspect("student_undertaking_staging_params")
+      IO.inspect(student_undertaking_staging_params)
+
+      case PageThree.create_page_three(
+             student_total_marks_graduation_staging_params,
+             student_work_ex_staging_params,
+             student_undertaking_staging_params,
+             token_no
+           ) do
+        {:ok, result} ->
+          conn
+          |> put_flash(:info, "Page three saved successfully.")
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+
+        {:error, %Ecto.Changeset{} = changeset} ->
+          IO.inspect(changeset)
+          render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
+      end
+    else
+      IO.inspect(page_three_changeset)
+      render(conn, "page_three_new.html", changeset: page_three_changeset, token_no: token_no)
     end
   end
 
@@ -165,6 +273,29 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def print(conn, %{"token_no" => token_no}) do
-    render(conn, "print.html", token_no: token_no)
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        student_staging = Print.read_student_staging(uuid)
+        student_entrance_staging = Print.read_student_entrance_staging(uuid)
+        student_personal_details_staging = Print.read_student_personal_details_staging(uuid)
+
+        student_family_details_staging = Print.read_student_family_details_staging(uuid)
+
+        student_undertaking_staging = Print.read_student_undertaking_staging(uuid)
+
+        render(conn, "print.html",
+          token_no: token_no,
+          student: student_staging,
+          se: student_entrance_staging,
+          spd: student_personal_details_staging,
+          sfd: student_family_details_staging,
+          su: student_undertaking_staging
+        )
+
+      :error ->
+        conn
+        |> put_flash(:error, "Invalid Token No")
+        |> render("index.html", token_no: nil)
+    end
   end
 end

@@ -55,6 +55,9 @@ defmodule SarthakAdmission.Repo.Migrations.AddStudentFamilyDetailsStaging do
       add :guardian_acn, :string, null: true, default: nil
       add :lg_land_phone, :string, null: true, default: nil
       add :f_organization, :string, null: true, default: nil
+      add :m_e_address_line_two, :string, null: true, default: nil
+      add :f_e_address_line_two, :string, null: true, default: nil
+      add :lg_e_address_line_two, :string, null: true, default: nil
 
       add :token_no,
           references(:student_staging, on_delete: :delete_all, type: :uuid, column: :token_no)

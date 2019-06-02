@@ -12,21 +12,21 @@ create table(:student_staging, primary_key: false) do
         add :mq, :boolean, default: false
 
 create table(:student_personal_details, primary_key: false) do
-
+   >>>>> added p_ps and c_ps
 
 *************************page_two_details***********************
 
 
 create table(:student_family_details, primary_key: false) do
-          hostel_required-> page_one
-          fee_payee-> page_one
+          hostel_required-> page_one >>>>>>> added in student_staging
+          fee_payee-> page_one 
           student_pan_card-> page_one
           student_acn-> page_one
 
           add :m_e_type, :string, null: true, default: nil
           add :f_e_type, :string, null: true, default: nil
-          
-
+ >>>>>>> added m_e_address_line_two and f_e_address_line_two and lg_address_line_2    
+ 
 *************************page_three_details***********************
 
 create table(:student_marks_ten, primary_key: false) do

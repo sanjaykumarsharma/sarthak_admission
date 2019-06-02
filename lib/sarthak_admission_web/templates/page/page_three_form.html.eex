@@ -120,7 +120,7 @@
                     <div>
                         <label class="h5 caps bold">Marks(%)</label>
                     </div>
-                    <%= text_input f, :percentage_ten, class: "input", disabled: true %>
+                    <%= number_input f, :percentage_ten, class: "input", disabled: true %>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -128,7 +128,7 @@
                     <div>
                         <label class="h5 caps bold">YOP</label>
                     </div>
-                    <%= text_input f, :yop_ten, class: "input"%>
+                    <%= number_input f, :yop_ten, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div class="">
@@ -262,7 +262,7 @@
                     <div>
                         <label class="h5 caps bold">Marks(%)</label>
                     </div>
-                    <%= text_input f, :percentage_twelve, class: "input", disabled: true %>
+                    <%= number_input f, :percentage_twelve, class: "input", disabled: true %>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -270,7 +270,7 @@
                     <div>
                         <label class="h5 caps bold">YOP</label>
                     </div>
-                    <%= text_input f, :yop_twelve, class: "input"%>
+                    <%= number_input f, :yop_twelve, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
@@ -351,7 +351,7 @@
                         <div>
                             <label class="h5 caps bold">Subject</label>
                         </div>
-                        <%=# text_input f, :percentage_ten, class: "input"%>
+                        <%=# number_input f, :percentage_ten, class: "input"%>
                     </div>
                     <div class="col-12 md-col-3 px2">
                         <div>
@@ -382,7 +382,7 @@
                     <div>
                         <label class="h5 caps bold">Marks(%)</label>
                     </div>
-                    <%= text_input f, :percentage_diploma, class: "input", disabled: true %>
+                    <%= number_input f, :percentage_diploma, class: "input", disabled: true %>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -390,7 +390,7 @@
                     <div>
                         <label class="h5 caps bold">YOP</label>
                     </div>
-                    <%= text_input f, :yop_diploma, class: "input"%>
+                    <%= number_input f, :yop_diploma, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div class="">
@@ -423,19 +423,19 @@
                     <div>
                         <label class="h5 caps bold">Marks(%)</label>
                     </div>
-                    <%= text_input f, :percentage_graduation, class: "input"%>
+                    <%= number_input f, :percentage_graduation, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
                         <label class="h5 caps bold">YOA</label>
                     </div>
-                    <%= text_input f, :yoa_graduation, class: "input"%>
+                    <%= number_input f, :yoa_graduation, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
                         <label class="h5 caps bold">YOP</label>
                     </div>
-                    <%= text_input f, :yop_graduation, class: "input"%>
+                    <%= number_input f, :yop_graduation, class: "input"%>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -487,7 +487,7 @@
                 </div>
             </div>
             <div class="col-12 flex items-center mb2">
-                <%= checkbox f, :salary, class: "mr1"%>
+                <%= checkbox f, :sponsored, class: "mr1"%>
                 <div class="">
                     <label class="h5 caps bold">I am being sponsored by my organization</label>
                 </div>
@@ -511,7 +511,7 @@
                     <div>
                         <label class="h5 caps bold">Address Line 2</label>
                     </div>
-                    <%=# text_input f, :percentage_ten, class: "input"%>
+                    <%=# number_input f, :percentage_ten, class: "input"%>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -551,7 +551,7 @@
                     <div>
                         <label class="h5 caps bold">Salary</label>
                     </div>
-                    <%= text_input f, :salary, class: "input"%>
+                    <%= number_input f, :salary, class: "input"%>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -590,12 +590,14 @@
                 <div class="col-12 px2">
                     <h5 class="my0 black">son/daughter/wife of </h5>
                     <%= text_input f, :son_daughter_wife_of, class: "input"%>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :son_daughter_wife_of %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
                 <div class="col-12 px2">
                     <h5 class="my0 black">residing at </h5>
                     <%= text_input f, :residing_at, class: "input"%>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :residing_at %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -645,27 +647,30 @@
                 <div class="col-12 px2">
                     <h5 class="my0 black" style="margin-bottom: 1px;">We , Shri/Smt </h5>
                     <%= text_input f, :we_shri_smt, class: "input"%>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :we_shri_smt %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
                 <div class="col-12 px2">
                     <h5 class="my0 black" style="margin-bottom: 1px;">do hereby declare that we have carefully gone through the rules and regulations of the Institute and after being fully satisfied ourselves we admit our son / daughter on this date of </h5>
                     <%= text_input f, :this_date_of, class: "input"%>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :this_date_of %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
                 <div class="col-12 md-col-6 px2">
-                    <h5 class="my0 black" style="margin-bottom: 1px; margin-top: -13px;">in the Institute in the stream of </h5>
+                    <h5 class="my0 black" style="margin-bottom: 1px;">in the Institute in the stream of </h5>
                     <%= text_input f, :stream, class: "input", disabled: true %>
                 </div>
                 <div class="col-12 md-col-6 px2">
-                    <h5 class="my0 black" style="margin-bottom: 1px; margin-top: -13px;">for the Session </h5>
+                    <h5 class="my0 black" style="margin-bottom: 1px;">for the Session </h5>
                     <%= text_input f, :for_the_session, class: "input"%>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :for_the_session %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
                 <div class="col-12 px2">
-                    <h5 class="my0 black" style="text-align: justify; margin-top: -13px;">and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time </h5></div>
+                    <h5 class="my0 black" style="text-align: justify;">and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time </h5></div>
             </div>
             <div class="flex items-top mxn2">
                 <div class="col-12 px2">

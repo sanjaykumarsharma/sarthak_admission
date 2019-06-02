@@ -28,6 +28,8 @@ defmodule SarthakAdmission.Admission.StudentPersonalDetailsStaging do
     field(:passport_expiry, :string)
     field(:passport_no, :string)
     field(:religion, :string)
+    field(:p_ps, :string)
+    field(:c_ps, :string)
 
     timestamps()
   end
@@ -61,7 +63,9 @@ defmodule SarthakAdmission.Admission.StudentPersonalDetailsStaging do
       :mother_tongue,
       :other_languages,
       :passport_no,
-      :passport_expiry
+      :passport_expiry,
+      :p_ps,
+      :c_ps
     ])
     |> validate_required([
       :dob,

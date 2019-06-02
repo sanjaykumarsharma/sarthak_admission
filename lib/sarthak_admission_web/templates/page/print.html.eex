@@ -77,25 +77,25 @@
                     <table class="table mb2">
                         <tr>
                             <td>WBJEE Enrolment No</td>
-                            <td>7721200351</td>
+                            <td><%= @se.enrolment_no %></td>
                             <td>Rank</td>
-                            <td>81672</td>
+                            <td><%= @se.rank %></td>
                         </tr>
                         <tr>
                             <td>TFW Rank</td>
-                            <td></td>
+                            <td><%= @se.tfw_rank %></td>
                             <td>Quota</td>
-                            <td>MQ</td>
+                            <td><%= @student.quota %></td>
                         </tr>
                         <tr>
                             <td>Examination Center</td>
-                            <td colspan="3">HOWRAH ZILLA SCHOOL 9,CHURCH ROAD , HOWRAH-711101</td>
+                            <td colspan="3"><%= @se.center_name %></td>
                         </tr>
                         <tr>
                             <td>Course</td>
-                            <td>BTECH ME</td>
+                            <td><%= @student.course_id %></td>
                             <td>Hostel Required</td>
-                            <td class="bold">No</td>
+                            <td class="bold"><%= @student.hostel_required %></td>
                         </tr>
                     </table>
                     <div class="py0 bold mb1">I. Personal Information</div>
@@ -104,32 +104,32 @@
                             <table class="table">
                                 <tr>
                                     <td>Students's Name</td>
-                                    <td colspan="3" class="bold">SAGARJIT DAS</td>
+                                    <td colspan="3" class="bold"><%= @student.name %></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="bold">Permanent Address</td>
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td colspan="3">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH</td>
+                                    <td colspan="3"><%= @spd.p_address %></td>
                                 </tr>
                                 <tr>
                                     <td>City</td>
-                                    <td>HOWRAH</td>
+                                    <td><%= @spd.p_city %></td>
                                     <td>State</td>
-                                    <td>WEST BENGAL</td>
+                                    <td><%= @spd.p_state %></td>
                                 </tr>
                                 <tr>
                                     <td>Pin Code</td>
-                                    <td>711101</td>
+                                    <td><%= @spd.p_pin %></td>
                                     <td>Land Phone</td>
-                                    <td>03326373868</td>
+                                    <td><%= @spd.p_land_phone %></td>
                                 </tr>
                                 <tr>
                                     <td>Mobile</td>
-                                    <td>9477286343</td>
+                                    <td><%= @spd.mobile %></td>
                                     <td>Email</td>
-                                    <td>dsagarjit6@gmail.com</td>
+                                    <td><%= @spd.email %></td>
                                 </tr>
                             </table>
                         </div>
@@ -141,76 +141,76 @@
                     <table class="table mb2">
                         <tr>
                             <td>Address</td>
-                            <td colspan="3">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH</td>
+                            <td colspan="3"><%= @spd.c_address %></td>
                         </tr>
                         <tr>
                             <td>City</td>
-                            <td>HOWRAH</td>
+                            <td><%= @spd.c_city %></td>
                             <td>State</td>
-                            <td>WEST BENGAL</td>
+                            <td><%= @spd.c_state %></td>
                         </tr>
                         <tr>
                             <td>Pin Code</td>
-                            <td>711101</td>
+                            <td><%= @spd.c_pin %></td>
                             <td>Land Phone</td>
-                            <td>03326373868</td>
+                            <td><%= @spd.c_land_phone %></td>
                         </tr>
                     </table>
                     <table class="table">
                         <tr>
                             <td>DOB</td>
-                            <td>27/03/2001</td>
+                            <td><%= @spd.dob %></td>
                             <td>Gender</td>
-                            <td>M</td>
+                            <td><%= @student.sex %></td>
                         </tr>
                         <tr>
                             <td>Marital Status</td>
-                            <td>S</td>
+                            <td><%= @spd.marital_status %></td>
                             <td>Nationality</td>
-                            <td>INDIAN</td>
+                            <td><%= @spd.nationality %></td>
                         </tr>
                         <tr>
                             <td>Religion</td>
-                            <td>HINDU</td>
+                            <td><%= @spd.religion %></td>
                             <td>Category</td>
-                            <td>SC</td>
+                            <td><%= @se.category %></td>
                         </tr>
                         <tr>
                             <td>Mother Tongue</td>
-                            <td>BENGALI</td>
+                            <td><%= @spd.mother_tongue %></td>
                             <td>Other Languages Known</td>
-                            <td>ENGLISH HINDI</td>
+                            <td><%= @spd.other_languages %></td>
                         </tr>
                         <tr>
                             <td>Passport No</td>
-                            <td></td>
+                            <td><%= @spd.passport_no %></td>
                             <td>Expiry Date</td>
-                            <td></td>
+                            <td><%= @spd.passport_expiry %></td>
                         </tr>
                         <tr>
                             <td>Identification Marks</td>
-                            <td>MOLE IN LEFT HAND</td>
+                            <td><%= @spd.identification_marks %></td>
                             <td>Economically Backward</td>
-                            <td>No</td>
+                            <td><%= @se.ebc %></td>
                         </tr>
                         <tr>
                             <td>Student PAN</td>
-                            <td>ENEPD5979J</td>
+                            <td><%= @student.student_pan_card %></td>
                             <td>Student AADHAAR</td>
-                            <td>803344850899</td>
+                            <td><%= @student.student_acn %></td>
                         </tr>
                         <tr>
                             <td colspan="3">Who is responsible for payment of Tuition/Sem fees?</td>
-                            <td>Father</td>
+                            <td><%= @student.fee_payee %></td>
                         </tr>
                     </table>
                 </div>
                 <div class="break"></div>
                 <div>
                     <h5 class="bold center mb1 mt0 underline">UNDERTAKING/DECLARATION BY THE STUDENT AND THE GUARDIAN</h5>
-                    <div class="h6">I, Mr. /Ms. <span class="bold">SAGARJIT DAS</span></div>
-                    <div class="h6">son/daughter/wife of <span class="bold">SUJIT DAS</span></div>
-                    <div class="h6">residing at <span class="bold">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101</span> and having WBJEE/JEE MAIN/JELET Enrolment no <span class="bold">7721200351</span> have applied for admission to MCKV Institute</div>
+                    <div class="h6">I, Mr. /Ms. <span class="bold"><%= @student.name %></span></div>
+                    <div class="h6">son/daughter/wife of <span class="bold"><%= @su.son_daughter_wife_of %></span></div>
+                    <div class="h6">residing at <span class="bold"><%= @su.residing_at %></span> and having WBJEE/JEE MAIN/JELET Enrolment no <span class="bold"><%= @se.enrolment_no %></span> have applied for admission to MCKV Institute</div>
                     <div class="h6">of Engineering after having gone through the Rules and Regulations with particular regard to maintaining the discipline of the Institute in all its forms and aspects. I, therefore, undertake and declare that:</div>
                     <ol type="a" class="h6 pl2">
                         <li>I will abide by the rules and regulations of the Institute that are in force as of now and/or that may be in force from time to time.</li>
@@ -239,7 +239,7 @@
                         </div>
                     </div>
                     <div class="center mb1 underline h6 bold">DECLARATION BY THE PARENTS/GUARDIAN</div>
-                    <div class="h6 mb1">We , Shri/Smt <span class="bold">SUJIT DAS</span> do hereby declare that we have carefully gone through the rules and regulations of the Institute and after being fully satisfied ourselves we admit our son / daughter on this date of <span class="bold">28/05/2018</span> in the Institute in the stream of <span class="bold">ME</span> for the Session <span class="bold">2018-2019</span> and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time of admission and as will be payable for subsequent semesters during the period of his/her study at the Institute.</div>
+                    <div class="h6 mb1">We , Shri/Smt <span class="bold"><%= @su.we_shri_smt %></span> do hereby declare that we have carefully gone through the rules and regulations of the Institute and after being fully satisfied ourselves we admit our son / daughter on this date of <span class="bold"><%= @su.this_date_of %></span> in the Institute in the stream of <span class="bold">******</span> for the Session <span class="bold"><%= @su.for_the_session %></span> and agree to pay the fees of the Institute as also the fees of the University (MAKAUT) specified at the time of admission and as will be payable for subsequent semesters during the period of his/her study at the Institute.</div>
                     <div class="h6">We declare that we are aware of the West Bengal Prohibition of RAGGING in Educational Institutions Act, 2000. We are also aware of the Hon'ble Supreme Court's verdict against RAGGING. We, therefore, undertake, as did our ward above, that we shall accept any kind of punishment (including rustication from the Institute) given to him/her in the event of his/her involvement in RAGGING the students.</div>
                     <div class="flex items-top justify-between h6 mt3">
                         <div>
@@ -263,41 +263,41 @@
                             <table class="table">
                                 <tr>
                                     <td>Father's Name</td>
-                                    <td colspan="3">SUJIT DAS</td>
+                                    <td colspan="3"><%= @sfd.f_name %></td>
                                 </tr>
                                 <tr>
                                     <td>Occupation</td>
-                                    <td>Service</td>
+                                    <td><%= @sfd.f_occupation %></td>
                                     <td>Organization</td>
-                                    <td>CULCUTTA TELEPHONES (BSNL)</td>
+                                    <td><%= @sfd.f_organization %></td>
                                 </tr>
                                 <tr>
                                     <td>Deisgnation</td>
-                                    <td>T/T</td>
+                                    <td><%= @sfd.f_designation %></td>
                                     <td>Department</td>
-                                    <td>CUSTOMER SERVICE </td>
+                                    <td><%= @sfd.f_department %> </td>
                                 </tr>
                                 <tr>
                                     <td>Office Address</td>
-                                    <td colspan="3">4, DR. P.K BANERJEE ROAD , HOWRAH 711101 HOWRAH WEST BENGAL 711101</td>
+                                    <td colspan="3"><%= @sfd.f_e_address %> <%= @sfd.f_e_address_line_two %> <%= @sfd.f_e_city %> <%= @sfd.f_e_state %> <%= @sfd.f_e_pin %></td>
                                 </tr>
                                 <tr>
                                     <td>Office Phone</td>
-                                    <td>03326402060</td>
+                                    <td><%= @sfd.f_e_land_phone %></td>
                                     <td>Mobile</td>
-                                    <td>9433739090</td>
+                                    <td><%= @sfd.f_mobile %></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>sujitd584@gmail.com</td>
+                                    <td><%= @sfd.f_email %></td>
                                     <td>Annual Income</td>
-                                    <td>600000</td>
+                                    <td><%= @sfd.f_annual_income %></td>
                                 </tr>
                                 <tr>
                                     <td>Father PAN</td>
-                                    <td>AEUPD1445E</td>
+                                    <td><%= @sfd.father_pan_card %></td>
                                     <td>Father AADHAAR</td>
-                                    <td>910181311893</td>
+                                    <td><%= @sfd.father_acn %></td>
                                 </tr>
                             </table>
                         </div>
@@ -310,41 +310,41 @@
                             <table class="table">
                                 <tr>
                                     <td>Mothers's Name</td>
-                                    <td colspan="3">BULA DAS</td>
+                                    <td colspan="3"><%= @sfd.m_name %></td>
                                 </tr>
                                 <tr>
                                     <td>Occupation</td>
-                                    <td>Housewife</td>
+                                    <td><%= @sfd.m_occupation %></td>
                                     <td>Organization</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_organization %></td>
                                 </tr>
                                 <tr>
                                     <td>Deisgnation</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_designation %></td>
                                     <td>Department</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_department %></td>
                                 </tr>
                                 <tr>
                                     <td>Office Address</td>
-                                    <td colspan="3"> 0</td>
+                                    <td colspan="3"><%= @sfd.m_e_address %> <%= @sfd.m_e_address_line_two %> <%= @sfd.m_e_city %> <%= @sfd.m_e_state %> <%= @sfd.m_e_pin %></td>
                                 </tr>
                                 <tr>
                                     <td>Office Phone</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_e_land_phone %></td>
                                     <td>Mobile</td>
-                                    <td>9477487100</td>
+                                    <td><%= @sfd.m_mobile %></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_email %></td>
                                     <td>Annual Income</td>
-                                    <td></td>
+                                    <td><%= @sfd.m_annual_income %></td>
                                 </tr>
                                 <tr>
                                     <td>Mother PAN</td>
-                                    <td></td>
+                                    <td><%= @sfd.mother_pan_card %></td>
                                     <td>Mother AADHAAR</td>
-                                    <td>298240960993</td>
+                                    <td><%= @sfd.mother_acn %></td>
                                 </tr>
                             </table>
                         </div>
@@ -352,48 +352,48 @@
                             <div class="border border-black flex items-center center px2" style="height: 160px; width: 160px;">Paste mother's recent self-attested photograph here</div>
                         </div>
                     </div>
-                    <div class="pb4 bold">III. Annual Family Income from all sources : 600000</div>
+                    <div class="pb4 bold">III. Annual Family Income from all sources : <%= @sfd.annual_family_income %></div>
                     <div class="bold mb1">IV. Local Guardian Information</div>
                     <div class="flex items-top mxn2 mb2">
                         <div class="px2 flex-auto">
                             <table class="table">
                                 <tr>
                                     <td>LG Name</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_name %></td>
                                     <td>Relationship</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_relation %></td>
                                 </tr>
                                 <tr>
                                     <td>Occupation</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_occupation %></td>
                                     <td>Organization</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_organization %></td>
                                 </tr>
                                 <tr>
                                     <td>Deisgnation</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_designation %></td>
                                     <td>Department</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_department %></td>
                                 </tr>
                                 <tr>
                                     <td>Office Address</td>
-                                    <td colspan="3"> 0</td>
+                                    <td colspan="3"> <%= @sfd.lg_address %> <%= @sfd.lg_e_address_line_two %> <%= @sfd.lg_city %> <%= @sfd.lg_state %> <%= @sfd.lg_pin %></td>
                                 </tr>
                                 <tr>
                                     <td>Office Phone</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_land_phone %></td>
                                     <td>Mobile</td>
-                                    <td></td>
+                                    <td><%= @sfd.lg_mobile %></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td colspan="3"></td>
+                                    <td colspan="3"><%= @sfd.lg_email %></td>
                                 </tr>
                                 <tr>
                                     <td>LG PAN</td>
-                                    <td></td>
+                                    <td><%= @sfd.guardian_pan_card %></td>
                                     <td>LG AADHAAR</td>
-                                    <td></td>
+                                    <td><%= @sfd.guardian_acn %></td>
                                 </tr>
                             </table>
                         </div>
@@ -612,27 +612,27 @@
                         <div class="flex-auto px2">
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Name: </div>
-                                <div class="px2 flex-auto">SAGARJIT DAS</div>
+                                <div class="px2 flex-auto"><%= @student.name %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Date of Birth: </div>
-                                <div class="px2 flex-auto">27/03/2001</div>
+                                <div class="px2 flex-auto"><%= @spd.dob %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Father's Name: </div>
-                                <div class="px2 flex-auto">SUJIT DAS</div>
+                                <div class="px2 flex-auto"><%= @sfd.f_name %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Mother's Name: </div>
-                                <div class="px2 flex-auto">BULA DAS</div>
+                                <div class="px2 flex-auto"><%= @sfd.m_name %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Address: </div>
-                                <div class="px2 flex-auto">12/4,RAM GOPAL SMRITI RATNA LANE , HOWRAH-711101 HOWRAH HOWRAH HOWRAH WEST BENGAL 711101</div>
+                                <div class="px2 flex-auto"><%=# @student.name %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Phone: </div>
-                                <div class="px2 flex-auto">9477286343</div>
+                                <div class="px2 flex-auto"><%=# @student.name %></div>
                             </div>
                         </div>
                         <div class="px2">

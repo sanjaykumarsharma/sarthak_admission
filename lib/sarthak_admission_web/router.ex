@@ -22,6 +22,9 @@ defmodule SarthakAdmissionWeb.Router do
     get "/page_one/:token_no", PageController, :page_one
     post "/page_one/:token_no", PageController, :create_page_one
 
+    get "/page_one_edit/:token_no", PageController, :page_one_edit
+    post "/page_one_edit/:token_no", PageController, :update_page_one
+
     get "/page_two/:token_no", PageController, :page_two
     post "/page_two/:token_no", PageController, :create_page_two
 

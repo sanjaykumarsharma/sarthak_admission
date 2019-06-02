@@ -56,6 +56,9 @@ defmodule SarthakAdmission.Admission.StudentFamilyDetailsStaging do
     field(:guardian_acn, :string)
     field(:lg_land_phone, :string)
     field(:f_organization, :string)
+    field(:m_e_address_line_two, :string)
+    field(:f_e_address_line_two, :string)
+    field(:lg_e_address_line_two, :string)
 
     timestamps()
   end
@@ -115,7 +118,10 @@ defmodule SarthakAdmission.Admission.StudentFamilyDetailsStaging do
       :mother_acn,
       :guardian_acn,
       :fee_payee,
-      :hostel_required
+      :hostel_required,
+      :m_e_address_line_two,
+      :f_e_address_line_two,
+      :lg_e_address_line_two
     ])
     |> validate_required([
       :m_name,

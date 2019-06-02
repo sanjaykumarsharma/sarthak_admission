@@ -13,6 +13,10 @@ defmodule SarthakAdmission.Admission.StudentStaging do
     field(:course_id, :string)
     field(:department_id, :string)
     field(:form_completed, :boolean)
+    field(:hostel_required, :boolean)
+    field(:fee_payee, :string)
+    field(:student_pan_card, :string)
+    field(:student_acn, :string)
 
     field(:category, :string, virtual: true)
     field(:center_address, :string, virtual: true)
@@ -50,6 +54,8 @@ defmodule SarthakAdmission.Admission.StudentStaging do
     field(:passport_expiry, :string, virtual: true)
     field(:passport_no, :string, virtual: true)
     field(:religion, :string, virtual: true)
+    field(:p_ps, :string, virtual: true)
+    field(:c_ps, :string, virtual: true)
 
     timestamps()
   end
@@ -68,6 +74,10 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :course_id,
       :department_id,
       :form_completed,
+      :hostel_required,
+      :fee_payee,
+      :student_pan_card,
+      :student_acn,
       :category,
       :center_address,
       :center_name,
@@ -103,7 +113,9 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :mother_tongue,
       :other_languages,
       :passport_no,
-      :passport_expiry
+      :passport_expiry,
+      :p_ps,
+      :c_ps
     ])
     |> validate_required([
       :name,
@@ -128,7 +140,8 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :c_address,
       :c_city,
       :c_state,
-      :c_pin
+      :c_pin,
+      :fee_payee
     ])
     |> validate_format(:email, ~r/@/)
     |> validate_length(:mobile, min: 10, max: 10)

@@ -60,8 +60,8 @@
                     <div class="">
                         <label class="h5 caps bold">Line 2</label>
                     </div>
-                    <%=# text_input f, :center_name, class: "input" %>
-                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :center_name %></div>
+                    <%= text_input f, :f_e_address_line_two, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_e_address_line_two %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -192,8 +192,8 @@
                     <div class="">
                         <label class="h5 caps bold">Line 2</label>
                     </div>
-                    <%=# text_input f, :center_name, class: "input" %>
-                    <div class="h5 red pb1" style="margin-top: -15px;"><%=# error_tag f, :center_name %></div>
+                    <%= text_input f, :m_e_address_line_two, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_e_address_line_two %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -334,8 +334,8 @@
                     <div>
                         <label class="h5 caps bold">Address Line 2</label>
                     </div>
-                    <%=# text_input f, :center_name, class: "input" %>
-                    <div class="h5 red pb1" style="margin-top: -15px;"><%=# error_tag f, :center_name %></div>
+                    <%= text_input f, :lg_e_address_line_two, class: "input" %>
+                    <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_e_address_line_two %></div>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -412,7 +412,7 @@
             <hr class="border-green" style="border-style: dotted;">
             <div class="flex items-top justify-center mxn2 mb4">
                 <div class="px2 col-6 right-align">
-                  <%= button "Previous", to: "/page_one", class: "border-none py1 px2 bg-silver black h4 caps bold rounded col-12 md-col-4" %>
+                  <%= button "Previous", to: "/page_one_edit/#{@token_no}", method: :get, class: "border-none py1 px2 bg-silver black h4 caps bold rounded col-12 md-col-4" %>
                 </div>
                 <div class="px2 col-6">
                     <%= submit "Next", class: "border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4" %>
