@@ -43,12 +43,12 @@
             </div>
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :rank, class: "h5 caps bold" %><span class="h4 red">*</span></div>
-               <%= text_input f, :rank, class: "input" %>
+               <%= number_input f, :rank, class: "input" %>
                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :rank %></div>
             </div>
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :tfw_rank, class: "h5 caps bold" %></div>
-               <%= text_input f, :tfw_rank, class: "input" %>
+               <%= number_input f, :tfw_rank, class: "input" %>
                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :tfw_rank %></div>
             </div>
             <div class="col-12 md-col-3 px2">
@@ -69,18 +69,15 @@
          <div class="flex items-top mxn2">
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :course, class: "h5 caps bold" %></div>
-               <%= text_input f, :course, class: "input" %>
-               <%# <input type="text" class="input" readonly=""> %>
+               <%= text_input f, :course, class: "input", disabled: true %>
             </div>
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :department, class: "h5 caps bold" %></div>
-               <%= text_input f, :department, class: "input" %>
-               <%# <input type="text" class="input" readonly=""> %>
+               <%= text_input f, :department, class: "input", disabled: true %>
             </div>
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :yop, class: "h5 caps bold" %></div>
-               <%= text_input f, :yop, class: "input" %>
-               <%# <input type="text" class="input" readonly=""> %>
+               <%= number_input f, :yop, class: "input", disabled: true %>
             </div>
          </div>
 
@@ -128,12 +125,12 @@
          <div class="flex items-top mxn2">
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :mobile_number, class: "h5 caps bold" %></div>
-               <%= text_input f, :mobile, class: "input" %>
+               <%= number_input f, :mobile, class: "input" %>
                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :mobile %></div>
             </div>
             <div class="col-12 md-col-3 px2">
                <div class=""><%= label f, :email, class: "h5 caps bold" %></div>
-               <%= text_input f, :email, class: "input" %>
+               <%= email_input f, :email, class: "input" %>
                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :email %></div>
             </div>
             <div class="col-12 md-col-3 px2">
@@ -245,7 +242,7 @@
             <div class="px2 col-12 md-col-6">
                <div class="flex items-top">
                   <h5 class="my0 caps gray bold">Correspondence Address</h5>
-                  <input type="checkbox">same as permanent address
+                  <input type="checkbox" id="cpoy_address" onclick="copyAddress()">same as permanent address
                </div>
                <div class="flex items-top mxn2">
                   <div class="col-12 px2">
@@ -338,3 +335,16 @@
   </div>    
 
 <% end %>
+
+<script type="text/javascript">
+   function copyAddress() {
+   console.log("copyAddress")
+   document.getElementById("student_staging_c_address").value = document.getElementById("student_staging_p_address").value
+   document.getElementById("student_staging_c_city").value = document.getElementById("student_staging_p_city").value
+   document.getElementById("student_staging_c_state").value = document.getElementById("student_staging_p_state").value
+   document.getElementById("student_staging_c_pin").value = document.getElementById("student_staging_p_pin").value
+   document.getElementById("student_staging_c_dist").value = document.getElementById("student_staging_p_district").value
+   document.getElementById("student_staging_c_land_phone").value = document.getElementById("student_staging_p_land_phone").value
+
+   }
+</script>

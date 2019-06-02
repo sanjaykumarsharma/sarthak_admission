@@ -106,7 +106,7 @@
                     <div>
                         <label class="h5 caps bold">Email</label>
                     </div>
-                    <%= text_input f, :f_email, class: "input" %>
+                    <%= email_input f, :f_email, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_email %></div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     <div>
                         <label class="h5 caps bold">Annual Income</label>
                     </div>
-                    <%= text_input f, :f_annual_income, class: "input" %>
+                    <%= number_input f, :f_annual_income, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :f_annual_income %></div>
                 </div>
             </div>
@@ -238,7 +238,7 @@
                     <div>
                         <label class="h5 caps bold">Email</label>
                     </div>
-                    <%= text_input f, :m_email, class: "input" %>
+                    <%= email_input f, :m_email, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_email %></div>
                 </div>
             </div>
@@ -247,7 +247,7 @@
                     <div>
                         <label class="h5 caps bold">Annual Income</label>
                     </div>
-                    <%= text_input f, :m_annual_income, class: "input" %>
+                    <%= number_input f, :m_annual_income, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :m_annual_income %></div>
                 </div>
             </div>
@@ -380,7 +380,7 @@
                     <div>
                         <label class="h5 caps bold">Email</label>
                     </div>
-                    <%= text_input f, :lg_email, class: "input" %>
+                    <%= email_input f, :lg_email, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :lg_email %></div>
                 </div>
             </div>
@@ -405,7 +405,7 @@
                 <div class="col-12 md-col-6 px2">
                     <div>
                         <label class="h5 caps bold">Annual Family Income from all sources</label><span class="h4 red">*</span></div>
-                    <%= text_input f, :annual_family_income, class: "input" %>
+                    <%= number_input f, :annual_family_income, class: "input" %>
                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :annual_family_income %></div>
                 </div>
             </div>

@@ -4,7 +4,9 @@ defmodule SarthakAdmissionWeb.PageController do
   alias SarthakAdmission.Admission.Token
   alias SarthakAdmission.Admission.StudentStaging
   alias SarthakAdmission.Admission.StudentEntranceStaging
+  alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
   alias SarthakAdmission.Admission.PageOne
+  alias SarthakAdmission.Admission.PageTwo
 
   def index(conn, _params) do
     render(conn, "index.html", token_no: nil)
@@ -16,7 +18,7 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def page_two(conn, %{"token_no" => token_no}) do
-    changeset = PageOne.change_page_one(%StudentStaging{})
+    changeset = PageTwo.change_page_two(%StudentFamilyDetailsStaging{})
     render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
   end
 
@@ -123,26 +125,22 @@ defmodule SarthakAdmissionWeb.PageController do
     end
   end
 
-  def create_page_two(conn, %{"student_staging" => student_staging_params, "token_no" => token_no}) do
-    conn
+  def create_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
     # redirect(conn, to: Routes.page_path(conn, :page_three, token_no))
     # page_two_changeset = PageTwo.student_staging_changeset(params, token_no)
     # IO.inspect("page_two_changeset")
     # IO.inspect(page_two_changeset)
 
-    # case PageOne.create_page_two_test(
-    #        params,
-    #        token_no
-    #      ) do
-    #   {:ok, result} ->
-    #     conn
-    #     |> put_flash(:info, "Page one saved successfully.")
-    #     |> redirect(to: Routes.page_path(conn, :page_two, token_no))
+    case PageTwo.create_page_two(params, token_no) do
+      {:ok, result} ->
+        conn
+        |> put_flash(:info, "Page two saved successfully.")
+        |> redirect(to: Routes.page_path(conn, :page_three, token_no))
 
-    #   {:error, %Ecto.Changeset{} = changeset} ->
-    #     IO.inspect(changeset)
-    #     render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
-    # end
+      {:error, %Ecto.Changeset{} = changeset} ->
+        IO.inspect(changeset)
+        render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
+    end
   end
 
   def validate_token(conn, %{"token_no" => token_no}) do

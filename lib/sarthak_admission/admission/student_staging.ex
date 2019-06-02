@@ -130,6 +130,8 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :c_state,
       :c_pin
     ])
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:mobile, min: 10, max: 10)
   end
 
   def student_staging_changeset(student_staging, attrs) do
