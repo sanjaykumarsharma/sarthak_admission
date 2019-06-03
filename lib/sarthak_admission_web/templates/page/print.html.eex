@@ -95,7 +95,7 @@
                             <td>Course</td>
                             <td><%= @student.course_id %></td>
                             <td>Hostel Required</td>
-                            <td class="bold"><%= @student.hostel_required %></td>
+                            <td class="bold"><%= hostal_required(@student.hostel_required) %></td>
                         </tr>
                     </table>
                     <div class="py0 bold mb1">I. Personal Information</div>
@@ -111,7 +111,7 @@
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td colspan="3"><%= @spd.p_address %></td>
+                                    <td colspan="3"><%= student_permanent_address(@spd.p_address, @spd.p_ps, @spd.p_district) %></td>
                                 </tr>
                                 <tr>
                                     <td>City</td>
@@ -141,7 +141,7 @@
                     <table class="table mb2">
                         <tr>
                             <td>Address</td>
-                            <td colspan="3"><%= @spd.c_address %></td>
+                            <td colspan="3"><%= student_permanent_address(@spd.c_address, @spd.c_ps, @spd.c_dist) %></td>
                         </tr>
                         <tr>
                             <td>City</td>
@@ -191,7 +191,7 @@
                             <td>Identification Marks</td>
                             <td><%= @spd.identification_marks %></td>
                             <td>Economically Backward</td>
-                            <td><%= @se.ebc %></td>
+                            <td><%= economically_backward(@se.ebc) %></td>
                         </tr>
                         <tr>
                             <td>Student PAN</td>

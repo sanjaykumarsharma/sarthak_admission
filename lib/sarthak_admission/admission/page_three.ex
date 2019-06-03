@@ -15,7 +15,7 @@ defmodule SarthakAdmission.Admission.PageThree do
     StudentTotalMarksGraduationStaging.changeset(student_total_marks_graduation, %{})
   end
 
-  def student_stagin_changeset(attrs \\ %{}, token_no) do
+  def student_staging_changeset(attrs \\ %{}, token_no) do
     %StudentTotalMarksGraduationStaging{}
     |> StudentTotalMarksGraduationStaging.changeset(attrs)
   end

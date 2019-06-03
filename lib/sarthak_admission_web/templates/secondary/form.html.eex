@@ -1,0 +1,54 @@
+<%= form_for @changeset, @action, fn f -> %>
+
+<div class="px2 md-px4">
+    <div>
+        <div class="">
+            <div class="my3">
+                <h4 class="mt0 mb1 caps bold blue" style="border-width: 4px;">Secondary Information</h4>
+                <div class="flex items-top">
+                    <div class="col-1 bg-green pt1"></div>
+                    <hr class="flex-auto my0 border-green" style="height: 1px; border-style: dotted;">
+                </div>
+            </div>
+
+            <div class="">
+                <div class="flex items-center mxn2">
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Subject</label>
+                        </div>
+                        <%= select f, :subject_code, get_secondary_subjects(), class: "select" %>
+                        <div class="h5 red pb1" ><%= error_tag f, :subject_code %></div>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <div>
+                            <label class="h5 caps bold">Marks</label><span class="h4 red">*</span></div>
+                        <%= text_input f, :marks, class: "input right-align" %>
+                        <div class="h5 red pb1" ><%= error_tag f, :marks %></div>
+                    </div>
+                    <div class="col-12 md-col-3 px2">
+                        <button class="border-none p1 bg-silver rounded"><i class="material-icons">add_circle</i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex col-12 mb2">
+                <table class="table mr2">
+                    <tbody>
+                        <%= for sm <- @secondary_marks do %>
+                            <tr>
+                                <td><%= sm.subject_code %></td>
+                                <td class="right-align"><%= sm.marks %></td>
+                                <td class="right-align">
+                                    <%= link "Delete", to: Routes.secondary_path(@conn, :delete, sm.token_no, sm.subject_code), method: :delete, data: [confirm: "Are you sure?"], class: "pr-2 right-align" %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+
+            
+            
+
+<% end %>

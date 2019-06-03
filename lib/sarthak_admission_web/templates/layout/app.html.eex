@@ -10,21 +10,36 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <%# <div class="fixed top-0 left-0 right-0 py1 px2 md-px4 bg-red white">
+    
+    <%= if get_flash(@conn, :info) do %>
+      <div id="flash_message" class="fixed top-0 left-0 right-0 py1 px2 md-px4 bg-blue white">
       <div class="flex items-top mxn2">
-        <div class="px2"><i class="white material-icons">highlight_off</i></div>
-        <div class="px2"></div>
+        <div class="px2" onclick="hide_flash_message()"><i class="white material-icons">highlight_off</i></div>
+        <div class="px2"><%= get_flash(@conn, :info) %></div>
       </div>
-    </div> %>
+    </div>
+    <% end %>
+
+    <%= if get_flash(@conn, :error) do %>
+    <div id="flash_message" class="fixed top-0 left-0 right-0 py1 px2 md-px4 bg-red white">
+      <div class="flex items-top mxn2">
+        <div class="px2" onclick="hide_flash_message()"><i class="white material-icons">highlight_off</i></div>
+        <div class="px2"><%= get_flash(@conn, :error) %></div>
+      </div>
+    </div>
+
+    <% end %>
 
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
 
 
-
+    <script>
+        var hide_flash_message = function(){
+          document.getElementById("flash_message").classList.add("hide");
+        }
+      </script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

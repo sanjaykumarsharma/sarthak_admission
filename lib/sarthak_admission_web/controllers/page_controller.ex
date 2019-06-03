@@ -22,13 +22,39 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def page_one_edit(conn, %{"token_no" => token_no}) do
-    changeset = PageOne.change_page_one(%StudentStaging{})
-    render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
+    conn
+    # case Ecto.UUID.dump(token_no) do
+    #   {:ok, uuid} ->
+    #     student_staging = Print.read_student_staging_details(uuid)
+
+    #     changeset = PageOne.change_page_one(student_staging)
+    #     render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+
+    #   :error ->
+    #     conn
+    #     |> put_flash(:error, "Please enter a valid token number and try again")
+    #     |> render("index.html", token_no: token_no)
+    # end
   end
 
   def page_two(conn, %{"token_no" => token_no}) do
     changeset = PageTwo.change_page_two(%StudentFamilyDetailsStaging{})
     render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
+  end
+
+  def page_two_edit(conn, %{"token_no" => token_no}) do
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        student_family_details_staging = Print.read_student_family_details_staging(uuid)
+
+        changeset = PageTwo.change_page_two(student_family_details_staging)
+        render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+
+      :error ->
+        conn
+        |> put_flash(:error, "Please enter a valid token number and try again")
+        |> render("index.html", token_no: token_no)
+    end
   end
 
   def page_three(conn, %{"token_no" => token_no}) do
@@ -37,7 +63,8 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def create_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
-    page_one_changeset = PageOne.student_staging_changeset(params, token_no)
+    page_one_changeset = StudentStaging.changeset(%StudentStaging{}, params)
+    # page_one_changeset = PageOne.student_staging_changeset(params, token_no)
     # IO.inspect("page_one_changeset")
     # IO.inspect(page_one_changeset)
 
@@ -135,9 +162,39 @@ defmodule SarthakAdmissionWeb.PageController do
           render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
       end
     else
+      IO.inspect("page_one_changeset")
       IO.inspect(page_one_changeset)
-      render(conn, "page_one_new.html", changeset: page_one_changeset, token_no: token_no)
+
+      conn
+      |> put_flash(:error, "Please correct the errors marked in red and try again")
+      |> render("page_one_new.html",
+        changeset: %{page_one_changeset | action: :check_errors},
+        token_no: token_no
+      )
     end
+  end
+
+  def update_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
+    conn
+    # case Ecto.UUID.dump(token_no) do
+    #   {:ok, uuid} ->
+    #     student_family_details_staging = Print.read_student_family_details_staging(uuid)
+
+    #     case PageTwo.update_page_two(student_family_details_staging, params) do
+    #       {:ok, question} ->
+    #         conn
+    #         |> put_flash(:info, "Page two updated successfully.")
+    #         |> redirect(to: Routes.page_path(conn, :page_three, token_no))
+
+    #       {:error, %Ecto.Changeset{} = changeset} ->
+    #         render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+    #     end
+
+    #   :error ->
+    #     conn
+    #     |> put_flash(:error, "Please enter a valid token number and try again")
+    #     |> render("index.html", token_no: token_no)
+    # end
   end
 
   def create_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
@@ -149,7 +206,32 @@ defmodule SarthakAdmissionWeb.PageController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         IO.inspect(changeset)
-        render(conn, "page_two_new.html", changeset: changeset, token_no: token_no)
+
+        conn
+        |> put_flash(:error, "Please correct the errors marked in red and try again")
+        |> render("page_two_new.html", changeset: changeset, token_no: token_no)
+    end
+  end
+
+  def update_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        student_family_details_staging = Print.read_student_family_details_staging(uuid)
+
+        case PageTwo.update_page_two(student_family_details_staging, params) do
+          {:ok, question} ->
+            conn
+            |> put_flash(:info, "Page two updated successfully.")
+            |> redirect(to: Routes.page_path(conn, :page_three, token_no))
+
+          {:error, %Ecto.Changeset{} = changeset} ->
+            render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+        end
+
+      :error ->
+        conn
+        |> put_flash(:error, "Please enter a valid token number and try again")
+        |> render("index.html", token_no: token_no)
     end
   end
 
@@ -157,7 +239,9 @@ defmodule SarthakAdmissionWeb.PageController do
         "student_total_marks_graduation_staging" => params,
         "token_no" => token_no
       }) do
-    page_three_changeset = PageThree.student_stagin_changeset(params, token_no)
+    page_three_changeset =
+      StudentTotalMarksGraduationStaging.changeset(%StudentTotalMarksGraduationStaging{}, params)
+
     # IO.inspect("page_three_changeset")
     # IO.inspect(page_three_changeset)
 
@@ -247,7 +331,13 @@ defmodule SarthakAdmissionWeb.PageController do
       end
     else
       IO.inspect(page_three_changeset)
-      render(conn, "page_three_new.html", changeset: page_three_changeset, token_no: token_no)
+
+      conn
+      |> put_flash(:error, "Please correct the errors marked in red and try again")
+      |> render("page_three_new.html",
+        changeset: %{page_three_changeset | action: :check_errors},
+        token_no: token_no
+      )
     end
   end
 
@@ -262,7 +352,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
       :error ->
         conn
-        |> put_flash(:error, "Invalid Token No")
+        |> put_flash(:error, "Please enter a valid token number and try again")
         |> render("index.html", token_no: token_no)
     end
 
@@ -294,7 +384,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
       :error ->
         conn
-        |> put_flash(:error, "Invalid Token No")
+        |> put_flash(:error, "Please enter a valid token number and try again")
         |> render("index.html", token_no: nil)
     end
   end

@@ -18,6 +18,10 @@ defmodule SarthakAdmission.Admission.Print do
     Repo.get(StudentStagingRead, token_no)
   end
 
+  def read_student_staging_details(token_no) do
+    Repo.get(StudentStaging, token_no)
+  end
+
   def read_student_entrance_staging(token_no) do
     Repo.get(StudentEntranceStaging, token_no)
   end
