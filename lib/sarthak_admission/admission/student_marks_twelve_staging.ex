@@ -1,9 +1,9 @@
-defmodule SarthakAdmission.Admission.StudentMarksTenStaging do
+defmodule SarthakAdmission.Admission.StudentMarksTwelveStaging do
   use Ecto.Schema
   import Ecto.Changeset
 
   @primary_key {:token_no, Ecto.UUID, read_after_writes: true}
-  schema "student_marks_ten_staging" do
+  schema "student_marks_twelve_staging" do
     field(:subject_code, :string)
     field(:marks, :float)
 
@@ -12,8 +12,8 @@ defmodule SarthakAdmission.Admission.StudentMarksTenStaging do
 
   @doc false
 
-  def changeset(student_marks_ten_staging, attrs) do
-    student_marks_ten_staging
+  def changeset(student_marks_twelve_staging, attrs) do
+    student_marks_twelve_staging
     |> cast(attrs, [
       :token_no,
       :subject_code,
@@ -24,7 +24,7 @@ defmodule SarthakAdmission.Admission.StudentMarksTenStaging do
       :marks
     ])
     |> unique_constraint(:subject_code,
-      name: :student_marks_ten_staging_subject_code_token_no_index
+      name: :student_marks_twelve_staging_subject_code_token_no_index
     )
   end
 end

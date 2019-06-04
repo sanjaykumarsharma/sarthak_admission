@@ -30,9 +30,17 @@ defmodule SarthakAdmission.Admission.PageSecondary do
     |> Repo.one()
   end
 
-  def delete_secondary_marks(%StudentMarksTenStaging{} = secondary_marks) do
-    Repo.delete(secondary_marks)
+  def delete_secondary_marks(token_no, subject_code) do
+    from(
+      s in StudentMarksTenStaging,
+      where: s.token_no == ^token_no and s.subject_code == ^subject_code
+    )
+    |> Repo.delete_all()
   end
+
+  # def delete_secondary_marks(%StudentMarksTenStaging{} = secondary_marks) do
+  #   Repo.delete(secondary_marks)
+  # end
 
   def create_secondary_total(attrs, token_no) do
     %StudentTotalMarksTenStaging{}

@@ -9,6 +9,7 @@ defmodule SarthakAdmissionWeb.PageController do
   alias SarthakAdmission.Admission.PageOne
   alias SarthakAdmission.Admission.PageTwo
   alias SarthakAdmission.Admission.PageThree
+  alias SarthakAdmission.Uuid
 
   alias SarthakAdmission.Admission.Print
 
@@ -22,19 +23,20 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def page_one_edit(conn, %{"token_no" => token_no}) do
-    conn
-    # case Ecto.UUID.dump(token_no) do
-    #   {:ok, uuid} ->
-    #     student_staging = Print.read_student_staging_details(uuid)
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        student_staging = PageOne.read_page_one(uuid)
 
-    #     changeset = PageOne.change_page_one(student_staging)
-    #     render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+        IO.inspect(student_staging)
 
-    #   :error ->
-    #     conn
-    #     |> put_flash(:error, "Please enter a valid token number and try again")
-    #     |> render("index.html", token_no: token_no)
-    # end
+        changeset = StudentStaging.changeset(%StudentStaging{}, student_staging)
+        render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+
+      :error ->
+        conn
+        |> put_flash(:error, "Please enter a valid token number and try again")
+        |> render("index.html", token_no: token_no)
+    end
   end
 
   def page_two(conn, %{"token_no" => token_no}) do
@@ -175,26 +177,111 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def update_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
-    conn
-    # case Ecto.UUID.dump(token_no) do
-    #   {:ok, uuid} ->
-    #     student_family_details_staging = Print.read_student_family_details_staging(uuid)
+    uuid = Uuid.get_uuid(token_no)
+    student_staging = PageOne.read_page_one(uuid)
+    page_one_changeset = StudentStaging.changeset(%StudentStaging{}, params)
 
-    #     case PageTwo.update_page_two(student_family_details_staging, params) do
-    #       {:ok, question} ->
-    #         conn
-    #         |> put_flash(:info, "Page two updated successfully.")
-    #         |> redirect(to: Routes.page_path(conn, :page_three, token_no))
+    student_staging_data = Print.read_student_staging(uuid)
+    student_entrance_staging_data = Print.read_student_entrance_staging(uuid)
+    student_personal_details_staging_data = Print.read_student_personal_details_staging(uuid)
 
-    #       {:error, %Ecto.Changeset{} = changeset} ->
-    #         render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
-    #     end
+    if page_one_changeset.valid? do
+      student_staging_params = %{
+        "yop" => params["yop"],
+        "name" => params["name"],
+        "quota" => params["quota"],
+        "sex" => params["sex"],
+        "course_id" => "1",
+        "department_id" => "1",
+        "token_no" => token_no,
+        "hostel_required" => params["hostel_required"],
+        "fee_payee" => params["fee_payee"],
+        "student_pan_card" => params["student_pan_card"],
+        "student_acn" => params["student_acn"]
+      }
 
-    #   :error ->
-    #     conn
-    #     |> put_flash(:error, "Please enter a valid token number and try again")
-    #     |> render("index.html", token_no: token_no)
-    # end
+      student_entrance_staging_params = %{
+        "category" => params["category"],
+        "center_address" => params["center_address"],
+        "center_name" => params["center_name"],
+        "ebc" => params["ebc"],
+        "enrolment_no" => params["enrolment_no"],
+        "exam" => params["exam"],
+        "rank" => params["rank"],
+        "gate_rank" => params["gate_rank"],
+        "tfw_rank" => params["tfw_rank"],
+        "token_no" => token_no
+      }
+
+      IO.inspect("student_entrance_staging_params")
+      IO.inspect(student_entrance_staging_params)
+
+      student_personal_details_staging_params = %{
+        "blood_group" => params["blood_group"],
+        "c_address" => params["c_address"],
+        "c_city" => params["c_city"],
+        "c_dist" => params["c_dist"],
+        "c_land_phone" => params["c_land_phone"],
+        "c_pin" => params["c_pin"],
+        "c_state" => params["c_state"],
+        "dob" => params["dob"],
+        "email" => params["email"],
+        "identification_marks" => params["identification_marks"],
+        "marital_status" => params["marital_status"],
+        "mobile" => params["mobile"],
+        "mother_tongue" => params["mother_tongue"],
+        "nationality" => params["nationality"],
+        "other_languages" => params["other_languages"],
+        "p_address" => params["p_address"],
+        "p_city" => params["p_city"],
+        "p_district" => params["p_district"],
+        "p_land_phone" => params["p_land_phone"],
+        "p_pin" => params["p_pin"],
+        "p_state" => params["p_state"],
+        "passport_expiry" => params["passport_expiry"],
+        "passport_no" => params["passport_no"],
+        "religion" => params["religion"],
+        "p_ps" => params["p_ps"],
+        "c_ps" => params["c_ps"],
+        "token_no" => token_no
+      }
+
+      IO.inspect("student_personal_details_staging_params")
+      IO.inspect(student_personal_details_staging_params)
+
+      case PageOne.update_page_one(
+             student_staging_params,
+             student_entrance_staging_params,
+             student_personal_details_staging_params,
+             student_staging_data,
+             student_entrance_staging_data,
+             student_personal_details_staging_data,
+             token_no
+           ) do
+        {:ok, result} ->
+          put_flash(conn, :info, "Page one updated successfully.")
+
+          if Token.is_page_two_complete(uuid) == 1 do
+            redirect(conn, to: Routes.page_path(conn, :page_two_edit, token_no))
+          else
+            redirect(conn, to: Routes.page_path(conn, :page_two, token_no))
+          end
+
+        {:error, %Ecto.Changeset{} = changeset} ->
+          IO.inspect(changeset)
+          render(conn, "page_one_edit.html", changeset: page_one_changeset, token_no: token_no)
+      end
+    else
+      IO.inspect("page_one_changeset")
+      IO.inspect(page_one_changeset)
+
+      conn
+      |> put_flash(:error, "Please correct the errors marked in red and try again")
+      |> render("page_one_edit.html",
+        changeset: %{page_one_changeset | action: :check_errors},
+        token_no: token_no
+      )
+    end
   end
 
   def create_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
@@ -202,7 +289,7 @@ defmodule SarthakAdmissionWeb.PageController do
       {:ok, result} ->
         conn
         |> put_flash(:info, "Page two saved successfully.")
-        |> redirect(to: Routes.page_path(conn, :page_three, token_no))
+        |> redirect(to: Routes.secondary_path(conn, :new, token_no))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         IO.inspect(changeset)
@@ -220,9 +307,13 @@ defmodule SarthakAdmissionWeb.PageController do
 
         case PageTwo.update_page_two(student_family_details_staging, params) do
           {:ok, question} ->
-            conn
-            |> put_flash(:info, "Page two updated successfully.")
-            |> redirect(to: Routes.page_path(conn, :page_three, token_no))
+            put_flash(conn, :info, "Page two updated successfully.")
+
+            if Token.is_page_secondary_complete(uuid) == 1 do
+              redirect(conn, to: Routes.secondary_path(conn, :edit, token_no))
+            else
+              redirect(conn, to: Routes.secondary_path(conn, :new, token_no))
+            end
 
           {:error, %Ecto.Changeset{} = changeset} ->
             render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
@@ -344,10 +435,17 @@ defmodule SarthakAdmissionWeb.PageController do
   def validate_token(conn, %{"token_no" => token_no}) do
     case Ecto.UUID.dump(token_no) do
       {:ok, uuid} ->
-        case Token.is_form_complete(uuid) do
-          nil ->
+        if Token.is_form_complete(uuid) == 1 do
+          conn
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+        else
+          if Token.is_page_one_complete(uuid) == 1 do
+            conn
+            |> redirect(to: Routes.page_path(conn, :page_one_edit, token_no))
+          else
             conn
             |> redirect(to: Routes.page_path(conn, :page_one, token_no))
+          end
         end
 
       :error ->
@@ -371,6 +469,14 @@ defmodule SarthakAdmissionWeb.PageController do
 
         student_family_details_staging = Print.read_student_family_details_staging(uuid)
 
+        student_secondary_marks = Print.read_student_secondary_marks(uuid)
+        student_secondary_marks_total = Print.read_student_secondary_marks_total(uuid)
+
+        student_higher_secondary_marks = Print.read_student_higher_secondary_marks(uuid)
+
+        student_higher_secondary_marks_total =
+          Print.read_student_higher_secondary_marks_total(uuid)
+
         student_undertaking_staging = Print.read_student_undertaking_staging(uuid)
 
         render(conn, "print.html",
@@ -379,6 +485,10 @@ defmodule SarthakAdmissionWeb.PageController do
           se: student_entrance_staging,
           spd: student_personal_details_staging,
           sfd: student_family_details_staging,
+          secondary_marks: student_secondary_marks,
+          smt: student_secondary_marks_total,
+          higher_secondary_marks: student_higher_secondary_marks,
+          hsmt: student_higher_secondary_marks_total,
           su: student_undertaking_staging
         )
 

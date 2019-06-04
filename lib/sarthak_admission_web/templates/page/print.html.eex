@@ -408,63 +408,53 @@
                     <h4>a) Details of Secondary Examination</h4>
                     <table class="table mb2">
                         <tr>
+                        <%= for sm <- @secondary_marks do %>
                             <td class="right-align">
-                                <h6 class="mt0 mb1 py0">ENG</h6>95</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">HIN (A)</h6>95</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">MATH</h6>85</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">SCN</h6>85</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">SOCSC</h6>85</td>
+                                <h6 class="mt0 mb1 py0"><%= sm.subject_code %></h6><%= sm.marks %>
+                            </td>
+                         <% end %>
                         </tr>
                     </table>
                     <table class="table">
                         <tr>
                             <td>Total Marks</td>
-                            <td class="right-align">445</td>
+                            <td class="right-align"><%= @smt.marks_obtained %></td>
                             <td>Marks(%)</td>
-                            <td class="right-align">89</td>
+                            <td class="right-align"><%= @smt.percentage %></td>
                             <td>YOP</td>
-                            <td class="right-align">2016</td>
+                            <td class="right-align"><%= @smt.yop %></td>
                         </tr>
                         <tr>
                             <td>Board</td>
-                            <td colspan="2">CBSE</td>
+                            <td colspan="2"><%= @smt.board %></td>
                             <td>School</td>
-                            <td colspan="2">KENDRIYA VIDYALAYA F</td>
+                            <td colspan="2"><%= @smt.school %></td>
                         </tr>
                     </table>
                     <h4>b) Details of Higher Secondary Examination</h4>
                     <table class="table mb2">
                         <tr>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">ENG CORE</h6>83</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">MATH</h6>62</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">PHYS</h6>67</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">CHEM</h6>71</td>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0">BIOG</h6>70</td>
+                            <%= for hsm <- @higher_secondary_marks do %>
+                                <td class="right-align">
+                                    <h6 class="mt0 mb1 py0"><%= hsm.subject_code %></h6><%= hsm.marks %>
+                                </td>
+                            <% end %>    
                         </tr>
                     </table>
                     <table class="table">
                         <tr>
                             <td>Total Marks</td>
-                            <td class="right-align">353</td>
+                            <td class="right-align"><%= @hsmt.marks_obtained %></td>
                             <td>Marks(%)</td>
-                            <td class="right-align">70.6</td>
+                            <td class="right-align"><%= @hsmt.percentage %></td>
                             <td>YOP</td>
-                            <td class="right-align">2018</td>
+                            <td class="right-align"><%= @hsmt.yop %></td>
                         </tr>
                         <tr>
                             <td>Board</td>
-                            <td colspan="2">Central Board of Sec</td>
+                            <td colspan="2"><%= @hsmt.board %></td>
                             <td>School</td>
-                            <td colspan="2">KENDRIYA VIDYALAYA F</td>
+                            <td colspan="2"><%= @hsmt.school %></td>
                         </tr>
                     </table>
                     <h4>c) Details of Other Examination passed <span class="regular h6"> (applicable for JELET Lateral entry candidates)</span></h4>

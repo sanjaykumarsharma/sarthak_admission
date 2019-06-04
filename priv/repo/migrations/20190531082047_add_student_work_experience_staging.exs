@@ -6,6 +6,7 @@ defmodule SarthakAdmission.Repo.Migrations.AddStudentWorkExperienceStaging do
       add :sponsored, :boolean, null: true
       add :company_name, :string, null: true
       add :company_address, :string, null: true
+      add :company_address_two, :string, null: true
       add :company_city, :string, null: true
       add :company_state, :string, null: true
       add :company_pin, :string, null: true

@@ -10,6 +10,12 @@ defmodule SarthakAdmission.Admission.Print do
 
   alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
 
+  alias SarthakAdmission.Admission.StudentMarksTenStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksTenStaging
+
+  alias SarthakAdmission.Admission.StudentMarksTwelveStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksTwelveStaging
+
   alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
   alias SarthakAdmission.Admission.StudentWorkExStaging
   alias SarthakAdmission.Admission.StudentUndertakingStaging
@@ -32,6 +38,30 @@ defmodule SarthakAdmission.Admission.Print do
 
   def read_student_family_details_staging(token_no) do
     Repo.get(StudentFamilyDetailsStaging, token_no)
+  end
+
+  def read_student_secondary_marks(token_no) do
+    from(
+      s in StudentMarksTenStaging,
+      where: s.token_no == ^token_no
+    )
+    |> Repo.all()
+  end
+
+  def read_student_secondary_marks_total(token_no) do
+    Repo.get(StudentTotalMarksTenStaging, token_no)
+  end
+
+  def read_student_higher_secondary_marks(token_no) do
+    from(
+      s in StudentMarksTwelveStaging,
+      where: s.token_no == ^token_no
+    )
+    |> Repo.all()
+  end
+
+  def read_student_higher_secondary_marks_total(token_no) do
+    Repo.get(StudentTotalMarksTwelveStaging, token_no)
   end
 
   def read_student_undertaking_staging(token_no) do

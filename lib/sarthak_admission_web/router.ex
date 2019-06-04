@@ -23,7 +23,7 @@ defmodule SarthakAdmissionWeb.Router do
     post "/page_one/:token_no", PageController, :create_page_one
 
     get "/page_one_edit/:token_no", PageController, :page_one_edit
-    put "/page_one_edit/:token_no", PageController, :update_page_one
+    post "/page_one_edit/:token_no", PageController, :update_page_one
 
     get "/page_two/:token_no", PageController, :page_two
     post "/page_two/:token_no", PageController, :create_page_two
@@ -32,6 +32,16 @@ defmodule SarthakAdmissionWeb.Router do
     post "/secondary/:token_no", SecondaryController, :create
     delete "/secondary/:token_no/:subject_code", SecondaryController, :delete
     post "/secondary_total/:token_no", SecondaryController, :create_total
+
+    get "/higher_secondary/:token_no", HigherSecondaryController, :new
+    post "/higher_secondary/:token_no", HigherSecondaryController, :create
+    delete "/higher_secondary/:token_no/:subject_code", HigherSecondaryController, :delete
+    post "/higher_secondary_total/:token_no", HigherSecondaryController, :create_total
+
+    get "/diploma/:token_no", DiplomaController, :new
+    post "/diploma/:token_no", DiplomaController, :create
+    delete "/diploma/:token_no/:subject_code", DiplomaController, :delete
+    post "/diploma_total/:token_no", DiplomaController, :create_total
 
     get "/page_two_edit/:token_no", PageController, :page_two_edit
     put "/page_two_edit/:token_no", PageController, :update_page_two

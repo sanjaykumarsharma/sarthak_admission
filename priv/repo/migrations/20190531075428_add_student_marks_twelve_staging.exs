@@ -12,7 +12,7 @@ defmodule SarthakAdmission.Repo.Migrations.AddStudentMarksTwelveStaging do
       timestamps()
     end
 
-    create unique_index(:student_marks_twelve_staging, [:token_no, :subject_code])
+    create unique_index(:student_marks_twelve_staging, [:subject_code, :token_no])
     create index(:student_marks_twelve_staging, [:token_no])
   end
 end

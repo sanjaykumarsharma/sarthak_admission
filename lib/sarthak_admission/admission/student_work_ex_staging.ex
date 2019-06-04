@@ -7,6 +7,7 @@ defmodule SarthakAdmission.Admission.StudentWorkExStaging do
     field(:sponsored, :boolean)
     field(:company_name, :string)
     field(:company_address, :string)
+    field(:company_address_two, :string)
     field(:company_city, :string)
     field(:company_state, :string)
     field(:company_pin, :string)

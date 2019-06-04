@@ -159,7 +159,10 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :status,
       :course_id,
       :department_id,
-      :form_completed
+      :form_completed,
+      :fee_payee,
+      :student_pan_card,
+      :student_acn
     ])
     |> validate_required([
       :name,
