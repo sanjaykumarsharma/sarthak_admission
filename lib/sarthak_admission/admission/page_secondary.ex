@@ -5,6 +5,7 @@ defmodule SarthakAdmission.Admission.PageSecondary do
   alias Ecto.Multi
 
   alias SarthakAdmission.Admission.StudentMarksTenStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksTenStaging
 
   def create_secondary(attrs, token_no) do
     %StudentMarksTenStaging{}
@@ -31,6 +32,13 @@ defmodule SarthakAdmission.Admission.PageSecondary do
 
   def delete_secondary_marks(%StudentMarksTenStaging{} = secondary_marks) do
     Repo.delete(secondary_marks)
+  end
+
+  def create_secondary_total(attrs, token_no) do
+    %StudentTotalMarksTenStaging{}
+    |> StudentTotalMarksTenStaging.changeset(attrs)
+    |> Ecto.Changeset.put_change(:token_no, token_no)
+    |> Repo.insert()
   end
 
   # def update_page_two(%StudentMarksTenStaging{} = student_family_dtetails, attrs) do

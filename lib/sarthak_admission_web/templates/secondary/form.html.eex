@@ -32,7 +32,7 @@
                 </div>
             </div>
             
-            <div class="flex col-12 mb2">
+            <div class="flex col-6 mb2">
                 <table class="table mr2">
                     <tbody>
                         <%= for sm <- @secondary_marks do %>

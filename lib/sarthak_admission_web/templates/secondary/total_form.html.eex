@@ -1,4 +1,4 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @tm_changeset, @action, fn f -> %>
 
 <div class="flex items-top mxn2">
                 <div class="col-12 md-col-3 px2"></div>
@@ -6,19 +6,22 @@
                     <div>
                         <label class="h5 caps bold">Grand Total</label>
                     </div>
-                    <%= text_input f, :marks_obtained_ten, class: "input right-align", disabled: true %>
+                    <%= text_input f, :marks_obtained_dummy, class: "input right-align", disabled: true, value: @marks_obtained %>
+                    <%= number_input f, :marks_obtained, class: "input right-align hide", value: @marks_obtained %>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
                         <label class="h5 caps bold">Out Of</label>
                     </div>
-                    <%= text_input f, :total_marks_ten, class: "input right-align" %>
+                    <%= number_input f, :total_marks, class: "input right-align", onkeyup: "calculate_percentage()" %>
+                    <div class="h5 red pb1"><%= error_tag f, :total_marks %></div>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
                         <label class="h5 caps bold">Marks(%)</label>
                     </div>
-                    <%= number_input f, :percentage_ten, class: "input", disabled: true %>
+                    <%= number_input f, :percentage_dummy, class: "input", disabled: true %>
+                    <%= hidden_input f, :percentage, class: "input" %>
                 </div>
             </div>
             <div class="flex items-top mxn2">
@@ -26,19 +29,20 @@
                     <div>
                         <label class="h5 caps bold">YOP</label>
                     </div>
-                    <%= number_input f, :yop_ten, class: "input"%>
+                    <%= number_input f, :yop, class: "input"%>
+                    <div class="h5 red pb1"><%= error_tag f, :yop %></div>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div class="">
                         <label class="h5 caps bold">Board</label>
                     </div>
-                    <%= text_input f, :board_ten, class: "input"%>
+                    <%= text_input f, :board, class: "input"%>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
                         <label class="h5 caps bold">School</label>
                     </div>
-                    <%= text_input f, :school_ten, class: "input"%>
+                    <%= text_input f, :school, class: "input"%>
                 </div>
             </div>
             <hr class="border-green" style="border-style: dotted;">
@@ -55,3 +59,22 @@
 </div>
 
 <% end %>
+
+<script type="text/javascript">
+    function calculate_percentage() {
+        console.log("calling percentage")
+         
+        var marks_obtained = Number(document.getElementById("student_total_marks_ten_staging_marks_obtained").value)
+        var total_marks = Number(document.getElementById("student_total_marks_ten_staging_total_marks").value)
+
+        if(marks_obtained>0){
+            var percentage = Number((marks_obtained*100)/total_marks).toFixed(2)
+            document.getElementById("student_total_marks_ten_staging_percentage_dummy").value = percentage
+            document.getElementById("student_total_marks_ten_staging_percentage").value = percentage
+        }
+
+    }
+
+    calculate_percentage()
+</script>
+
