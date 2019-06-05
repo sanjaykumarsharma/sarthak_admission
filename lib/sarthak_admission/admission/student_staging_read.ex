@@ -19,4 +19,24 @@ defmodule SarthakAdmission.Admission.StudentStagingRead do
     field(:student_acn, :string)
     timestamps()
   end
+
+  def changeset(student_staging, attrs) do
+    student_staging
+    |> cast(attrs, [
+      :token_no,
+      :admission_date,
+      :yop,
+      :name,
+      :quota,
+      :sex,
+      :status,
+      :course_id,
+      :department_id,
+      :form_completed,
+      :hostel_required,
+      :fee_payee,
+      :student_pan_card,
+      :student_acn
+    ])
+  end
 end

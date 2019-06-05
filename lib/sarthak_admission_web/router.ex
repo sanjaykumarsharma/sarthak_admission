@@ -42,16 +42,27 @@ defmodule SarthakAdmissionWeb.Router do
     delete "/higher_secondary/:token_no/:subject_code", HigherSecondaryController, :delete
     post "/higher_secondary_total/:token_no", HigherSecondaryController, :create_total
 
+    get "/higher_secondary_edit/:token_no", HigherSecondaryController, :edit
+    post "/higher_secondary_update/:token_no", HigherSecondaryController, :update
+    put "/higher_secondary_update_total/:token_no", HigherSecondaryController, :update_total
+
     get "/diploma/:token_no", DiplomaController, :new
     post "/diploma/:token_no", DiplomaController, :create
     delete "/diploma/:token_no/:subject_code", DiplomaController, :delete
     post "/diploma_total/:token_no", DiplomaController, :create_total
+
+    get "/diploma_edit/:token_no", DiplomaController, :edit
+    post "/diploma_update/:token_no", DiplomaController, :update
+    put "/diploma_update_total/:token_no", DiplomaController, :update_total
 
     get "/page_two_edit/:token_no", PageController, :page_two_edit
     put "/page_two_edit/:token_no", PageController, :update_page_two
 
     get "/page_three/:token_no", PageController, :page_three
     post "/page_three/:token_no", PageController, :create_page_three
+
+    get "/page_three_edit/:token_no", PageController, :page_three_edit
+    post "/page_three_edit/:token_no", PageController, :update_page_three
 
     get "/print/:token_no", PageController, :print
   end

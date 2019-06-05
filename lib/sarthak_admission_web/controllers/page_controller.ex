@@ -25,12 +25,17 @@ defmodule SarthakAdmissionWeb.PageController do
   def page_one_edit(conn, %{"token_no" => token_no}) do
     case Ecto.UUID.dump(token_no) do
       {:ok, uuid} ->
-        student_staging = PageOne.read_page_one(uuid)
+        if Token.is_form_complete(uuid) == 1 do
+          conn
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+        else
+          student_staging = PageOne.read_page_one(uuid)
 
-        IO.inspect(student_staging)
+          IO.inspect(student_staging)
 
-        changeset = StudentStaging.changeset(%StudentStaging{}, student_staging)
-        render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+          changeset = StudentStaging.changeset(%StudentStaging{}, student_staging)
+          render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+        end
 
       :error ->
         conn
@@ -47,10 +52,15 @@ defmodule SarthakAdmissionWeb.PageController do
   def page_two_edit(conn, %{"token_no" => token_no}) do
     case Ecto.UUID.dump(token_no) do
       {:ok, uuid} ->
-        student_family_details_staging = Print.read_student_family_details_staging(uuid)
+        if Token.is_form_complete(uuid) == 1 do
+          conn
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+        else
+          student_family_details_staging = Print.read_student_family_details_staging(uuid)
 
-        changeset = PageTwo.change_page_two(student_family_details_staging)
-        render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+          changeset = PageTwo.change_page_two(student_family_details_staging)
+          render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+        end
 
       :error ->
         conn
@@ -62,6 +72,24 @@ defmodule SarthakAdmissionWeb.PageController do
   def page_three(conn, %{"token_no" => token_no}) do
     changeset = PageThree.change_page_three(%StudentTotalMarksGraduationStaging{})
     render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
+  end
+
+  def page_three_edit(conn, %{"token_no" => token_no}) do
+    conn
+    # case Ecto.UUID.dump(token_no) do
+    #   {:ok, uuid} ->
+    #     student_staging = PageOne.read_page_one(uuid)
+
+    #     IO.inspect(student_staging)
+
+    #     changeset = StudentStaging.changeset(%StudentStaging{}, student_staging)
+    #     render(conn, "page_one_edit.html", changeset: changeset, token_no: token_no)
+
+    #   :error ->
+    #     conn
+    #     |> put_flash(:error, "Please enter a valid token number and try again")
+    #     |> render("index.html", token_no: token_no)
+    # end
   end
 
   def create_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
@@ -372,6 +400,11 @@ defmodule SarthakAdmissionWeb.PageController do
         "token_no" => token_no
       }
 
+      student_staging_params = %{
+        "form_completed" => true,
+        "token_no" => token_no
+      }
+
       IO.inspect("student_undertaking_staging_params")
       IO.inspect(student_undertaking_staging_params)
 
@@ -379,16 +412,17 @@ defmodule SarthakAdmissionWeb.PageController do
              student_total_marks_graduation_staging_params,
              student_work_ex_staging_params,
              student_undertaking_staging_params,
+             student_staging_params,
              token_no
            ) do
         {:ok, result} ->
           conn
-          |> put_flash(:info, "Page three saved successfully.")
+          |> put_flash(:info, "All data saved successfully.")
           |> redirect(to: Routes.page_path(conn, :print, token_no))
 
         {:error, %Ecto.Changeset{} = changeset} ->
           IO.inspect(changeset)
-          render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
+          render(conn, "page_three_new.html", changeset: page_three_changeset, token_no: token_no)
       end
     else
       IO.inspect(page_three_changeset)
@@ -400,6 +434,13 @@ defmodule SarthakAdmissionWeb.PageController do
         token_no: token_no
       )
     end
+  end
+
+  def update_page_three(conn, %{
+        "student_total_marks_graduation_staging" => params,
+        "token_no" => token_no
+      }) do
+    conn
   end
 
   def validate_token(conn, %{"token_no" => token_no}) do

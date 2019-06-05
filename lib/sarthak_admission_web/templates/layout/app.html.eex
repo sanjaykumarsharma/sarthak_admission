@@ -39,7 +39,7 @@
         var hide_flash_message = function(){
           document.getElementById("flash_message").classList.add("hide");
         }
-      </script>
+    </script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

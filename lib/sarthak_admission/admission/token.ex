@@ -9,6 +9,12 @@ defmodule SarthakAdmission.Admission.Token do
   alias SarthakAdmission.Admission.StudentMarksTenStaging
   alias SarthakAdmission.Admission.StudentTotalMarksTenStaging
 
+  alias SarthakAdmission.Admission.StudentMarksTwelveStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksTwelveStaging
+
+  alias SarthakAdmission.Admission.StudentTotalMarksDiplomaStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
+
   def is_form_complete(token_no) do
     Repo.one(
       from(a in StudentStaging,
@@ -48,6 +54,33 @@ defmodule SarthakAdmission.Admission.Token do
   def is_page_secondary_total_complete(token_no) do
     Repo.one(
       from(a in StudentTotalMarksTenStaging,
+        where: a.token_no == ^token_no,
+        select: count(a.token_no)
+      )
+    )
+  end
+
+  def is_page_higher_secondary_total_complete(token_no) do
+    Repo.one(
+      from(a in StudentTotalMarksTwelveStaging,
+        where: a.token_no == ^token_no,
+        select: count(a.token_no)
+      )
+    )
+  end
+
+  def is_page_diploma_total_complete(token_no) do
+    Repo.one(
+      from(a in StudentTotalMarksDiplomaStaging,
+        where: a.token_no == ^token_no,
+        select: count(a.token_no)
+      )
+    )
+  end
+
+  def is_page_graduation_total_complete(token_no) do
+    Repo.one(
+      from(a in StudentTotalMarksGraduationStaging,
         where: a.token_no == ^token_no,
         select: count(a.token_no)
       )

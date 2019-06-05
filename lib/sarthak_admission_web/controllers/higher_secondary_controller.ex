@@ -83,17 +83,85 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
     end
   end
 
+  def update(conn, %{"student_marks_twelve_staging" => params, "token_no" => token_no}) do
+    case PageHigherSecondary.create_secondary(
+           params,
+           token_no
+         ) do
+      {:ok, result} ->
+        conn
+        |> redirect(to: Routes.higher_secondary_path(conn, :edit, token_no))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        IO.inspect(changeset)
+        uuid = Uuid.get_uuid(token_no)
+        higher_secondary_marks = PageHigherSecondary.read_higher_secondary_marks(uuid)
+
+        higher_secondary_marks_total =
+          PageHigherSecondary.read_student_higher_secondary_marks_total(uuid)
+
+        tm_changeset = StudentTotalMarksTwelveStaging.changeset(higher_secondary_marks_total, %{})
+
+        total_higher_secondary_marks_obtained =
+          calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
+
+        render(conn, "edit.html",
+          changeset: changeset,
+          tm_changeset: tm_changeset,
+          token_no: token_no,
+          higher_secondary_marks: higher_secondary_marks,
+          marks_obtained: total_higher_secondary_marks_obtained
+        )
+    end
+  end
+
+  def edit(conn, %{"token_no" => token_no}) do
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        if Token.is_form_complete(uuid) == 1 do
+          conn
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+        else
+          higher_secondary_marks = PageHigherSecondary.read_higher_secondary_marks(uuid)
+          changeset = StudentMarksTwelveStaging.changeset(%StudentMarksTwelveStaging{}, %{})
+
+          higher_secondary_marks_total =
+            PageHigherSecondary.read_student_higher_secondary_marks_total(uuid)
+
+          tm_changeset =
+            StudentTotalMarksTwelveStaging.changeset(higher_secondary_marks_total, %{})
+
+          total_higher_secondary_marks_obtained =
+            calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
+
+          render(conn, "edit.html",
+            changeset: changeset,
+            tm_changeset: tm_changeset,
+            token_no: token_no,
+            higher_secondary_marks: higher_secondary_marks,
+            marks_obtained: total_higher_secondary_marks_obtained
+          )
+        end
+
+      :error ->
+        conn
+        |> put_flash(:error, "Please enter a valid token number and try again")
+        |> render("index.html", token_no: nil)
+    end
+  end
+
   def delete(conn, %{"token_no" => token_no, "subject_code" => subject_code}) do
-    token = Uuid.get_uuid(token_no)
-    higher_secondary_marks = PageHigherSecondary.get_higher_secondary_marks!(token, subject_code)
+    uuid = Uuid.get_uuid(token_no)
 
-    IO.inspect(higher_secondary_marks)
+    {_count, _error} = PageHigherSecondary.delete_higher_secondary_marks(uuid, subject_code)
 
-    # {:ok, _higher_secondary_marks} = PageHigherSecondary.delete_higher_secondary_marks(token, subject_code)
-    {_count, _error} = PageHigherSecondary.delete_higher_secondary_marks(token, subject_code)
-
-    conn
-    |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
+    if Token.is_page_higher_secondary_total_complete(uuid) == 1 do
+      conn
+      |> redirect(to: Routes.higher_secondary_path(conn, :edit, token_no))
+    else
+      conn
+      |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
+    end
   end
 
   def create_total(conn, %{"student_total_marks_twelve_staging" => params, "token_no" => token_no}) do
@@ -123,6 +191,49 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
           higher_secondary_marks: higher_secondary_marks,
           marks_obtained: total_higher_secondary_marks_obtained
         )
+    end
+  end
+
+  def update_total(conn, %{"student_total_marks_twelve_staging" => params, "token_no" => token_no}) do
+    case Ecto.UUID.dump(token_no) do
+      {:ok, uuid} ->
+        higher_secondary_marks_total =
+          PageHigherSecondary.read_student_higher_secondary_marks_total(uuid)
+
+        case PageHigherSecondary.update_total(higher_secondary_marks_total, params) do
+          {:ok, question} ->
+            if Token.is_page_diploma_total_complete(uuid) == 1 do
+              conn
+              |> put_flash(:info, "Higher secondary marks updated successfully.")
+
+              # |> redirect(to: Routes.diploma_path(conn, :edit, token_no))
+            else
+              conn
+              |> put_flash(:info, "Higher secondary marks updated successfully.")
+              |> redirect(to: Routes.diploma_path(conn, :new, token_no))
+            end
+
+          {:error, %Ecto.Changeset{} = tm_changeset} ->
+            higher_secondary_marks = PageHigherSecondary.read_higher_secondary_marks(uuid)
+
+            total_higher_secondary_marks_obtained =
+              calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
+
+            changeset = StudentMarksTwelveStaging.changeset(%StudentMarksTwelveStaging{}, %{})
+
+            render(conn, "edit.html",
+              changeset: changeset,
+              tm_changeset: tm_changeset,
+              token_no: token_no,
+              higher_secondary_marks: higher_secondary_marks,
+              marks_obtained: total_higher_secondary_marks_obtained
+            )
+        end
+
+      :error ->
+        conn
+        |> put_flash(:error, "Please enter a valid token number and try again")
+        |> render("index.html", token_no: token_no)
     end
   end
 end

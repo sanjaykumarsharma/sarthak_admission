@@ -51,7 +51,7 @@
                   <%= button "Previous", to: "/secondary_edit/#{@token_no}", method: :get, class: "border-none py1 px2 bg-silver black h4 caps bold rounded col-12 md-col-4" %>
                 </div>
                 <div class="px2 col-6">
-                    <button class="border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4">Submit</button>
+                    <button class="border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4">Save & Next</button>
                 </div>
             </div>
         </div>

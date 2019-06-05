@@ -109,23 +109,29 @@ defmodule SarthakAdmissionWeb.SecondaryController do
   def edit(conn, %{"token_no" => token_no}) do
     case Ecto.UUID.dump(token_no) do
       {:ok, uuid} ->
-        secondary_marks = PageSecondary.read_secondary_marks(uuid)
-        changeset = StudentMarksTenStaging.changeset(%StudentMarksTenStaging{}, %{})
+        if Token.is_form_complete(uuid) == 1 do
+          conn
+          |> redirect(to: Routes.page_path(conn, :print, token_no))
+        else
+          secondary_marks = PageSecondary.read_secondary_marks(uuid)
+          changeset = StudentMarksTenStaging.changeset(%StudentMarksTenStaging{}, %{})
 
-        secondary_marks_total = PageSecondary.read_student_secondary_marks_total(uuid)
-        tm_changeset = StudentTotalMarksTenStaging.changeset(secondary_marks_total, %{})
+          secondary_marks_total = PageSecondary.read_student_secondary_marks_total(uuid)
+          tm_changeset = StudentTotalMarksTenStaging.changeset(secondary_marks_total, %{})
 
-        total_secondary_marks_obtained = calculate_total_secondary_marks_obtained(secondary_marks)
+          total_secondary_marks_obtained =
+            calculate_total_secondary_marks_obtained(secondary_marks)
 
-        IO.inspect(total_secondary_marks_obtained)
+          IO.inspect(total_secondary_marks_obtained)
 
-        render(conn, "edit.html",
-          changeset: changeset,
-          tm_changeset: tm_changeset,
-          token_no: token_no,
-          secondary_marks: secondary_marks,
-          marks_obtained: total_secondary_marks_obtained
-        )
+          render(conn, "edit.html",
+            changeset: changeset,
+            tm_changeset: tm_changeset,
+            token_no: token_no,
+            secondary_marks: secondary_marks,
+            marks_obtained: total_secondary_marks_obtained
+          )
+        end
 
       :error ->
         conn
@@ -183,19 +189,31 @@ defmodule SarthakAdmissionWeb.SecondaryController do
 
         case PageSecondary.update_total(secondary_marks_total, params) do
           {:ok, question} ->
-            if Token.is_page_secondary_total_complete(uuid) == 1 do
+            if Token.is_page_higher_secondary_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Secondary marks updated successfully.")
-              # |> redirect(to: Routes.higher_secondary_path(conn, :edit, token_no))
-              |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
+              |> redirect(to: Routes.higher_secondary_path(conn, :edit, token_no))
             else
               conn
               |> put_flash(:info, "Secondary marks updated successfully.")
               |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
             end
 
-          {:error, %Ecto.Changeset{} = changeset} ->
-            render(conn, "page_two_edit.html", changeset: changeset, token_no: token_no)
+          {:error, %Ecto.Changeset{} = tm_changeset} ->
+            secondary_marks = PageSecondary.read_secondary_marks(uuid)
+
+            total_secondary_marks_obtained =
+              calculate_total_secondary_marks_obtained(secondary_marks)
+
+            changeset = StudentMarksTenStaging.changeset(%StudentMarksTenStaging{}, %{})
+
+            render(conn, "edit.html",
+              changeset: changeset,
+              tm_changeset: tm_changeset,
+              token_no: token_no,
+              secondary_marks: secondary_marks,
+              marks_obtained: total_secondary_marks_obtained
+            )
         end
 
       :error ->

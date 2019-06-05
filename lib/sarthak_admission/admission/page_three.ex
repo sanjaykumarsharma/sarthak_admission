@@ -4,7 +4,10 @@ defmodule SarthakAdmission.Admission.PageThree do
 
   alias Ecto.Multi
 
+  alias SarthakAdmission.Uuid
+  alias SarthakAdmission.Admission.Print
   alias SarthakAdmission.Admission.StudentStaging
+  alias SarthakAdmission.Admission.StudentStagingRead
   alias SarthakAdmission.Admission.StudentEntranceStaging
   alias SarthakAdmission.Admission.StudentPersonalDetailsStaging
   alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
@@ -24,8 +27,13 @@ defmodule SarthakAdmission.Admission.PageThree do
         student_total_marks_graduation_staging,
         student_work_ex_staging,
         student_undertaking_staging,
+        student_staging,
         token_no
       ) do
+    uuid = Uuid.get_uuid(token_no)
+    student_staging_details = Print.read_student_staging(uuid)
+    IO.inspect(student_staging_details)
+
     multi =
       Multi.new()
       |> Multi.insert(
@@ -47,6 +55,13 @@ defmodule SarthakAdmission.Admission.PageThree do
         StudentUndertakingStaging.changeset(
           %StudentUndertakingStaging{},
           student_undertaking_staging
+        )
+      )
+      |> Multi.update(
+        :student_staging,
+        StudentStagingRead.changeset(
+          student_staging_details,
+          student_staging
         )
       )
 

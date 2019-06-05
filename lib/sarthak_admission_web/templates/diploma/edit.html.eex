@@ -1,0 +1,2 @@
+<%= render "form.html", Map.put(assigns, :action, Routes.diploma_path(@conn, :update, @token_no)) %>
+<%= render "total_form.html", Map.put(assigns, :action, Routes.diploma_path(@conn, :update_total, @token_no)) %>

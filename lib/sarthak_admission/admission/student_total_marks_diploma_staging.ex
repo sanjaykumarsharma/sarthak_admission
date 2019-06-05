@@ -29,9 +29,10 @@ defmodule SarthakAdmission.Admission.StudentTotalMarksDiplomaStaging do
       :university,
       :yop
     ])
-    |> validate_required([
-      :percentage,
-      :yop
-    ])
+
+    # |> validate_required([
+    #   :percentage,
+    #   :yop
+    # ])
   end
 end

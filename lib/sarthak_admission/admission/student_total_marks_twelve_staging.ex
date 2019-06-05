@@ -27,9 +27,10 @@ defmodule SarthakAdmission.Admission.StudentTotalMarksTwelveStaging do
       :board,
       :school
     ])
-    |> validate_required([
-      :percentage,
-      :yop
-    ])
+
+    # |> validate_required([
+    #   :percentage,
+    #   :yop
+    # ])
   end
 end

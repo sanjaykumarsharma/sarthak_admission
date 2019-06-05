@@ -49,9 +49,13 @@ defmodule SarthakAdmission.Admission.PageDiploma do
     |> Repo.insert()
   end
 
-  # def update_page_two(%StudentMarksDiplomaStaging{} = student_family_dtetails, attrs) do
-  #   student_family_dtetails
-  #   |> StudentMarksDiplomaStaging.changeset(attrs)
-  #   |> Repo.update()
-  # end
+  def read_student_diploma_marks_total(token_no) do
+    Repo.get(StudentTotalMarksDiplomaStaging, token_no)
+  end
+
+  def update_total(%StudentTotalMarksDiplomaStaging{} = student_total_marks, attrs) do
+    student_total_marks
+    |> StudentTotalMarksDiplomaStaging.changeset(attrs)
+    |> Repo.update()
+  end
 end

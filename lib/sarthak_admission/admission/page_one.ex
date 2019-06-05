@@ -57,11 +57,12 @@ defmodule SarthakAdmission.Admission.PageOne do
 
   def read_page_one(token_no) do
     from(
-      s in StudentStaging,
+      s in StudentStagingRead,
       join: se in StudentEntranceStaging,
       on: s.token_no == se.token_no,
       join: spd in StudentPersonalDetailsStaging,
       on: s.token_no == spd.token_no,
+      where: s.token_no == ^token_no,
       select: %{
         "yop" => s.yop,
         "name" => s.name,
