@@ -7,6 +7,7 @@ defmodule SarthakAdmission.Admission.Token do
   alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
 
   alias SarthakAdmission.Admission.StudentMarksTenStaging
+  alias SarthakAdmission.Admission.StudentTotalMarksTenStaging
 
   def is_form_complete(token_no) do
     Repo.one(
@@ -38,6 +39,15 @@ defmodule SarthakAdmission.Admission.Token do
   def is_page_secondary_complete(token_no) do
     Repo.one(
       from(a in StudentMarksTenStaging,
+        where: a.token_no == ^token_no,
+        select: count(a.token_no)
+      )
+    )
+  end
+
+  def is_page_secondary_total_complete(token_no) do
+    Repo.one(
+      from(a in StudentTotalMarksTenStaging,
         where: a.token_no == ^token_no,
         select: count(a.token_no)
       )

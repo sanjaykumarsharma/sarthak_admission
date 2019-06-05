@@ -33,6 +33,10 @@ defmodule SarthakAdmissionWeb.Router do
     delete "/secondary/:token_no/:subject_code", SecondaryController, :delete
     post "/secondary_total/:token_no", SecondaryController, :create_total
 
+    get "/secondary_edit/:token_no", SecondaryController, :edit
+    post "/secondary_update/:token_no", SecondaryController, :update
+    put "/secondary_update_total/:token_no", SecondaryController, :update_total
+
     get "/higher_secondary/:token_no", HigherSecondaryController, :new
     post "/higher_secondary/:token_no", HigherSecondaryController, :create
     delete "/higher_secondary/:token_no/:subject_code", HigherSecondaryController, :delete

@@ -49,9 +49,13 @@ defmodule SarthakAdmission.Admission.PageSecondary do
     |> Repo.insert()
   end
 
-  # def update_page_two(%StudentMarksTenStaging{} = student_family_dtetails, attrs) do
-  #   student_family_dtetails
-  #   |> StudentMarksTenStaging.changeset(attrs)
-  #   |> Repo.update()
-  # end
+  def read_student_secondary_marks_total(token_no) do
+    Repo.get(StudentTotalMarksTenStaging, token_no)
+  end
+
+  def update_total(%StudentTotalMarksTenStaging{} = student_total_marks, attrs) do
+    student_total_marks
+    |> StudentTotalMarksTenStaging.changeset(attrs)
+    |> Repo.update()
+  end
 end

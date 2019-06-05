@@ -66,23 +66,6 @@ defmodule SarthakAdmissionWeb.PageController do
 
   def create_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
     page_one_changeset = StudentStaging.changeset(%StudentStaging{}, params)
-    # page_one_changeset = PageOne.student_staging_changeset(params, token_no)
-    # IO.inspect("page_one_changeset")
-    # IO.inspect(page_one_changeset)
-
-    # case PageOne.create_page_one_test(
-    #        params,
-    #        token_no
-    #      ) do
-    #   {:ok, result} ->
-    #     conn
-    #     |> put_flash(:info, "Page one saved successfully.")
-    #     |> redirect(to: Routes.page_path(conn, :page_two, token_no))
-
-    #   {:error, %Ecto.Changeset{} = changeset} ->
-    #     IO.inspect(changeset)
-    #     render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
-    # end
 
     if page_one_changeset.valid? do
       student_staging_params = %{
@@ -161,7 +144,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
         {:error, %Ecto.Changeset{} = changeset} ->
           IO.inspect(changeset)
-          render(conn, "page_one_new.html", changeset: changeset, token_no: token_no)
+          render(conn, "page_one_new.html", changeset: page_one_changeset, token_no: token_no)
       end
     else
       IO.inspect("page_one_changeset")
@@ -259,12 +242,14 @@ defmodule SarthakAdmissionWeb.PageController do
              token_no
            ) do
         {:ok, result} ->
-          put_flash(conn, :info, "Page one updated successfully.")
-
           if Token.is_page_two_complete(uuid) == 1 do
-            redirect(conn, to: Routes.page_path(conn, :page_two_edit, token_no))
+            conn
+            |> put_flash(:info, "Page one updated successfully.")
+            |> redirect(to: Routes.page_path(conn, :page_two_edit, token_no))
           else
-            redirect(conn, to: Routes.page_path(conn, :page_two, token_no))
+            conn
+            |> put_flash(:info, "Page one updated successfully.")
+            |> redirect(to: Routes.page_path(conn, :page_two, token_no))
           end
 
         {:error, %Ecto.Changeset{} = changeset} ->
@@ -307,12 +292,14 @@ defmodule SarthakAdmissionWeb.PageController do
 
         case PageTwo.update_page_two(student_family_details_staging, params) do
           {:ok, question} ->
-            put_flash(conn, :info, "Page two updated successfully.")
-
             if Token.is_page_secondary_complete(uuid) == 1 do
-              redirect(conn, to: Routes.secondary_path(conn, :edit, token_no))
+              conn
+              |> put_flash(:info, "Page two updated successfully.")
+              |> redirect(to: Routes.secondary_path(conn, :edit, token_no))
             else
-              redirect(conn, to: Routes.secondary_path(conn, :new, token_no))
+              conn
+              |> put_flash(:info, "Page two updated successfully.")
+              |> redirect(to: Routes.secondary_path(conn, :new, token_no))
             end
 
           {:error, %Ecto.Changeset{} = changeset} ->
@@ -332,23 +319,6 @@ defmodule SarthakAdmissionWeb.PageController do
       }) do
     page_three_changeset =
       StudentTotalMarksGraduationStaging.changeset(%StudentTotalMarksGraduationStaging{}, params)
-
-    # IO.inspect("page_three_changeset")
-    # IO.inspect(page_three_changeset)
-
-    # case PageThree.create_page_three_test(
-    #        params,
-    #        token_no
-    #      ) do
-    #   {:ok, result} ->
-    #     conn
-    #     |> put_flash(:info, "Page three saved successfully.")
-    #     |> redirect(to: Routes.page_path(conn, :page_two, token_no))
-
-    #   {:error, %Ecto.Changeset{} = changeset} ->
-    #     IO.inspect(changeset)
-    #     render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
-    # end
 
     if page_three_changeset.valid? do
       student_total_marks_graduation_staging_params = %{
