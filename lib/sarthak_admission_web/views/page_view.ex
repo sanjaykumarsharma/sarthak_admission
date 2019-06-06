@@ -22,10 +22,10 @@ defmodule SarthakAdmissionWeb.PageView do
   end
 
   def student_permanent_address(p_address, p_ps, p_district) do
-    address = p_address
+    p_address <> " " <> p_ps <> " " <> p_district
   end
 
   def student_communication_address(c_address, c_ps, c_dist) do
-    address = c_address
+    c_address <> " " <> c_ps <> " " <> c_dist
   end
 end

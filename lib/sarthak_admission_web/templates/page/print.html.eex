@@ -141,7 +141,7 @@
                     <table class="table mb2">
                         <tr>
                             <td>Address</td>
-                            <td colspan="3"><%= student_permanent_address(@spd.c_address, @spd.c_ps, @spd.c_dist) %></td>
+                            <td colspan="3"><%= student_communication_address(@spd.c_address, @spd.c_ps, @spd.c_dist) %></td>
                         </tr>
                         <tr>
                             <td>City</td>
@@ -460,26 +460,29 @@
                     <h4>c) Details of Other Examination passed <span class="regular h6"> (applicable for JELET Lateral entry candidates)</span></h4>
                     <table class="table mb2">
                         <tr>
-                            <td class="right-align">
-                                <h6 class="mt0 mb1 py0"></h6>0</td>
+                            <%= for dm <- @diploma_marks do %>
+                                <td class="right-align">
+                                    <h6 class="mt0 mb1 py0"><%= dm.subject_code %></h6><%= dm.marks %>
+                                </td>
+                            <% end %>
                         </tr>
                     </table>
                     <table class="table">
                         <tr>
                             <td>Total Marks</td>
-                            <td class="right-align">0</td>
+                            <td class="right-align"><%= @dmt.marks_obtained %></td>
                             <td>Marks(%)</td>
-                            <td class="right-align">0</td>
+                            <td class="right-align"><%= @dmt.percentage %></td>
                             <td>YOP</td>
-                            <td class="right-align">0</td>
+                            <td class="right-align"><%= @dmt.yop %></td>
                         </tr>
                         <tr>
                             <td>Course</td>
-                            <td></td>
+                            <td><%= @dmt.course %></td>
                             <td>Institute</td>
-                            <td></td>
+                            <td><%= @dmt.institute %></td>
                             <td>University</td>
-                            <td></td>
+                            <td><%= @dmt.university %></td>
                         </tr>
                     </table>
                     <h4><span class="regular h6"> (applicable for JELET Lateral entry candidates)</span></h4>
@@ -500,7 +503,7 @@
                         </div>
                     </div>
                     <div class="center mb1 underline h6 bold">DECLARATION BY THE PARENTS/GUARDIAN</div>
-                    <div>We certify that our ward <span class="bold">SAGARJIT DAS</span> Name makes this application with our knowledge and consent and that we hold ourselves responsible for his/her good conduct, his/her maintenance and payment of all fees and dues regularly during the period he/she will be on the Institute roll</div>
+                    <div>We certify that our ward <span class="bold"><%= @student.name %></span> Name makes this application with our knowledge and consent and that we hold ourselves responsible for his/her good conduct, his/her maintenance and payment of all fees and dues regularly during the period he/she will be on the Institute roll</div>
                     <div class="flex items-top justify-between h6 mt3">
                         <div>
                             <div class="center">_____________________
@@ -618,11 +621,11 @@
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Address: </div>
-                                <div class="px2 flex-auto"><%=# @student.name %></div>
+                                <div class="px2 flex-auto"><%= student_permanent_address(@spd.p_address, @spd.p_ps, @spd.p_district) %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Phone: </div>
-                                <div class="px2 flex-auto"><%=# @student.name %></div>
+                                <div class="px2 flex-auto"><%= @spd.p_land_phone %></div>
                             </div>
                         </div>
                         <div class="px2">

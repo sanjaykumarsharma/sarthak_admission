@@ -135,7 +135,7 @@
             </div>
             <div class="col-12 md-col-3 px2">
                <div><%= label f, :expiry_date, class: "h5 caps bold" %></div>
-               <%= text_input f, :passport_expiry, class: "input" %>
+               <%= text_input f, :passport_expiry, class: "input", placeholder: "yyyy-mm-dd" %>
                <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :passport_expiry %></div>
             </div>
          </div>
@@ -236,9 +236,9 @@
                </div>
             </div>
             <div class="px2 col-12 md-col-6">
-               <div class="flex items-top">
+               <div class="flex items-top" style="margin-bottom: 4px">
                   <h5 class="my0 caps gray bold">Correspondence Address</h5>
-                  <input type="checkbox" id="cpoy_address" onclick="copyAddress()">same as permanent address
+                  <input type="checkbox" id="cpoy_address" onclick="copyAddress()"><span style="margin-top: -4px">same as permanent address</span>
                </div>
                <div class="flex items-top mxn2">
                   <div class="col-12 px2">

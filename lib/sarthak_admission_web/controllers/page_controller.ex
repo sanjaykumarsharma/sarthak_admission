@@ -488,6 +488,9 @@ defmodule SarthakAdmissionWeb.PageController do
         student_higher_secondary_marks_total =
           Print.read_student_higher_secondary_marks_total(uuid)
 
+        student_diploma_marks = Print.read_student_diploma_marks(uuid)
+        student_diploma_marks_total = Print.read_student_diploma_marks_total(uuid)
+
         student_undertaking_staging = Print.read_student_undertaking_staging(uuid)
 
         render(conn, "print.html",
@@ -500,6 +503,8 @@ defmodule SarthakAdmissionWeb.PageController do
           smt: student_secondary_marks_total,
           higher_secondary_marks: student_higher_secondary_marks,
           hsmt: student_higher_secondary_marks_total,
+          diploma_marks: student_diploma_marks,
+          dmt: student_diploma_marks_total,
           su: student_undertaking_staging
         )
 
