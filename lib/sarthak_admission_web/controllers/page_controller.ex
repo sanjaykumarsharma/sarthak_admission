@@ -320,7 +320,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
         case PageTwo.update_page_two(student_family_details_staging, params) do
           {:ok, question} ->
-            if Token.is_page_secondary_complete(uuid) == 1 do
+            if Token.is_page_secondary_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Page two updated successfully.")
               |> redirect(to: Routes.secondary_path(conn, :edit, token_no))

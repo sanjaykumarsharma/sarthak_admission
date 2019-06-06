@@ -323,7 +323,7 @@
             <div class="px2 col-6 right-align">
             </div>
             <div class="px2 col-6">
-              <%= submit "Next", class: "border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4" %>
+              <button class="border-none py1 px2 bg-green white h4 caps bold rounded col-12 md-col-4">Save & Next</button>
             </div>
          </div>
 

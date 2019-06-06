@@ -7,6 +7,22 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
   alias SarthakAdmission.Admission.StudentTotalMarksTwelveStaging
   alias SarthakAdmission.Admission.PageHigherSecondary
 
+  def read_higher_secondary_subjects do
+    data =
+      File.stream!("csv/higher_secondary_subjects.csv")
+      |> CSV.decode!()
+      |> Enum.to_list()
+      |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
+  end
+
+  def read_higher_secondary_boards do
+    data =
+      File.stream!("csv/higher_secondary_boards.csv")
+      |> CSV.decode!(separator: ?;)
+      |> Enum.to_list()
+      |> Enum.map(fn [x] -> %{board: x, board: x} end)
+  end
+
   def calculate_total_higher_secondary_marks_obtained(higher_secondary_marks) do
     if higher_secondary_marks == [] do
       nil
@@ -35,7 +51,8 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
         total_higher_secondary_marks_obtained =
           calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
 
-        # total_higher_secondary_marks_obtained = nil
+        higher_secondary_subjects = read_higher_secondary_subjects()
+        higher_secondary_boards = read_higher_secondary_boards()
 
         IO.inspect(total_higher_secondary_marks_obtained)
 
@@ -44,7 +61,9 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
           tm_changeset: tm_changeset,
           token_no: token_no,
           higher_secondary_marks: higher_secondary_marks,
-          marks_obtained: total_higher_secondary_marks_obtained
+          marks_obtained: total_higher_secondary_marks_obtained,
+          higher_secondary_subjects: higher_secondary_subjects,
+          higher_secondary_boards: higher_secondary_boards
         )
 
       :error ->
@@ -73,12 +92,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
         tm_changeset =
           StudentTotalMarksTwelveStaging.changeset(%StudentTotalMarksTwelveStaging{}, %{})
 
+        higher_secondary_subjects = read_higher_secondary_subjects()
+        higher_secondary_boards = read_higher_secondary_boards()
+
         render(conn, "new.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           higher_secondary_marks: higher_secondary_marks,
-          marks_obtained: total_higher_secondary_marks_obtained
+          marks_obtained: total_higher_secondary_marks_obtained,
+          higher_secondary_subjects: higher_secondary_subjects,
+          higher_secondary_boards: higher_secondary_boards
         )
     end
   end
@@ -105,12 +129,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
         total_higher_secondary_marks_obtained =
           calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
 
+        higher_secondary_subjects = read_higher_secondary_subjects()
+        higher_secondary_boards = read_higher_secondary_boards()
+
         render(conn, "edit.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           higher_secondary_marks: higher_secondary_marks,
-          marks_obtained: total_higher_secondary_marks_obtained
+          marks_obtained: total_higher_secondary_marks_obtained,
+          higher_secondary_subjects: higher_secondary_subjects,
+          higher_secondary_boards: higher_secondary_boards
         )
     end
   end
@@ -134,12 +163,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
           total_higher_secondary_marks_obtained =
             calculate_total_higher_secondary_marks_obtained(higher_secondary_marks)
 
+          higher_secondary_subjects = read_higher_secondary_subjects()
+          higher_secondary_boards = read_higher_secondary_boards()
+
           render(conn, "edit.html",
             changeset: changeset,
             tm_changeset: tm_changeset,
             token_no: token_no,
             higher_secondary_marks: higher_secondary_marks,
-            marks_obtained: total_higher_secondary_marks_obtained
+            marks_obtained: total_higher_secondary_marks_obtained,
+            higher_secondary_subjects: higher_secondary_subjects,
+            higher_secondary_boards: higher_secondary_boards
           )
         end
 
@@ -184,12 +218,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
 
         changeset = StudentMarksTwelveStaging.changeset(%StudentMarksTwelveStaging{}, %{})
 
+        higher_secondary_subjects = read_higher_secondary_subjects()
+        higher_secondary_boards = read_higher_secondary_boards()
+
         render(conn, "new.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           higher_secondary_marks: higher_secondary_marks,
-          marks_obtained: total_higher_secondary_marks_obtained
+          marks_obtained: total_higher_secondary_marks_obtained,
+          higher_secondary_subjects: higher_secondary_subjects,
+          higher_secondary_boards: higher_secondary_boards
         )
     end
   end
@@ -200,13 +239,14 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
         higher_secondary_marks_total =
           PageHigherSecondary.read_student_higher_secondary_marks_total(uuid)
 
+        IO.inspect(higher_secondary_marks_total)
+
         case PageHigherSecondary.update_total(higher_secondary_marks_total, params) do
           {:ok, question} ->
             if Token.is_page_diploma_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Higher secondary marks updated successfully.")
-
-              # |> redirect(to: Routes.diploma_path(conn, :edit, token_no))
+              |> redirect(to: Routes.diploma_path(conn, :edit, token_no))
             else
               conn
               |> put_flash(:info, "Higher secondary marks updated successfully.")
@@ -221,12 +261,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
 
             changeset = StudentMarksTwelveStaging.changeset(%StudentMarksTwelveStaging{}, %{})
 
+            higher_secondary_subjects = read_higher_secondary_subjects()
+            higher_secondary_boards = read_higher_secondary_boards()
+
             render(conn, "edit.html",
               changeset: changeset,
               tm_changeset: tm_changeset,
               token_no: token_no,
               higher_secondary_marks: higher_secondary_marks,
-              marks_obtained: total_higher_secondary_marks_obtained
+              marks_obtained: total_higher_secondary_marks_obtained,
+              higher_secondary_subjects: higher_secondary_subjects,
+              higher_secondary_boards: higher_secondary_boards
             )
         end
 

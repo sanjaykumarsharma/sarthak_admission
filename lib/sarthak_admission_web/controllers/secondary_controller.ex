@@ -8,6 +8,14 @@ defmodule SarthakAdmissionWeb.SecondaryController do
   alias SarthakAdmission.Admission.PageSecondary
   alias SarthakAdmission.Admission.Token
 
+  def read_secondary_subjects do
+    data =
+      File.stream!("csv/secondary_subjects.csv")
+      |> CSV.decode!()
+      |> Enum.to_list()
+      |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
+  end
+
   def calculate_total_secondary_marks_obtained(secondary_marks) do
     if secondary_marks == [] do
       nil
@@ -35,6 +43,8 @@ defmodule SarthakAdmissionWeb.SecondaryController do
         total_secondary_marks_obtained = calculate_total_secondary_marks_obtained(secondary_marks)
         # total_secondary_marks_obtained = nil
 
+        secondary_subjects = read_secondary_subjects()
+
         IO.inspect(total_secondary_marks_obtained)
 
         render(conn, "new.html",
@@ -42,7 +52,8 @@ defmodule SarthakAdmissionWeb.SecondaryController do
           tm_changeset: tm_changeset,
           token_no: token_no,
           secondary_marks: secondary_marks,
-          marks_obtained: total_secondary_marks_obtained
+          marks_obtained: total_secondary_marks_obtained,
+          secondary_subjects: secondary_subjects
         )
 
       :error ->
@@ -69,12 +80,15 @@ defmodule SarthakAdmissionWeb.SecondaryController do
 
         tm_changeset = StudentTotalMarksTenStaging.changeset(%StudentTotalMarksTenStaging{}, %{})
 
+        secondary_subjects = read_secondary_subjects()
+
         render(conn, "new.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           secondary_marks: secondary_marks,
-          marks_obtained: total_secondary_marks_obtained
+          marks_obtained: total_secondary_marks_obtained,
+          secondary_subjects: secondary_subjects
         )
     end
   end
@@ -96,12 +110,15 @@ defmodule SarthakAdmissionWeb.SecondaryController do
         tm_changeset = StudentTotalMarksTenStaging.changeset(secondary_marks_total, %{})
         total_secondary_marks_obtained = calculate_total_secondary_marks_obtained(secondary_marks)
 
+        secondary_subjects = read_secondary_subjects()
+
         render(conn, "edit.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           secondary_marks: secondary_marks,
-          marks_obtained: total_secondary_marks_obtained
+          marks_obtained: total_secondary_marks_obtained,
+          secondary_subjects: secondary_subjects
         )
     end
   end
@@ -122,14 +139,15 @@ defmodule SarthakAdmissionWeb.SecondaryController do
           total_secondary_marks_obtained =
             calculate_total_secondary_marks_obtained(secondary_marks)
 
-          IO.inspect(total_secondary_marks_obtained)
+          secondary_subjects = read_secondary_subjects()
 
           render(conn, "edit.html",
             changeset: changeset,
             tm_changeset: tm_changeset,
             token_no: token_no,
             secondary_marks: secondary_marks,
-            marks_obtained: total_secondary_marks_obtained
+            marks_obtained: total_secondary_marks_obtained,
+            secondary_subjects: secondary_subjects
           )
         end
 
@@ -171,13 +189,15 @@ defmodule SarthakAdmissionWeb.SecondaryController do
         total_secondary_marks_obtained = calculate_total_secondary_marks_obtained(secondary_marks)
 
         changeset = StudentMarksTenStaging.changeset(%StudentMarksTenStaging{}, %{})
+        secondary_subjects = read_secondary_subjects()
 
         render(conn, "new.html",
           changeset: changeset,
           tm_changeset: tm_changeset,
           token_no: token_no,
           secondary_marks: secondary_marks,
-          marks_obtained: total_secondary_marks_obtained
+          marks_obtained: total_secondary_marks_obtained,
+          secondary_subjects: secondary_subjects
         )
     end
   end
@@ -206,13 +226,15 @@ defmodule SarthakAdmissionWeb.SecondaryController do
               calculate_total_secondary_marks_obtained(secondary_marks)
 
             changeset = StudentMarksTenStaging.changeset(%StudentMarksTenStaging{}, %{})
+            secondary_subjects = read_secondary_subjects()
 
             render(conn, "edit.html",
               changeset: changeset,
               tm_changeset: tm_changeset,
               token_no: token_no,
               secondary_marks: secondary_marks,
-              marks_obtained: total_secondary_marks_obtained
+              marks_obtained: total_secondary_marks_obtained,
+              secondary_subjects: secondary_subjects
             )
         end
 

@@ -17,7 +17,7 @@
                         <div>
                             <label class="h5 caps bold">Subject</label>
                         </div>
-                        <%= select f, :subject_code, get_higher_secondary_subjects(), class: "select" %>
+                        <%= select f, :subject_code, Enum.map(@higher_secondary_subjects, &{&1.subject, &1.subject_code}), class: "select" %>  
                         <div class="h5 red pb1"><%= error_tag f, :subject_code %></div>
                     </div>
                     <div class="col-12 md-col-3 px2">

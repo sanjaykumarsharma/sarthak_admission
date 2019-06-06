@@ -36,7 +36,8 @@
                     <div class="">
                         <label class="h5 caps bold">Board</label>
                     </div>
-                    <%= select f, :board, get_higher_secondary_board(), class: "select" %>
+                    <%= select f, :board, Enum.map(@higher_secondary_boards, &{&1.board, &1.board}), class: "select" %>  
+                    <%=# select f, :board, get_higher_secondary_board(), class: "select" %>
                 </div>
                 <div class="col-12 md-col-3 px2">
                     <div>
