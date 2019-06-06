@@ -9,7 +9,7 @@ defmodule SarthakAdmission.Admission.Token do
   alias SarthakAdmission.Admission.StudentMarksTenStaging
   alias SarthakAdmission.Admission.StudentTotalMarksTenStaging
 
-  alias SarthakAdmission.Admission.StudentMarksTwelveStaging
+  # alias SarthakAdmission.Admission.StudentMarksTwelveStaging
   alias SarthakAdmission.Admission.StudentTotalMarksTwelveStaging
 
   alias SarthakAdmission.Admission.StudentTotalMarksDiplomaStaging

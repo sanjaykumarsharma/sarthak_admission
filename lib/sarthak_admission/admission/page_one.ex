@@ -13,7 +13,7 @@ defmodule SarthakAdmission.Admission.PageOne do
     StudentStaging.changeset(student_entrance, %{})
   end
 
-  def student_staging_changeset(attrs \\ %{}, token_no) do
+  def student_staging_changeset(attrs \\ %{}, _token_no) do
     %StudentStaging{}
     |> StudentStaging.student_staging_changeset(attrs)
   end
@@ -22,7 +22,7 @@ defmodule SarthakAdmission.Admission.PageOne do
         student_staging,
         student_entrance_staging,
         student_personal_details_staging,
-        token_no
+        _token_no
       ) do
     multi =
       Multi.new()
@@ -122,7 +122,7 @@ defmodule SarthakAdmission.Admission.PageOne do
         student_staging_data,
         student_entrance_staging_data,
         student_personal_details_staging_data,
-        token_no
+        _token_no
       ) do
     multi =
       Multi.new()

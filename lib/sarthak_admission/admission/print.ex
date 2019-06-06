@@ -2,7 +2,7 @@ defmodule SarthakAdmission.Admission.Print do
   import Ecto.Query, warn: false
   alias SarthakAdmission.Repo
 
-  alias Ecto.Multi
+  # alias Ecto.Multi
 
   alias SarthakAdmission.Admission.StudentStagingRead
   alias SarthakAdmission.Admission.StudentEntranceStaging
@@ -19,8 +19,8 @@ defmodule SarthakAdmission.Admission.Print do
   alias SarthakAdmission.Admission.StudentMarksDiplomaStaging
   alias SarthakAdmission.Admission.StudentTotalMarksDiplomaStaging
 
-  alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
-  alias SarthakAdmission.Admission.StudentWorkExStaging
+  # alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
+  # alias SarthakAdmission.Admission.StudentWorkExStaging
   alias SarthakAdmission.Admission.StudentUndertakingStaging
 
   def read_student_staging(token_no) do

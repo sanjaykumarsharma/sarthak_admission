@@ -3,7 +3,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
   alias SarthakAdmission.Admission.Token
   alias SarthakAdmission.Admission.StudentStaging
-  alias SarthakAdmission.Admission.StudentEntranceStaging
+  # alias SarthakAdmission.Admission.StudentEntranceStaging
   alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
   alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
   alias SarthakAdmission.Admission.PageOne
@@ -74,7 +74,7 @@ defmodule SarthakAdmissionWeb.PageController do
     render(conn, "page_three_new.html", changeset: changeset, token_no: token_no)
   end
 
-  def page_three_edit(conn, %{"token_no" => token_no}) do
+  def page_three_edit(conn, %{"token_no" => _token_no}) do
     conn
     # case Ecto.UUID.dump(token_no) do
     #   {:ok, uuid} ->
@@ -165,7 +165,7 @@ defmodule SarthakAdmissionWeb.PageController do
              student_personal_details_staging_params,
              token_no
            ) do
-        {:ok, result} ->
+        {:ok, _result} ->
           conn
           |> put_flash(:info, "Page one saved successfully.")
           |> redirect(to: Routes.page_path(conn, :page_two, token_no))
@@ -189,7 +189,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
   def update_page_one(conn, %{"student_staging" => params, "token_no" => token_no}) do
     uuid = Uuid.get_uuid(token_no)
-    student_staging = PageOne.read_page_one(uuid)
+    # student_staging = PageOne.read_page_one(uuid)
     page_one_changeset = StudentStaging.changeset(%StudentStaging{}, params)
 
     student_staging_data = Print.read_student_staging(uuid)
@@ -269,7 +269,7 @@ defmodule SarthakAdmissionWeb.PageController do
              student_personal_details_staging_data,
              token_no
            ) do
-        {:ok, result} ->
+        {:ok, _result} ->
           if Token.is_page_two_complete(uuid) == 1 do
             conn
             |> put_flash(:info, "Page one updated successfully.")
@@ -299,7 +299,7 @@ defmodule SarthakAdmissionWeb.PageController do
 
   def create_page_two(conn, %{"student_family_details_staging" => params, "token_no" => token_no}) do
     case PageTwo.create_page_two(params, token_no) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> put_flash(:info, "Page two saved successfully.")
         |> redirect(to: Routes.secondary_path(conn, :new, token_no))
@@ -319,7 +319,7 @@ defmodule SarthakAdmissionWeb.PageController do
         student_family_details_staging = Print.read_student_family_details_staging(uuid)
 
         case PageTwo.update_page_two(student_family_details_staging, params) do
-          {:ok, question} ->
+          {:ok, _result} ->
             if Token.is_page_secondary_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Page two updated successfully.")
@@ -373,18 +373,6 @@ defmodule SarthakAdmissionWeb.PageController do
         "dol" => params["dol"],
         "total_experience" => params["total_experience"],
         "salary" => params["salary"],
-        "sponsored" => params["sponsored"],
-        "company_name" => params["company_name"],
-        "company_address" => params["company_address"],
-        "company_city" => params["company_city"],
-        "company_state" => params["company_state"],
-        "company_pin" => params["company_pin"],
-        "designation" => params["designation"],
-        "nature_of_work" => params["nature_of_work"],
-        "doj" => params["doj"],
-        "dol" => params["dol"],
-        "total_experience" => params["total_experience"],
-        "salary" => params["salary"],
         "token_no" => token_no
       }
 
@@ -415,7 +403,7 @@ defmodule SarthakAdmissionWeb.PageController do
              student_staging_params,
              token_no
            ) do
-        {:ok, result} ->
+        {:ok, _result} ->
           conn
           |> put_flash(:info, "All data saved successfully.")
           |> redirect(to: Routes.page_path(conn, :print, token_no))
@@ -437,8 +425,8 @@ defmodule SarthakAdmissionWeb.PageController do
   end
 
   def update_page_three(conn, %{
-        "student_total_marks_graduation_staging" => params,
-        "token_no" => token_no
+        "student_total_marks_graduation_staging" => _params,
+        "token_no" => _token_no
       }) do
     conn
   end

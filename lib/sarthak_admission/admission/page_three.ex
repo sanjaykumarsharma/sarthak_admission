@@ -6,10 +6,10 @@ defmodule SarthakAdmission.Admission.PageThree do
 
   alias SarthakAdmission.Uuid
   alias SarthakAdmission.Admission.Print
-  alias SarthakAdmission.Admission.StudentStaging
+  # alias SarthakAdmission.Admission.StudentStaging
   alias SarthakAdmission.Admission.StudentStagingRead
-  alias SarthakAdmission.Admission.StudentEntranceStaging
-  alias SarthakAdmission.Admission.StudentPersonalDetailsStaging
+  # alias SarthakAdmission.Admission.StudentEntranceStaging
+  # alias SarthakAdmission.Admission.StudentPersonalDetailsStaging
   alias SarthakAdmission.Admission.StudentTotalMarksGraduationStaging
   alias SarthakAdmission.Admission.StudentWorkExStaging
   alias SarthakAdmission.Admission.StudentUndertakingStaging
@@ -18,7 +18,7 @@ defmodule SarthakAdmission.Admission.PageThree do
     StudentTotalMarksGraduationStaging.changeset(student_total_marks_graduation, %{})
   end
 
-  def student_staging_changeset(attrs \\ %{}, token_no) do
+  def student_staging_changeset(attrs \\ %{}, _token_no) do
     %StudentTotalMarksGraduationStaging{}
     |> StudentTotalMarksGraduationStaging.changeset(attrs)
   end

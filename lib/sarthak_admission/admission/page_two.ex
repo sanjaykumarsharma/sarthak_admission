@@ -2,9 +2,9 @@ defmodule SarthakAdmission.Admission.PageTwo do
   import Ecto.Query, warn: false
   alias SarthakAdmission.Repo
 
-  alias Ecto.Multi
+  # alias Ecto.Multi
 
-  alias SarthakAdmission.Admission.StudentStaging
+  # alias SarthakAdmission.Admission.StudentStaging
   alias SarthakAdmission.Admission.StudentFamilyDetailsStaging
 
   def change_page_two(%StudentFamilyDetailsStaging{} = student_family_dtetails) do

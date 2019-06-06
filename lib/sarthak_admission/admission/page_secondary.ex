@@ -2,7 +2,7 @@ defmodule SarthakAdmission.Admission.PageSecondary do
   import Ecto.Query, warn: false
   alias SarthakAdmission.Repo
 
-  alias Ecto.Multi
+  # alias Ecto.Multi
 
   alias SarthakAdmission.Admission.StudentMarksTenStaging
   alias SarthakAdmission.Admission.StudentTotalMarksTenStaging

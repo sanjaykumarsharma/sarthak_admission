@@ -9,11 +9,10 @@ defmodule SarthakAdmissionWeb.SecondaryController do
   alias SarthakAdmission.Admission.Token
 
   def read_secondary_subjects do
-    data =
-      File.stream!("csv/secondary_subjects.csv")
-      |> CSV.decode!()
-      |> Enum.to_list()
-      |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
+    File.stream!("csv/secondary_subjects.csv")
+    |> CSV.decode!()
+    |> Enum.to_list()
+    |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
   end
 
   def calculate_total_secondary_marks_obtained(secondary_marks) do
@@ -68,7 +67,7 @@ defmodule SarthakAdmissionWeb.SecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.secondary_path(conn, :new, token_no))
 
@@ -98,7 +97,7 @@ defmodule SarthakAdmissionWeb.SecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.secondary_path(conn, :edit, token_no))
 
@@ -177,7 +176,7 @@ defmodule SarthakAdmissionWeb.SecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> put_flash(:info, "Secondary Marks Saved")
         |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
@@ -208,7 +207,7 @@ defmodule SarthakAdmissionWeb.SecondaryController do
         secondary_marks_total = PageSecondary.read_student_secondary_marks_total(uuid)
 
         case PageSecondary.update_total(secondary_marks_total, params) do
-          {:ok, question} ->
+          {:ok, _result} ->
             if Token.is_page_higher_secondary_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Secondary marks updated successfully.")

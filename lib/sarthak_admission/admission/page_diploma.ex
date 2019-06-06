@@ -2,7 +2,7 @@ defmodule SarthakAdmission.Admission.PageDiploma do
   import Ecto.Query, warn: false
   alias SarthakAdmission.Repo
 
-  alias Ecto.Multi
+  # alias Ecto.Multi
 
   alias SarthakAdmission.Admission.StudentMarksDiplomaStaging
   alias SarthakAdmission.Admission.StudentTotalMarksDiplomaStaging

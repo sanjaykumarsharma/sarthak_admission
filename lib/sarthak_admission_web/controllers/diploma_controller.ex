@@ -57,7 +57,7 @@ defmodule SarthakAdmissionWeb.DiplomaController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.diploma_path(conn, :new, token_no))
 
@@ -84,7 +84,7 @@ defmodule SarthakAdmissionWeb.DiplomaController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.diploma_path(conn, :edit, token_no))
 
@@ -161,7 +161,7 @@ defmodule SarthakAdmissionWeb.DiplomaController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> put_flash(:info, "Diploma Marks Saved")
         |> redirect(to: Routes.page_path(conn, :page_three, token_no))
@@ -193,7 +193,7 @@ defmodule SarthakAdmissionWeb.DiplomaController do
         diploma_marks_total = PageDiploma.read_student_diploma_marks_total(uuid)
 
         case PageDiploma.update_total(diploma_marks_total, params) do
-          {:ok, question} ->
+          {:ok, _result} ->
             if Token.is_page_graduation_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Diploma marks updated successfully.")

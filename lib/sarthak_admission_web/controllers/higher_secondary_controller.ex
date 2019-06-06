@@ -8,19 +8,17 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
   alias SarthakAdmission.Admission.PageHigherSecondary
 
   def read_higher_secondary_subjects do
-    data =
-      File.stream!("csv/higher_secondary_subjects.csv")
-      |> CSV.decode!()
-      |> Enum.to_list()
-      |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
+    File.stream!("csv/higher_secondary_subjects.csv")
+    |> CSV.decode!()
+    |> Enum.to_list()
+    |> Enum.map(fn [x, y] -> %{subject: x, subject_code: y} end)
   end
 
   def read_higher_secondary_boards do
-    data =
-      File.stream!("csv/higher_secondary_boards.csv")
-      |> CSV.decode!(separator: ?;)
-      |> Enum.to_list()
-      |> Enum.map(fn [x] -> %{board: x, board: x} end)
+    File.stream!("csv/higher_secondary_boards.csv")
+    |> CSV.decode!(separator: ?;)
+    |> Enum.to_list()
+    |> Enum.map(fn [x] -> %{board: x} end)
   end
 
   def calculate_total_higher_secondary_marks_obtained(higher_secondary_marks) do
@@ -78,7 +76,7 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.higher_secondary_path(conn, :new, token_no))
 
@@ -112,7 +110,7 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> redirect(to: Routes.higher_secondary_path(conn, :edit, token_no))
 
@@ -203,7 +201,7 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
            params,
            token_no
          ) do
-      {:ok, result} ->
+      {:ok, _result} ->
         conn
         |> put_flash(:info, "Higher Secondary Marks Saved")
         |> redirect(to: Routes.diploma_path(conn, :new, token_no))
@@ -242,7 +240,7 @@ defmodule SarthakAdmissionWeb.HigherSecondaryController do
         IO.inspect(higher_secondary_marks_total)
 
         case PageHigherSecondary.update_total(higher_secondary_marks_total, params) do
-          {:ok, question} ->
+          {:ok, _result} ->
             if Token.is_page_diploma_total_complete(uuid) == 1 do
               conn
               |> put_flash(:info, "Higher secondary marks updated successfully.")
