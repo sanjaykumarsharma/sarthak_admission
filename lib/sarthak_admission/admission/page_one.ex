@@ -108,8 +108,8 @@ defmodule SarthakAdmission.Admission.PageOne do
         "passport_expiry" => spd.passport_expiry,
         "passport_no" => spd.passport_no,
         "religion" => spd.religion,
-        "p_ps" => spd.p_ps,
-        "c_ps" => spd.c_ps
+        "p_po" => spd.p_po,
+        "c_po" => spd.c_po
       }
     )
     |> Repo.one()

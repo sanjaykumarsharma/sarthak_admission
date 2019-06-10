@@ -54,8 +54,8 @@ defmodule SarthakAdmission.Admission.StudentStaging do
     field(:passport_expiry, :string, virtual: true)
     field(:passport_no, :string, virtual: true)
     field(:religion, :string, virtual: true)
-    field(:p_ps, :string, virtual: true)
-    field(:c_ps, :string, virtual: true)
+    field(:p_po, :string, virtual: true)
+    field(:c_po, :string, virtual: true)
 
     timestamps()
   end
@@ -114,8 +114,8 @@ defmodule SarthakAdmission.Admission.StudentStaging do
       :other_languages,
       :passport_no,
       :passport_expiry,
-      :p_ps,
-      :c_ps
+      :p_po,
+      :c_po
     ])
     |> validate_required([
       :name,

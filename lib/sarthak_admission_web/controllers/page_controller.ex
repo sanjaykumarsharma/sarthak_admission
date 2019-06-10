@@ -151,8 +151,8 @@ defmodule SarthakAdmissionWeb.PageController do
         "passport_expiry" => params["passport_expiry"],
         "passport_no" => params["passport_no"],
         "religion" => params["religion"],
-        "p_ps" => params["p_ps"],
-        "c_ps" => params["c_ps"],
+        "p_po" => params["p_po"],
+        "c_po" => params["c_po"],
         "token_no" => token_no
       }
 
@@ -252,8 +252,8 @@ defmodule SarthakAdmissionWeb.PageController do
         "passport_expiry" => params["passport_expiry"],
         "passport_no" => params["passport_no"],
         "religion" => params["religion"],
-        "p_ps" => params["p_ps"],
-        "c_ps" => params["c_ps"],
+        "p_po" => params["p_po"],
+        "c_po" => params["c_po"],
         "token_no" => token_no
       }
 
@@ -465,6 +465,7 @@ defmodule SarthakAdmissionWeb.PageController do
         student_staging = Print.read_student_staging(uuid)
         student_entrance_staging = Print.read_student_entrance_staging(uuid)
         student_personal_details_staging = Print.read_student_personal_details_staging(uuid)
+        IO.inspect(student_personal_details_staging)
 
         student_family_details_staging = Print.read_student_family_details_staging(uuid)
 

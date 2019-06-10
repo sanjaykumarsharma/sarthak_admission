@@ -9,7 +9,7 @@ defmodule SarthakAdmission.Repo.Migrations.AddStudentPersonalDetailsStaging do
       add :c_dist, :string, null: true, default: nil
       add :c_land_phone, :string, null: true, default: nil
       add :c_pin, :string
-      add :c_ps, :string
+      add :c_po, :string
       add :c_state, :string
       add :dob, :date
       add :email, :string, null: true, default: nil
@@ -24,7 +24,7 @@ defmodule SarthakAdmission.Repo.Migrations.AddStudentPersonalDetailsStaging do
       add :p_district, :string, null: true, default: nil
       add :p_land_phone, :string, null: true, default: nil
       add :p_pin, :string
-      add :p_ps, :string
+      add :p_po, :string
       add :p_state, :string
       add :passport_expiry, :string, null: true, default: nil
       add :passport_no, :string, null: true, default: nil

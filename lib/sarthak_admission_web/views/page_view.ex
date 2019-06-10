@@ -21,11 +21,11 @@ defmodule SarthakAdmissionWeb.PageView do
     end
   end
 
-  def student_permanent_address(p_address, p_ps, p_district) do
-    p_address <> " " <> p_ps <> " " <> p_district
+  def student_permanent_address(p_address, p_po, p_district) do
+    "#{p_address} #{p_po} #{p_district}"
   end
 
-  def student_communication_address(c_address, c_ps, c_dist) do
-    c_address <> " " <> c_ps <> " " <> c_dist
+  def student_communication_address(c_address, c_po, c_dist) do
+    "#{c_address} #{c_po} #{c_dist}"
   end
 end

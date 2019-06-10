@@ -201,9 +201,9 @@
                </div>
                <div class="flex items-top mxn2">
                   <div class="col-12 md-col-6 px2">
-                     <div><%= label f, :"PS", class: "h5 caps bold" %></div>
-                     <%= text_input f, :p_ps, class: "input" %>
-                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_ps %></div>
+                     <div><%= label f, :"PO", class: "h5 caps bold" %></div>
+                     <%= text_input f, :p_po, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :p_po %></div>
                   </div>
                   <div class="col-12 md-col-6 px2">
                      <div><%= label f, :district, class: "h5 caps bold" %></div>
@@ -249,9 +249,9 @@
                </div>
                <div class="flex items-top mxn2">
                   <div class="col-12 md-col-6 px2">
-                     <div><%= label f, :"PS", class: "h5 caps bold" %></div>
-                     <%= text_input f, :c_ps, class: "input" %>
-                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_ps %></div>
+                     <div><%= label f, :"PO", class: "h5 caps bold" %></div>
+                     <%= text_input f, :c_po, class: "input" %>
+                     <div class="h5 red pb1" style="margin-top: -15px;"><%= error_tag f, :c_po %></div>
                   </div>
                   <div class="col-12 md-col-6 px2">
                      <div><%= label f, :district, class: "h5 caps bold" %></div>
@@ -342,7 +342,7 @@
    document.getElementById("student_staging_c_pin").value = document.getElementById("student_staging_p_pin").value
    document.getElementById("student_staging_c_dist").value = document.getElementById("student_staging_p_district").value
    document.getElementById("student_staging_c_land_phone").value = document.getElementById("student_staging_p_land_phone").value
-   document.getElementById("student_staging_c_ps").value = document.getElementById("student_staging_p_ps").value
+   document.getElementById("student_staging_c_po").value = document.getElementById("student_staging_p_po").value
 
    }
 </script>

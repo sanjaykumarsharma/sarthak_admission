@@ -12,7 +12,9 @@
                             <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
                             <div class="h6 mb0">Ph 033-26549315/17</div>
                         </td>
-                        <td style="width: 150px;"></td>
+                        <td style="width: 150px;">
+                            <img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/naac_logo.png") %>" />
+                        </td>
                     </tr>
                 </table>
                 <button class="fixed top-0 right-0 mr4 mt2 border-none rounded p1 h4 caps bold bg-yellow black no-print" onclick="window.print()">Print</button>
@@ -20,12 +22,12 @@
                 <div class="h6 border-top border-bottom my2 p1">Congratulations on being provisionally selected for admission into MCKV Institute of Engineering (hereafter referred to as the Institute). Your final admission would be subject to the following terms and conditions-</div>
                 <ol type="1" class="h6 pl2">
                     <li>All the specific eligibility requirements for the Institute as stipulated in the prospectus of the Institute shall be complied with by you.</li>
-                    <li>You will report at the Institute Campus at 10 A.M. on the stipulated day of you admission as notified during counselling to complete the admission formalities in accordance with the Admission Rules of the Institute.</li>
+                    <li>You will report at the Institute Campus at 10 A.M. on the stipulated day of your admission as notified during counselling to complete the admission formalities in accordance with the Admission Rules of the Institute.</li>
                     <li>At the time of admission the following original documents (along with attested photocopies thereof wherever specified) in support of your eligibility and in fulfilment of other requirements
                         <ol type="i" class="pl2">
                             <li>Provisional Admission Letter in the name of MCKV INSTITUTE OF ENGINEERING issued by the RC Centre (WBJEEB) on the day of counselling (only for BTECH Regular) (Original + 1 Photocopy)</li>
                             <li>Collect PI form from the lnstitute before filling up the tnstitute online admission form.</li>
-                            <li>Seat Allotment Ticket in the name of MCKV INSTITUTE OF ENGINEERING issued by the University/WBJEEB respectively(for MTECH/MCA/Lateral) (Original + 1 Photocopy)</li>
+                            <li>Seat Allotment Ticket in the name of MCKV INSTITUTE OF ENGINEERING issued by the University/WBJEEB respectively (for MTECH/MCA/Lateral) (Original + 1 Photocopy)</li>
                             <li>Original Admission form of WBJEEB &amp; counterpart of the Money Receipt of relevant amount issued by WBJEEB (for MTECH/MCA/Lateral)</li>
                             <li>Admit Card of Secondary/ Higher Secondary or Equivalent Examination as proof of age with 3 self attested photocopies of the same</li>
                             <li>Marksheets from the Board/University showing detailed marks of all the subjects of the Secondary &amp; Higher Secondary or equivalent qualifying examinations, with 3 self attested photocopies each of the same</li>
@@ -35,17 +37,17 @@
                             <li>Fees Book for deposition of fees at the time of admission.</li>
                             <li>Photocopy of Passport.</li>
                             <li>1 self attested copy of Guardian's Address Proof (Voter ID, Electricity Bill, Aadhar Card etc)</li>
-                            <li>Photocopy of Income certificate if Economically Backward.</li>
-                            <li>Photocopy of valid Driving License</li>
-                            <li>3 copies of Student's stamp size photograp and 2 copies of passport size photograph</li>
+                            <%# <li>Photocopy of Income certificate if Economically Backward.</li>
+                            <li>Photocopy of valid Driving License</li> %>
+                            <li>3 copies of Student's stamp size photograph and 2 copies of passport size photograph</li>
                             <li>Guardian's stamp size photograph (Father &amp; Mother) 1 copy each</li>
                             <li>Photocopy of valid Driving License. (Applicable only for students taking admission in Automobile Engineering or Automotive Technology. If the driving license is unavailable students would need to submit the same with the college authorities within 6 months of their admission.)</li>
                             <li>Please visit www.antiragging.in or www.amanmovement.org and sbumit the affidavit/undertaking online. Submit the print out of the same to the Institute.
                                 <br>Ref No: Put Enrolment No
-                                <br>Principal Name: Prof (Dr) Asok Kumar, maximum student strength in each class: B.Tech-63, MCA-30, M.Tech ECE Communication-18</li>
+                                <br>Principal Name: Prof Buddhaded Chattopadhyay, maximum student strength in each class: B.Tech-63, MCA-30, M.Tech ECE Communication-18</li>
                             <li>Pan Card: Student, Father, Mother &amp; Guardian 1 photocoy of each Voter ID &amp; Aadhar Card: Student, Father, Mother &amp; Guardian 1 photocoy of each</li>
-                            <li>Photocopy of Income certificate if economically backward</li>
-                            <li>Medical Certificate by a registered doctor ( blood pressure, blood group and Eye sight</li>
+                            <%# <li>Photocopy of Income certificate if economically backward</li> %>
+                            <li>Medical Certificate by a registered doctor ( blood pressure, blood group and Eye sight)</li>
                         </ol>
                     </li>
                 </ol>
@@ -55,6 +57,14 @@
                     <li>Caution deposit will be refunded only after cessation of your studentship and on production of clearance note/certificate from HOD, Library and other departments.</li>
                     <li>Afixing of recent colour photographs of sizes as specified on the stipulated spaces of relevant forms is compulsory.</li>
                     <li>You are required to carry 3 additional passport size recent color photographs for submission to the authorities.</li>
+                    <li>Payment must be either in demand draft in favour of MCKV Institute of Engineering payable at kolkata on Howrah or NEFT. The Bank details are as follows.<br>
+                    <strong>HBFC BANK<br>
+                    A/c. No. 50200024059747<br>
+                    Branch- LILUAH<br>
+                    IFSC-HDFC0000531
+                    </strong> 
+                    </li>
+                    <li>Cash is not accepted for fees.</li>
                 </ol>
                 <div class="break"></div>
                 <div class="h6">
@@ -68,7 +78,9 @@
                                 <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
                                 <div class="h6 mb0">Ph 033-26549315/17</div>
                             </td>
-                            <td style="width: 150px;"></td>
+                            <td style="width: 150px;">
+                                <img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/naac_logo.png") %>" />
+                            </td>
                         </tr>
                     </table>
                     <h4 class="center border-top border-gray my1 pt1">ADMISSION FORM - 4 YR B. TECH DEGREE COURSES</h4>
@@ -111,7 +123,7 @@
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td colspan="3"><%= student_permanent_address(@spd.p_address, @spd.p_ps, @spd.p_district) %></td>
+                                    <td colspan="3"><%= student_permanent_address(@spd.p_address, @spd.p_po, @spd.p_district) %></td>
                                 </tr>
                                 <tr>
                                     <td>City</td>
@@ -141,7 +153,7 @@
                     <table class="table mb2">
                         <tr>
                             <td>Address</td>
-                            <td colspan="3"><%= student_communication_address(@spd.c_address, @spd.c_ps, @spd.c_dist) %></td>
+                            <td colspan="3"><%= student_communication_address(@spd.c_address, @spd.c_po, @spd.c_dist) %></td>
                         </tr>
                         <tr>
                             <td>City</td>
@@ -594,7 +606,9 @@
                                 <div class="h6 mb0">243 G.T.ROAD(NORTH)LILUAH, HOWRAH</div>
                                 <div class="h6 mb0">Ph 033-26549315/17</div>
                             </td>
-                            <td style="width: 150px;"></td>
+                            <td style="width: 150px;">
+                                <img style="height: 100px" src="<%= Routes.static_path(@conn, "/images/naac_logo.png") %>" />
+                            </td>
                         </tr>
                     </table>
                     <h4 class="center border-top border-gray my1 pt1">MEDICAL FORM</h4>
@@ -621,7 +635,7 @@
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Address: </div>
-                                <div class="px2 flex-auto"><%= student_permanent_address(@spd.p_address, @spd.p_ps, @spd.p_district) %></div>
+                                <div class="px2 flex-auto"><%= student_permanent_address(@spd.p_address, @spd.p_po, @spd.p_district) %></div>
                             </div>
                             <div class="flex items-top border-bottom border-gray mxn2 py1">
                                 <div class="px2 col-4">Phone: </div>
